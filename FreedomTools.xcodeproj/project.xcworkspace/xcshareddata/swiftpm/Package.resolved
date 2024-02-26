@@ -12,19 +12,19 @@
     {
       "identity" : "bigint",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/attaswift/BigInt",
+      "location" : "https://github.com/attaswift/BigInt.git",
       "state" : {
         "revision" : "0ed110f7555c34ff468e72e1686e59721f2b0da6",
         "version" : "5.3.0"
       }
     },
     {
-      "identity" : "generic-json-swift",
+      "identity" : "cryptoswift",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/iwill/generic-json-swift",
+      "location" : "https://github.com/krzyzanowskim/CryptoSwift.git",
       "state" : {
-        "revision" : "0a06575f4038b504e78ac330913d920f1630f510",
-        "version" : "2.0.2"
+        "revision" : "7892a123f7e8d0fe62f9f03728b17bbd4f94df5c",
+        "version" : "1.8.1"
       }
     },
     {
@@ -63,6 +63,15 @@
       }
     },
     {
+      "identity" : "promisekit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mxcl/PromiseKit.git",
+      "state" : {
+        "revision" : "8a98e31a47854d3180882c8068cc4d9381bf382d",
+        "version" : "6.22.1"
+      }
+    },
+    {
       "identity" : "qkmrzparser",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Mattijah/QKMRZParser.git",
@@ -83,10 +92,10 @@
     {
       "identity" : "secp256k1.swift",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/GigaBitcoin/secp256k1.swift.git",
+      "location" : "https://github.com/Boilertalk/secp256k1.swift.git",
       "state" : {
-        "revision" : "347b84ed2aad2305a7233f2a48d76f41e52062a1",
-        "version" : "0.16.0"
+        "revision" : "cd187c632fb812fd93711a9f7e644adb7e5f97f0",
+        "version" : "0.1.7"
       }
     },
     {
@@ -114,15 +123,6 @@
       "state" : {
         "revision" : "12358d55a3824bd5fed310b999ea8cf83a9a1a65",
         "version" : "1.0.3"
-      }
-    },
-    {
-      "identity" : "swift-log",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/apple/swift-log.git",
-      "state" : {
-        "revision" : "e97a6fcb1ab07462881ac165fdbb37f067e205d5",
-        "version" : "1.5.4"
       }
     },
     {
@@ -191,16 +191,16 @@
     {
       "identity" : "web3.swift",
       "kind" : "remoteSourceControl",
-      "location" : "git@github.com:argentlabs/web3.swift.git",
+      "location" : "git@github.com:Boilertalk/Web3.swift.git",
       "state" : {
-        "revision" : "1e75f98a5738c470b23bbfffa9314e9f788df76b",
-        "version" : "1.6.1"
+        "revision" : "1aaf22081699ae46e6c8a128ba6a16f30170459c",
+        "version" : "0.8.6"
       }
     },
     {
       "identity" : "websocket-kit",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/vapor/websocket-kit.git",
+      "location" : "https://github.com/vapor/websocket-kit",
       "state" : {
         "revision" : "53fe0639a98903858d0196b699720decb42aee7b",
         "version" : "2.14.0"

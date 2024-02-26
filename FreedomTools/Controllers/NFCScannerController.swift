@@ -39,7 +39,6 @@ class NFCScannerController: ObservableObject {
                 
         nfcModel = try await PassportReader(masterListURL: masterListURL).readPassport(mrzKey: mrzKey, tags: [.DG1, .DG2, .DG7, .DG11, .SOD])
         
-        
         if nfcModel != nil {
             KeychainUtils.saveNfcModelData(nfcModel!.getDataGroupsRead())
             KeychainUtils.saveNationality(nfcModel!.issuingAuthority)
@@ -58,6 +57,20 @@ extension String {
 }
 
 extension NFCPassportModel {
+    func getIdentidier() throws -> String {
+        guard let dg1 = getDataGroup(.DG1) else {
+            throw "DG1 is not present in passport model"
+        }
+        
+        let dg1Data = Data(dg1.data)
+        
+        let hash = dg1Data.sha256()
+        
+        return hash.hexStringEncoded()
+    }
+}
+
+extension NFCPassportModel {
     func getDataGroupsRead() -> Data {
         var data: [DataGroupIdOuter: DataGroupOuter] = [:]
         
@@ -66,6 +79,12 @@ extension NFCPassportModel {
         }
         
         return try! JSONEncoder().encode(data)
+    }
+    
+    func getDG2Hash() -> Data {
+        let hashes = self.getHashesForDatagroups(hashAlgorythm: "SHA256")
+        
+        return Data(hashes[.DG2]!)
     }
 }
 

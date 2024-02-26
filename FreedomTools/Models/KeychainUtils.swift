@@ -1,3 +1,4 @@
+import Web3
 import Foundation
 import KeychainAccess
 
@@ -7,6 +8,7 @@ class KeychainUtils {
     static let nfcModelkey = "nfcModel"
     static let nationalityKey = "nationality"
     static let birthdayKey = "birthday"
+    static let privateKeyKey = "privateKey"
     
     static func saveNfcModelData(_ data: Data) {
         let keychain = Keychain(service: KeychainUtils.service)
@@ -56,5 +58,24 @@ class KeychainUtils {
         try! keychain.remove(KeychainUtils.nfcModelkey)
         try! keychain.remove(KeychainUtils.nationalityKey)
         try! keychain.remove(KeychainUtils.birthdayKey)
+//        try! keychain.remove(KeychainUtils.privateKeyKey)
+    }
+    
+    static func getPrivateKey() -> String? {
+        let keychain = Keychain(service: KeychainUtils.service)
+                
+        if let rawPrivateKey = try? keychain.get(KeychainUtils.privateKeyKey) {
+            return rawPrivateKey
+        }
+        
+        guard let privateKey = try? EthereumPrivateKey() else {
+            return nil
+        }
+        
+        let newPrivateKey = privateKey.hex()
+        
+        try! keychain.set(newPrivateKey, key: KeychainUtils.privateKeyKey)
+        
+        return newPrivateKey
     }
 }

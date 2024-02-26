@@ -10,16 +10,6 @@ struct PollStatusView: View {
                     .font(.custom("RobotoMono-Regular", size: 14))
                     .opacity(0.6)
             }
-            if case .voting(let till, _) = poll.status {
-                Text("Заканчивается через \(till.timeUntil())")
-                    .font(.custom("RobotoMono-Regular", size: 14))
-                    .opacity(0.6)
-            }
-            if case .ended(let at, _) = poll.status {
-                Text("Закончилось в \(at.formatted())")
-                    .font(.custom("RobotoMono-Regular", size: 14))
-                    .opacity(0.6)
-            }
         }
     }
 }
@@ -29,7 +19,7 @@ struct PollStatusView: View {
 }
 
 extension Date {
-    func timeUntil() -> String {
+    func timeUntil() -> Text {
         let currentDate = Date()
         let calendar = Calendar.current
 
@@ -37,16 +27,16 @@ extension Date {
 
         if let days = components.day, let hours = components.hour {
             if days > 0 && hours > 0 {
-                return "\(days) days, \(hours) hours"
+                return Text("\(days) ") + Text(LocalizedStringKey("Days")) + Text(", \(hours) ") + Text(LocalizedStringKey("Hours"))
             } else if days > 0 {
-                return "\(days) days"
+                return Text("\(days) ") + Text(LocalizedStringKey("Days"))
             } else if hours > 0 {
-                return "\(hours) hours"
+                return Text("\(hours) ") + Text(LocalizedStringKey("Hours"))
             } else {
-                return "Less than an hour"
+                return Text(LocalizedStringKey("LessThanHour"))
             }
         } else {
-            return "Invalid date"
+            return Text("Invalid date")
         }
     }
 }

@@ -1,39 +1,45 @@
 import Foundation
 import Alamofire
 
-struct CredentialRequest: Codable {
-    let description: String
-    let id: String
-}
-
-struct CredentialsRequestBody: Codable {
-    let Credentials: [CredentialRequest]
-    let url: String
-}
-
+// MARK: - ClaimOfferResponse
 struct ClaimOfferResponse: Codable {
-    let id: String
+    let body: ClaimOfferResponseBody
+    let from, id, threadID, to: String
     let typ: String
     let type: String
-    let threadID: String
-    let body: Data
-    let from: String
-    let to: String
+}
+
+// MARK: - Body
+struct ClaimOfferResponseBody: Codable {
+    let credentials: [Credential]
+    let url: String
+
+    enum CodingKeys: String, CodingKey {
+        case credentials = "Credentials"
+        case url
+    }
+}
+
+// MARK: - Credential
+struct Credential: Codable {
+    let description, id: String
 }
 
 class IssuerConnector {
-    static func claimOffer(issuerDid: String, claimId: String) async throws -> ClaimOfferResponse {
-        var issuerNodeURL = Bundle.main.object(forInfoDictionaryKey: "IssuerNodeURL")! as! String
+    static func claimOffer(issuerDid: String) async throws -> ClaimOfferResponse {
+        guard let votingCredentialType = Bundle.main.object(forInfoDictionaryKey: "VotingCredentialType") as? String else {
+            throw "VotingCredentialType is not set"
+        }
         
-        issuerNodeURL += String(format: "/v1/{}/claims/{}/offer", arguments: [issuerDid, claimId])
+        guard var issuerNodeURL = Bundle.main.object(forInfoDictionaryKey: "IssuerNodeURL") as? String else {
+            throw "IssuerNodeURL is not set"
+        }
+                
+        issuerNodeURL += "/v1/credentials/\(issuerDid)/\(votingCredentialType)"
         
         let response = await AF.request(issuerNodeURL, method: .get)
             .serializingDecodable(ClaimOfferResponse.self)
             .result
-        
-        if case .failure(let failure) = response {
-            throw failure.localizedDescription
-        }
         
         switch response {
         case .success(let response):

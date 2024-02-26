@@ -57,3 +57,6 @@
 "Start" = "Начнем";
 "PrivacyPolicy" = "Политика конфиденциальности";
 "VerificationRequired" = "Требуется проверка";
+"Days" = "дней";
+"Hours" = "часов";
+"LessThanHour" = "Меньше часа";

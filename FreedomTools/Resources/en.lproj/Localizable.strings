@@ -57,3 +57,6 @@
 "Start" = "Let’s Start";
 "PrivacyPolicy" = "Privacy policy";
 "VerificationRequired" = "Verification required";
+"Days" = "days";
+"Hours" = "hours";
+"LessThanHour" = "Less than an hour";

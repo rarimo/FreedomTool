@@ -39,7 +39,6 @@ struct PollListElemView: View {
                 .padding(.horizontal)
             }
         }
-        .frame(width: 350, height: 190)
     }
 }
 

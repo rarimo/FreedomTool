@@ -15,89 +15,82 @@ struct MainView: View {
     @State var isExiting = false
     
     var body: some View {
-        ZStack {
-            VStack {
-                Image("Hood")
-                    .ignoresSafeArea()
-                    .frame(width: 0, height: 0)
-                Spacer()
-            }
-            VStack {
-                HStack {
-                    Text("Polls")
-                        .font(.custom("RobotoMono-Bold", size: 25))
-                        .padding(.leading)
-                    Spacer()
-                    LocalizationSwitcherView(appController: appController)
-                    if onboardController.isOff {
-                        Button(action: {
-                            isExiting = true
-                        }) {
-                            ZStack {
-                                Circle()
-                                    .foregroundStyle(.second)
-                                Image("Exit")
-                                    .resizable()
-                                    .frame(width: 20, height: 20)
-                            }
-                        }
-                        .frame(width: 50, height: 50)
-                        .offset(x: 10)
-                    }
-                }
-                .padding()
-                PollStatusSelectorView(isActive: $isStatusActive)
-                if isStatusActive {
-                    List(
-                        mainController.polls
-                            .filter {
-                                isStatusActive ? !$0.isEnded : $0.isEnded
-                            }
-                    ) { poll in
-                        Button(action: {
-                            selectedPollId = poll.id
-                        }) {
-                            PollListElemView(poll: poll)
-                        }
-                        .listRowSeparator(.hidden)
-                        .listRowBackground(Color.clear)
-                        .buttonStyle(.plain)
-                    }
-                    .scrollContentBackground(.hidden)
-                    .background(.clear)
-                    .listStyle(.plain)
-                }
-                if !isStatusActive {
-                    Spacer()
-                    EmptyPollsView()
-                    Spacer()
-                }
-                Spacer()
-//                TestView(nfcScannerController: onboardController.nfcScannerController)
-            }
-            if selectedPollId != nil {
-                ZStack {
-                    Color.white
+        NavigationStack {
+            ZStack {
+                VStack {
+                    Image("Hood")
                         .ignoresSafeArea()
-                    PollDetailsView(
-                        onboardController: onboardController,
-                        selectedPollId: $selectedPollId,
-                        poll: mainController.polls.first {
-                            $0.id == selectedPollId!
-                        }!
-                    )
+                        .frame(width: 0, height: 0)
+                    Spacer()
+                }
+                VStack {
+                    HStack {
+                        Text("Polls")
+                            .font(.custom("RobotoMono-Bold", size: 25))
+                            .padding(.leading)
+                        Spacer()
+                        LocalizationSwitcherView(appController: appController)
+                        if onboardController.isOff {
+                            Button(action: {
+                                isExiting = true
+                            }) {
+                                ZStack {
+                                    Circle()
+                                        .foregroundStyle(.second)
+                                    Image("Exit")
+                                        .resizable()
+                                        .frame(width: 20, height: 20)
+                                }
+                            }
+                            .frame(width: 50, height: 50)
+                            .offset(x: 10)
+                        }
+                    }
+                    .padding()
+                    PollStatusSelectorView(isActive: $isStatusActive)
+                    if isStatusActive {
+                        List {
+                            ZStack {
+                                PollListElemView(poll: Poll.sampleData[0])
+                                NavigationLink {
+                                    PollRegisterView(
+                                        onboardController: onboardController
+                                    )
+                                } label: {
+                                    EmptyView()
+                                }.opacity(0.0)
+                            }
+                            .listRowSeparator(.hidden)
+                            .listRowBackground(Color.clear)
+                            .buttonStyle(.plain)
+                            .frame(width: 350, height: 190)
+                            
+                        }
+                        .scrollContentBackground(.hidden)
+                        .background(.clear)
+                        .listStyle(.plain)
+                    }
+                    if !isStatusActive {
+                        Spacer()
+                        EmptyPollsView()
+                        Spacer()
+                    }
+                    Spacer()
+#if DEBUG
+                    TestView(nfcScannerController: onboardController.nfcScannerController)
+#endif
                 }
             }
-        }
-        .confirmationDialog("", isPresented: $isExiting) {
-            Button("Yes") {
-                KeychainUtils.eraceData()
-                onboardController.cancel()
-                introController.setStep(.off)
+            .confirmationDialog("", isPresented: $isExiting) {
+                Button("Yes") {
+                    KeychainUtils.eraceData()
+                    onboardController.cancel()
+                    introController.setStep(.off)
+                }
+                Button("Cancel", role: .cancel) {}
+            } message: {
+                Text("EraceConfirmation")
             }
-            Button("Cancel", role: .cancel) {}
-        } message: {
-            Text("EraceConfirmation")
         }
     }
 }

@@ -11,29 +11,150 @@
 #include "Universe.objc.h"
 
 
+@class IdentityAtomicQueryMTPV2OnChainVotingCircuitInputs;
 @class IdentityAuthV2CircuitInputs;
+@class IdentityBJJSignatureProof;
+@class IdentityBJJSignatureProof2021;
 @class IdentityChainInfo;
+@class IdentityCircuitClaim;
 @class IdentityClaimDetails;
 @class IdentityClaimOfferResponse;
+@class IdentityCreateProofRequest;
+@class IdentityCredentialHash;
 @class IdentityCredentialRequest;
 @class IdentityCredentialSchema;
 @class IdentityCredentialStatus;
 @class IdentityCredentialsRequestBody;
 @class IdentityGISTProof;
+@class IdentityGISTProofInfo;
+@class IdentityIden3SparseMerkleTreeProof;
 @class IdentityIdentity;
+@class IdentityIssuer;
+@class IdentityIssuerData;
+@class IdentityJSONSchema;
+@class IdentityMTP;
 @class IdentityNodeAuxValue;
+@class IdentityProofData;
+@class IdentityProofQuery;
+@class IdentityProofQueryCredentialSubject;
+@class IdentityProofState;
+@class IdentityProofStatus;
+@class IdentityQuery;
+@class IdentityQueryWithFieldName;
+@class IdentitySchemaMetadata;
+@class IdentitySerializationSchema;
 @class IdentityTreeState;
+@class IdentityTreeStateIssuerPreparedState;
 @class IdentityVSResponse;
 @class IdentityVSResponseBody;
-@class IdentityW3CCredential;
+@class IdentityValueProof;
+@class IdentityZKProof;
 @protocol IdentityStateProvider;
 @class IdentityStateProvider;
 
 @protocol IdentityStateProvider <NSObject>
-- (NSData* _Nullable)fetchW3Credentials:(NSString* _Nullable)url method:(NSString* _Nullable)method body:(NSString* _Nullable)body error:(NSError* _Nullable* _Nullable)error;
+- (NSData* _Nullable)fetch:(NSString* _Nullable)url method:(NSString* _Nullable)method body:(NSString* _Nullable)body error:(NSError* _Nullable* _Nullable)error;
 - (NSData* _Nullable)getGISTProof:(NSString* _Nullable)userId error:(NSError* _Nullable* _Nullable)error;
-- (NSData* _Nullable)getProviderChainInfo:(NSError* _Nullable* _Nullable)error;
+- (void)localPrinter:(NSString* _Nullable)msg;
 - (NSData* _Nullable)proveAuthV2:(NSData* _Nullable)inputs error:(NSError* _Nullable* _Nullable)error;
+@end
+
+@interface IdentityAtomicQueryMTPV2OnChainVotingCircuitInputs : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+@property (nonatomic) NSString* _Nonnull requestID;
+/**
+ * user data
+ */
+@property (nonatomic) NSString* _Nonnull userGenesisID;
+@property (nonatomic) NSString* _Nonnull profileNonce;
+@property (nonatomic) NSString* _Nonnull claimSubjectProfileNonce;
+@property (nonatomic) NSString* _Nonnull issuerID;
+// skipped field AtomicQueryMTPV2OnChainVotingCircuitInputs.IssuerClaim with unsupported type: *github.com/iden3/go-iden3-core/v2.Claim
+
+// skipped field AtomicQueryMTPV2OnChainVotingCircuitInputs.IssuerClaimMtp with unsupported type: []*github.com/rarimo/go-merkletree.Hash
+
+// skipped field AtomicQueryMTPV2OnChainVotingCircuitInputs.IssuerClaimClaimsTreeRoot with unsupported type: *github.com/rarimo/go-merkletree.Hash
+
+// skipped field AtomicQueryMTPV2OnChainVotingCircuitInputs.IssuerClaimRevTreeRoot with unsupported type: *github.com/rarimo/go-merkletree.Hash
+
+// skipped field AtomicQueryMTPV2OnChainVotingCircuitInputs.IssuerClaimRootsTreeRoot with unsupported type: *github.com/rarimo/go-merkletree.Hash
+
+// skipped field AtomicQueryMTPV2OnChainVotingCircuitInputs.IssuerClaimIdenState with unsupported type: *github.com/rarimo/go-merkletree.Hash
+
+// skipped field AtomicQueryMTPV2OnChainVotingCircuitInputs.IssuerClaimNonRevClaimsTreeRoot with unsupported type: *github.com/rarimo/go-merkletree.Hash
+
+// skipped field AtomicQueryMTPV2OnChainVotingCircuitInputs.IssuerClaimNonRevRevTreeRoot with unsupported type: *github.com/rarimo/go-merkletree.Hash
+
+// skipped field AtomicQueryMTPV2OnChainVotingCircuitInputs.IssuerClaimNonRevRootsTreeRoot with unsupported type: *github.com/rarimo/go-merkletree.Hash
+
+// skipped field AtomicQueryMTPV2OnChainVotingCircuitInputs.IssuerClaimNonRevState with unsupported type: *github.com/rarimo/go-merkletree.Hash
+
+// skipped field AtomicQueryMTPV2OnChainVotingCircuitInputs.IssuerClaimNonRevMtp with unsupported type: []*github.com/rarimo/go-merkletree.Hash
+
+// skipped field AtomicQueryMTPV2OnChainVotingCircuitInputs.IssuerClaimNonRevMtpAuxHi with unsupported type: *github.com/rarimo/go-merkletree.Hash
+
+// skipped field AtomicQueryMTPV2OnChainVotingCircuitInputs.IssuerClaimNonRevMtpAuxHv with unsupported type: *github.com/rarimo/go-merkletree.Hash
+
+@property (nonatomic) NSString* _Nonnull issuerClaimNonRevMtpNoAux;
+@property (nonatomic) long isRevocationChecked;
+@property (nonatomic) NSString* _Nonnull claimSchema;
+/**
+ * Query
+JSON path
+ */
+@property (nonatomic) long claimPathNotExists;
+// skipped field AtomicQueryMTPV2OnChainVotingCircuitInputs.ClaimPathMtp with unsupported type: []*github.com/rarimo/go-merkletree.Hash
+
+@property (nonatomic) NSString* _Nonnull claimPathMtpNoAux;
+// skipped field AtomicQueryMTPV2OnChainVotingCircuitInputs.ClaimPathMtpAuxHi with unsupported type: *github.com/rarimo/go-merkletree.Hash
+
+// skipped field AtomicQueryMTPV2OnChainVotingCircuitInputs.ClaimPathMtpAuxHv with unsupported type: *github.com/rarimo/go-merkletree.Hash
+
+@property (nonatomic) NSString* _Nonnull claimPathKey;
+@property (nonatomic) NSString* _Nonnull claimPathValue;
+@property (nonatomic) long operator;
+@property (nonatomic) long slotIndex;
+@property (nonatomic) int64_t timestamp;
+// skipped field AtomicQueryMTPV2OnChainVotingCircuitInputs.Value with unsupported type: []string
+
+// skipped field AtomicQueryMTPV2OnChainVotingCircuitInputs.AuthClaim with unsupported type: *github.com/iden3/go-iden3-core/v2.Claim
+
+// skipped field AtomicQueryMTPV2OnChainVotingCircuitInputs.AuthClaimMtp with unsupported type: []*github.com/rarimo/go-merkletree.Hash
+
+// skipped field AtomicQueryMTPV2OnChainVotingCircuitInputs.AuthClaimNonRevMtp with unsupported type: []*github.com/rarimo/go-merkletree.Hash
+
+// skipped field AtomicQueryMTPV2OnChainVotingCircuitInputs.AuthClaimNonRevMtpAuxHi with unsupported type: *github.com/rarimo/go-merkletree.Hash
+
+// skipped field AtomicQueryMTPV2OnChainVotingCircuitInputs.AuthClaimNonRevMtpAuxHv with unsupported type: *github.com/rarimo/go-merkletree.Hash
+
+@property (nonatomic) NSString* _Nonnull authClaimNonRevMtpNoAux;
+@property (nonatomic) NSString* _Nonnull challenge;
+@property (nonatomic) NSString* _Nonnull challengeSignatureR8X;
+@property (nonatomic) NSString* _Nonnull challengeSignatureR8Y;
+@property (nonatomic) NSString* _Nonnull challengeSignatureS;
+// skipped field AtomicQueryMTPV2OnChainVotingCircuitInputs.ClaimsTreeRoot with unsupported type: *github.com/rarimo/go-merkletree.Hash
+
+// skipped field AtomicQueryMTPV2OnChainVotingCircuitInputs.RevTreeRoot with unsupported type: *github.com/rarimo/go-merkletree.Hash
+
+// skipped field AtomicQueryMTPV2OnChainVotingCircuitInputs.RootsTreeRoot with unsupported type: *github.com/rarimo/go-merkletree.Hash
+
+// skipped field AtomicQueryMTPV2OnChainVotingCircuitInputs.State with unsupported type: *github.com/rarimo/go-merkletree.Hash
+
+// skipped field AtomicQueryMTPV2OnChainVotingCircuitInputs.GISTRoot with unsupported type: *github.com/rarimo/go-merkletree.Hash
+
+// skipped field AtomicQueryMTPV2OnChainVotingCircuitInputs.GISTMtp with unsupported type: []*github.com/rarimo/go-merkletree.Hash
+
+// skipped field AtomicQueryMTPV2OnChainVotingCircuitInputs.GISTMtpAuxHi with unsupported type: *github.com/rarimo/go-merkletree.Hash
+
+// skipped field AtomicQueryMTPV2OnChainVotingCircuitInputs.GISTMtpAuxHv with unsupported type: *github.com/rarimo/go-merkletree.Hash
+
+@property (nonatomic) NSString* _Nonnull gistMtpNoAux;
+@property (nonatomic) NSString* _Nonnull votingAddress;
+@property (nonatomic) NSString* _Nonnull commitment;
 @end
 
 @interface IdentityAuthV2CircuitInputs : NSObject <goSeqRefInterface> {
@@ -46,36 +167,62 @@
 @property (nonatomic) NSString* _Nonnull profileNonce;
 // skipped field AuthV2CircuitInputs.AuthClaim with unsupported type: *github.com/iden3/go-iden3-core/v2.Claim
 
-// skipped field AuthV2CircuitInputs.AuthClaimMtp with unsupported type: []*github.com/iden3/go-merkletree.Hash
+// skipped field AuthV2CircuitInputs.AuthClaimMtp with unsupported type: []*github.com/rarimo/go-merkletree.Hash
 
-// skipped field AuthV2CircuitInputs.AuthClaimNonRevMtp with unsupported type: []*github.com/iden3/go-merkletree.Hash
+// skipped field AuthV2CircuitInputs.AuthClaimNonRevMtp with unsupported type: []*github.com/rarimo/go-merkletree.Hash
 
-// skipped field AuthV2CircuitInputs.AuthClaimNonRevMtpAuxHi with unsupported type: *github.com/iden3/go-merkletree.Hash
+// skipped field AuthV2CircuitInputs.AuthClaimNonRevMtpAuxHi with unsupported type: *github.com/rarimo/go-merkletree.Hash
 
-// skipped field AuthV2CircuitInputs.AuthClaimNonRevMtpAuxHv with unsupported type: *github.com/iden3/go-merkletree.Hash
+// skipped field AuthV2CircuitInputs.AuthClaimNonRevMtpAuxHv with unsupported type: *github.com/rarimo/go-merkletree.Hash
 
 @property (nonatomic) NSString* _Nonnull authClaimNonRevMtpNoAux;
 @property (nonatomic) NSString* _Nonnull challenge;
 @property (nonatomic) NSString* _Nonnull challengeSignatureR8X;
 @property (nonatomic) NSString* _Nonnull challengeSignatureR8Y;
 @property (nonatomic) NSString* _Nonnull challengeSignatureS;
-// skipped field AuthV2CircuitInputs.ClaimsTreeRoot with unsupported type: *github.com/iden3/go-merkletree.Hash
+// skipped field AuthV2CircuitInputs.ClaimsTreeRoot with unsupported type: *github.com/rarimo/go-merkletree.Hash
 
-// skipped field AuthV2CircuitInputs.RevTreeRoot with unsupported type: *github.com/iden3/go-merkletree.Hash
+// skipped field AuthV2CircuitInputs.RevTreeRoot with unsupported type: *github.com/rarimo/go-merkletree.Hash
 
-// skipped field AuthV2CircuitInputs.RootsTreeRoot with unsupported type: *github.com/iden3/go-merkletree.Hash
+// skipped field AuthV2CircuitInputs.RootsTreeRoot with unsupported type: *github.com/rarimo/go-merkletree.Hash
 
-// skipped field AuthV2CircuitInputs.State with unsupported type: *github.com/iden3/go-merkletree.Hash
+// skipped field AuthV2CircuitInputs.State with unsupported type: *github.com/rarimo/go-merkletree.Hash
 
-// skipped field AuthV2CircuitInputs.GISTRoot with unsupported type: *github.com/iden3/go-merkletree.Hash
+// skipped field AuthV2CircuitInputs.GISTRoot with unsupported type: *github.com/rarimo/go-merkletree.Hash
 
-// skipped field AuthV2CircuitInputs.GISTMtp with unsupported type: []*github.com/iden3/go-merkletree.Hash
+// skipped field AuthV2CircuitInputs.GISTMtp with unsupported type: []*github.com/rarimo/go-merkletree.Hash
 
-// skipped field AuthV2CircuitInputs.GISTMtpAuxHi with unsupported type: *github.com/iden3/go-merkletree.Hash
+// skipped field AuthV2CircuitInputs.GISTMtpAuxHi with unsupported type: *github.com/rarimo/go-merkletree.Hash
 
-// skipped field AuthV2CircuitInputs.GISTMtpAuxHv with unsupported type: *github.com/iden3/go-merkletree.Hash
+// skipped field AuthV2CircuitInputs.GISTMtpAuxHv with unsupported type: *github.com/rarimo/go-merkletree.Hash
 
 @property (nonatomic) NSString* _Nonnull gistMtpNoAux;
+@end
+
+@interface IdentityBJJSignatureProof : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+// skipped field BJJSignatureProof.Signature with unsupported type: *github.com/iden3/go-iden3-crypto/babyjub.Signature
+
+// skipped field BJJSignatureProof.IssuerAuthClaim with unsupported type: *github.com/iden3/go-iden3-core/v2.Claim
+
+@property (nonatomic) IdentityMTP* _Nullable issuerAuthIncProof;
+@property (nonatomic) IdentityMTP* _Nullable issuerAuthNonRevProof;
+@end
+
+@interface IdentityBJJSignatureProof2021 : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+@property (nonatomic) NSString* _Nonnull proofType;
+@property (nonatomic) IdentityIssuerData* _Nullable issuerData;
+@property (nonatomic) NSString* _Nonnull signature;
+@property (nonatomic) NSString* _Nonnull coreClaim;
 @end
 
 @interface IdentityChainInfo : NSObject <goSeqRefInterface> {
@@ -88,6 +235,19 @@
 @property (nonatomic) NSString* _Nonnull rpcUrl;
 @property (nonatomic) NSString* _Nonnull stateContractAddress;
 @property (nonatomic) NSString* _Nonnull rarimoNetworkType;
+@end
+
+@interface IdentityCircuitClaim : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+@property (nonatomic) NSString* _Nonnull issuerId;
+// skipped field CircuitClaim.Claim with unsupported type: *github.com/iden3/go-iden3-core/v2.Claim
+
+@property (nonatomic) IdentityBJJSignatureProof* _Nullable signatureProof;
+@property (nonatomic) IdentityProofStatus* _Nullable status;
 @end
 
 @interface IdentityClaimDetails : NSObject <goSeqRefInterface> {
@@ -121,6 +281,27 @@
 
 @property (nonatomic) NSString* _Nonnull from;
 @property (nonatomic) NSString* _Nonnull to;
+@end
+
+@interface IdentityCreateProofRequest : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+@property (nonatomic) NSString* _Nonnull accountAddress;
+// skipped field CreateProofRequest.CircuitId with unsupported type: github.com/rarimovoting/identity.CircuitId
+
+@property (nonatomic) IdentityProofQuery* _Nullable query;
+@end
+
+@interface IdentityCredentialHash : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+@property (nonatomic) NSString* _Nonnull eq;
 @end
 
 @interface IdentityCredentialRequest : NSObject <goSeqRefInterface> {
@@ -174,6 +355,51 @@
 
 - (nonnull instancetype)initWithRef:(_Nonnull id)ref;
 - (nonnull instancetype)init;
+// skipped field GISTProof.Root with unsupported type: *github.com/rarimo/go-merkletree.Hash
+
+// skipped field GISTProof.Proof with unsupported type: *github.com/rarimo/go-merkletree.Proof
+
+@end
+
+@interface IdentityGISTProofInfo : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+// skipped field GISTProofInfo.Root with unsupported type: *github.com/rarimo/go-merkletree.Hash
+
+@property (nonatomic) BOOL existence;
+// skipped field GISTProofInfo.Siblings with unsupported type: [64]*github.com/rarimo/go-merkletree.Hash
+
+// skipped field GISTProofInfo.Index with unsupported type: *github.com/rarimo/go-merkletree.Hash
+
+// skipped field GISTProofInfo.Value with unsupported type: *github.com/rarimo/go-merkletree.Hash
+
+@property (nonatomic) BOOL auxExistence;
+// skipped field GISTProofInfo.AuxIndex with unsupported type: *github.com/rarimo/go-merkletree.Hash
+
+// skipped field GISTProofInfo.AuxValue with unsupported type: *github.com/rarimo/go-merkletree.Hash
+
+- (IdentityGISTProof* _Nullable)getProof:(NSError* _Nullable* _Nullable)error;
+@end
+
+@interface IdentityIden3SparseMerkleTreeProof : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+@property (nonatomic) NSString* _Nonnull type;
+@property (nonatomic) IdentityIssuerData* _Nullable issuerData;
+// skipped field Iden3SparseMerkleTreeProof.Mtp with unsupported type: *github.com/rarimo/go-merkletree.Proof
+
+@property (nonatomic) NSString* _Nonnull coreClaim;
+@property (nonatomic) NSString* _Nonnull identifier;
+// skipped method Iden3SparseMerkleTreeProof.GetCoreClaim with unsupported parameter or return types
+
+// skipped method Iden3SparseMerkleTreeProof.ProofType with unsupported parameter or return types
+
 @end
 
 @interface IdentityIdentity : NSObject <goSeqRefInterface> {
@@ -181,12 +407,79 @@
 @property(strong, readonly) _Nonnull id _ref;
 
 - (nonnull instancetype)initWithRef:(_Nonnull id)ref;
-- (nullable instancetype)init:(NSString* _Nullable)privateKeyHex stateProvider:(id<IdentityStateProvider> _Nullable)stateProvider;
+- (nullable instancetype)init:(id<IdentityStateProvider> _Nullable)stateProvider;
+- (nullable instancetype)initWithData:(NSString* _Nullable)secretKeyHex secretHex:(NSString* _Nullable)secretHex nullifierHex:(NSString* _Nullable)nullifierHex stateProvider:(id<IdentityStateProvider> _Nullable)stateProvider;
+- (NSString* _Nonnull)didToIDHex:(NSString* _Nullable)did error:(NSError* _Nullable* _Nullable)error;
+- (NSString* _Nonnull)didToId:(NSString* _Nullable)did error:(NSError* _Nullable* _Nullable)error;
+- (NSData* _Nullable)getCommitmentIndex:(NSError* _Nullable* _Nullable)error;
 - (NSString* _Nonnull)getDID;
 - (NSString* _Nonnull)getID:(NSError* _Nullable* _Nullable)error;
+- (NSString* _Nonnull)getIssuerState:(NSError* _Nullable* _Nullable)error;
+- (NSString* _Nonnull)getNullifierHex;
+- (NSString* _Nonnull)getNullifierIntStr;
+- (NSString* _Nonnull)getSecretHex;
+- (NSString* _Nonnull)getSecretIntStr;
+- (NSString* _Nonnull)getSecretKeyHex;
+- (NSData* _Nullable)getVCsJSON:(NSError* _Nullable* _Nullable)error;
 - (BOOL)initVerifiableCredentials:(NSData* _Nullable)offerData error:(NSError* _Nullable* _Nullable)error;
+- (NSString* _Nonnull)newIdentitiesStatesRoot:(NSString* _Nullable)issuerId issuerState:(NSString* _Nullable)issuerState createdAtTimestamp:(NSString* _Nullable)createdAtTimestamp error:(NSError* _Nullable* _Nullable)error;
 // skipped method Identity.PrepareAuth2Inputs with unsupported parameter or return types
 
+- (NSData* _Nullable)prepareQueryInputs:(NSString* _Nullable)coreStateHash votingAddress:(NSString* _Nullable)votingAddress schemaJson:(NSData* _Nullable)schemaJson error:(NSError* _Nullable* _Nullable)error;
+- (BOOL)setVCsJSON:(NSData* _Nullable)vcJSON error:(NSError* _Nullable* _Nullable)error;
+@end
+
+@interface IdentityIssuer : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+@property (nonatomic) NSString* _Nonnull state;
+@property (nonatomic) NSString* _Nonnull rootOfRoots;
+@property (nonatomic) NSString* _Nonnull claimsTreeRoot;
+@property (nonatomic) NSString* _Nonnull revTreeRoot;
+- (IdentityTreeState* _Nullable)getIssuerPreparedState:(NSError* _Nullable* _Nullable)error;
+@end
+
+@interface IdentityIssuerData : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+@property (nonatomic) NSString* _Nonnull identifier;
+// skipped field IssuerData.State with unsupported type: github.com/rarimovoting/identity.ProofState
+
+// skipped field IssuerData.AuthCoreClaim with unsupported type: *github.com/iden3/go-iden3-core/v2.Claim
+
+// skipped field IssuerData.Mtp with unsupported type: *github.com/rarimo/go-merkletree.Proof
+
+@property (nonatomic) IdentityCredentialStatus* _Nullable credentialStatus;
+@property (nonatomic) NSString* _Nonnull updateURL;
+@end
+
+@interface IdentityJSONSchema : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+// skipped field JSONSchema.Metadata with unsupported type: github.com/rarimovoting/identity.SchemaMetadata
+
+@property (nonatomic) NSString* _Nonnull schema;
+@property (nonatomic) NSString* _Nonnull type;
+@end
+
+@interface IdentityMTP : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+// skipped field MTP.Proof with unsupported type: *github.com/rarimo/go-merkletree.Proof
+
+@property (nonatomic) IdentityTreeState* _Nullable treeState;
 @end
 
 @interface IdentityNodeAuxValue : NSObject <goSeqRefInterface> {
@@ -197,12 +490,149 @@
 - (nonnull instancetype)init;
 @end
 
+@interface IdentityProofData : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+// skipped field ProofData.A with unsupported type: []string
+
+// skipped field ProofData.B with unsupported type: [][]string
+
+// skipped field ProofData.C with unsupported type: []string
+
+@property (nonatomic) NSString* _Nonnull protocol;
+@end
+
+@interface IdentityProofQuery : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+// skipped field ProofQuery.AllowedIssuers with unsupported type: []string
+
+@property (nonatomic) IdentityProofQueryCredentialSubject* _Nullable credentialSubject;
+@property (nonatomic) NSString* _Nonnull credentialSubjectId;
+// skipped field ProofQuery.Type with unsupported type: []string
+
+@end
+
+@interface IdentityProofQueryCredentialSubject : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+@property (nonatomic) IdentityCredentialHash* _Nullable credentialHash;
+@end
+
+@interface IdentityProofState : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+@property (nonatomic) NSString* _Nonnull txID;
+@property (nonatomic) int64_t blockTimestamp;
+@property (nonatomic) int64_t blockNumber;
+@property (nonatomic) NSString* _Nonnull rootOfRoots;
+@property (nonatomic) NSString* _Nonnull claimsTreeRoot;
+@property (nonatomic) NSString* _Nonnull revocationTreeRoot;
+@property (nonatomic) NSString* _Nonnull value;
+@property (nonatomic) NSString* _Nonnull status;
+@end
+
+@interface IdentityProofStatus : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+// skipped field ProofStatus.Mtp with unsupported type: *github.com/rarimo/go-merkletree.Proof
+
+@property (nonatomic) IdentityIssuer* _Nullable issuer;
+@end
+
+@interface IdentityQuery : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+@property (nonatomic) long slotIndex;
+// skipped field Query.Values with unsupported type: []*math/big.Int
+
+// skipped field Query.Operator with unsupported type: github.com/rarimovoting/identity.Operators
+
+@property (nonatomic) IdentityValueProof* _Nullable valueProof;
+@end
+
+@interface IdentityQueryWithFieldName : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+// skipped field QueryWithFieldName.Query with unsupported type: github.com/rarimovoting/identity.Query
+
+@property (nonatomic) NSString* _Nonnull fieldName;
+@end
+
+@interface IdentitySchemaMetadata : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+// skipped field SchemaMetadata.Uris with unsupported type: map[string]string
+
+@property (nonatomic) IdentitySerializationSchema* _Nullable serialization;
+@end
+
+@interface IdentitySerializationSchema : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+@property (nonatomic) NSString* _Nonnull indexDataSlotA;
+@property (nonatomic) NSString* _Nonnull indexDataSlotB;
+@property (nonatomic) NSString* _Nonnull valueDataSlotA;
+@property (nonatomic) NSString* _Nonnull valueDataSlotB;
+@end
+
 @interface IdentityTreeState : NSObject <goSeqRefInterface> {
 }
 @property(strong, readonly) _Nonnull id _ref;
 
 - (nonnull instancetype)initWithRef:(_Nonnull id)ref;
 - (nonnull instancetype)init;
+// skipped field TreeState.State with unsupported type: *github.com/rarimo/go-merkletree.Hash
+
+// skipped field TreeState.ClaimsRoot with unsupported type: *github.com/rarimo/go-merkletree.Hash
+
+// skipped field TreeState.RevocationsRoot with unsupported type: *github.com/rarimo/go-merkletree.Hash
+
+// skipped field TreeState.RootsRoot with unsupported type: *github.com/rarimo/go-merkletree.Hash
+
+@end
+
+@interface IdentityTreeStateIssuerPreparedState : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+// skipped field TreeStateIssuerPreparedState.State with unsupported type: *github.com/rarimo/go-merkletree.Hash
+
+// skipped field TreeStateIssuerPreparedState.RootOfRoots with unsupported type: *github.com/rarimo/go-merkletree.Hash
+
+// skipped field TreeStateIssuerPreparedState.ClaimsTreeRoot with unsupported type: *github.com/rarimo/go-merkletree.Hash
+
+// skipped field TreeStateIssuerPreparedState.RevTreeRoot with unsupported type: *github.com/rarimo/go-merkletree.Hash
+
 @end
 
 @interface IdentityVSResponse : NSObject <goSeqRefInterface> {
@@ -221,33 +651,60 @@
 
 - (nonnull instancetype)initWithRef:(_Nonnull id)ref;
 - (nonnull instancetype)init;
-// skipped field VSResponseBody.Credential with unsupported type: github.com/rarimovoting/identity.W3CCredential
+// skipped field VSResponseBody.Credential with unsupported type: github.com/rarimo/go-schema-processor/verifiable.W3CCredential
 
 @end
 
-@interface IdentityW3CCredential : NSObject <goSeqRefInterface> {
+@interface IdentityValueProof : NSObject <goSeqRefInterface> {
 }
 @property(strong, readonly) _Nonnull id _ref;
 
 - (nonnull instancetype)initWithRef:(_Nonnull id)ref;
 - (nonnull instancetype)init;
-@property (nonatomic) NSString* _Nonnull identifier;
-@property (nonatomic) NSString* _Nonnull context;
-@property (nonatomic) NSString* _Nonnull innerType;
-// skipped field W3CCredential.ExpirationDate with unsupported type: *string
+// skipped field ValueProof.Path with unsupported type: *math/big.Int
 
-// skipped field W3CCredential.IssuanceDate with unsupported type: *string
+// skipped field ValueProof.Value with unsupported type: *math/big.Int
 
-// skipped field W3CCredential.CredentialSubject with unsupported type: map[string]interface{}
-
-// skipped field W3CCredential.CredentialStatus with unsupported type: github.com/rarimovoting/identity.CredentialStatus
-
-@property (nonatomic) NSString* _Nonnull issuer;
-// skipped field W3CCredential.CredentialSchema with unsupported type: github.com/rarimovoting/identity.CredentialSchema
-
-// skipped field W3CCredential.Proof with unsupported type: map[string]interface{}
+// skipped field ValueProof.Mtp with unsupported type: *github.com/rarimo/go-merkletree.Proof
 
 @end
+
+@interface IdentityZKProof : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+@property (nonatomic) IdentityProofData* _Nullable proof;
+// skipped field ZKProof.PubSignals with unsupported type: []string
+
+@end
+
+// skipped const AtomicQueryMTPV2OnChainVotingCircuit with unsupported type: github.com/rarimovoting/identity.CircuitId
+
+// skipped const EQ with unsupported type: github.com/rarimovoting/identity.Operators
+
+// skipped const GT with unsupported type: github.com/rarimovoting/identity.Operators
+
+// skipped const IN with unsupported type: github.com/rarimovoting/identity.Operators
+
+// skipped const LT with unsupported type: github.com/rarimovoting/identity.Operators
+
+// skipped const NE with unsupported type: github.com/rarimovoting/identity.Operators
+
+// skipped const NIN with unsupported type: github.com/rarimovoting/identity.Operators
+
+// skipped const NOOP with unsupported type: github.com/rarimovoting/identity.Operators
+
+
+@interface Identity : NSObject
+// skipped variable QueryOperators with unsupported type: map[string]github.com/rarimovoting/identity.Operators
+
+@end
+
+FOUNDATION_EXPORT long IdentityBtoi(BOOL b);
+
+FOUNDATION_EXPORT void IdentityCheckConversible(void);
 
 // skipped function NewClaimOfferResponse with unsupported parameter or return types
 
@@ -257,7 +714,9 @@ FOUNDATION_EXPORT IdentityCredentialRequest* _Nullable IdentityNewCredentialRequ
 // skipped function NewCredentialsRequestBody with unsupported parameter or return types
 
 
-FOUNDATION_EXPORT IdentityIdentity* _Nullable IdentityNewIdentity(NSString* _Nullable privateKeyHex, id<IdentityStateProvider> _Nullable stateProvider, NSError* _Nullable* _Nullable error);
+FOUNDATION_EXPORT IdentityIdentity* _Nullable IdentityNewIdentity(id<IdentityStateProvider> _Nullable stateProvider, NSError* _Nullable* _Nullable error);
+
+FOUNDATION_EXPORT IdentityIdentity* _Nullable IdentityNewIdentityWithData(NSString* _Nullable secretKeyHex, NSString* _Nullable secretHex, NSString* _Nullable nullifierHex, id<IdentityStateProvider> _Nullable stateProvider, NSError* _Nullable* _Nullable error);
 
 @class IdentityStateProvider;
 
@@ -266,9 +725,9 @@ FOUNDATION_EXPORT IdentityIdentity* _Nullable IdentityNewIdentity(NSString* _Nul
 @property(strong, readonly) _Nonnull id _ref;
 
 - (nonnull instancetype)initWithRef:(_Nonnull id)ref;
-- (NSData* _Nullable)fetchW3Credentials:(NSString* _Nullable)url method:(NSString* _Nullable)method body:(NSString* _Nullable)body error:(NSError* _Nullable* _Nullable)error;
+- (NSData* _Nullable)fetch:(NSString* _Nullable)url method:(NSString* _Nullable)method body:(NSString* _Nullable)body error:(NSError* _Nullable* _Nullable)error;
 - (NSData* _Nullable)getGISTProof:(NSString* _Nullable)userId error:(NSError* _Nullable* _Nullable)error;
-- (NSData* _Nullable)getProviderChainInfo:(NSError* _Nullable* _Nullable)error;
+- (void)localPrinter:(NSString* _Nullable)msg;
 - (NSData* _Nullable)proveAuthV2:(NSData* _Nullable)inputs error:(NSError* _Nullable* _Nullable)error;
 @end
 

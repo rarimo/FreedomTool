@@ -1,5 +1,6 @@
 import SwiftUI
 import Identity
+import NFCPassportReader
 
 struct AppView: View {
     @StateObject private var appController = AppController()
@@ -28,9 +29,6 @@ struct AppView: View {
             }
         }
         .environment(\.locale, .init(identifier: appController.localization))
-        .onAppear {
-            
-        }
     }
 }
 

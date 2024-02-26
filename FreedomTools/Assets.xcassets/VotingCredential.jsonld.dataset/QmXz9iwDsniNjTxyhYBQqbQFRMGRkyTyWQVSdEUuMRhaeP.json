@@ -1,0 +1,35 @@
+{
+  "@context": [
+    {
+      "@protected": true,
+      "@version": 1.1,
+      "id": "@id",
+      "type": "@type",
+      "VotingCredential": {
+        "@context": {
+          "@propagate": true,
+          "@protected": true,
+          "polygon-vocab": "urn:uuid:b57946fe-8845-4677-b12e-a6cc3d11093a#",
+          "xsd": "http://www.w3.org/2001/XMLSchema#",
+          "isAdult": {
+            "@id": "polygon-vocab:isAdult",
+            "@type": "xsd:boolean"
+          },
+          "issuingAuthority": {
+            "@id": "polygon-vocab:issuingAuthority",
+            "@type": "xsd:double"
+          },
+          "documentNullifier": {
+            "@id": "polygon-vocab:documentNullifier",
+            "@type": "xsd:positiveInteger"
+          },
+          "credentialHash": {
+            "@id": "polygon-vocab:credentialHash",
+            "@type": "xsd:positiveInteger"
+          }
+        },
+        "@id": "urn:uuid:f2c8db83-7e1b-493d-a65e-9939d643e79d"
+      }
+    }
+  ]
+}
