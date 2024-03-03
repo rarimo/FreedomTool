@@ -26,12 +26,12 @@ struct OnboardView: View {
                         mrzKey: onboardController.mrzScannerController.mrzKey
                     )
                 }
-                if onboardController.isThree {
-                    OnboardConfirmDataView(
-                        onboardController: onboardController,
-                        passportModel: onboardController.nfcScannerController.nfcModel!
-                    )
-                }
+//                if onboardController.isThree {
+//                    OnboardConfirmDataView(
+//                        onboardController: onboardController,
+//                        passportModel: onboardController.nfcScannerController.nfcModel!
+//                    )
+//                }
                 if onboardController.isOne {
                     Spacer()
                     Link(destination: URL(string: "https://freedomtool.org/privacy-policy.html")!) {
@@ -54,5 +54,9 @@ struct OnboardView: View {
 }
 
 #Preview {
-    OnboardView(onboardController: OnboardController())
+    let _onboardController = OnboardController()
+    
+    _onboardController.nextStep()
+    
+    return OnboardView(onboardController: _onboardController)
 }

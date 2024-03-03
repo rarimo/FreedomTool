@@ -40,7 +40,7 @@ struct IntroFirstView: View {
                     RoundedRectangle(cornerRadius: 1000)
                         .foregroundStyle(.second)
                     Text("Start")
-                        .font(.custom("RobotoMono-Regular", size: 14))
+                        .font(.custom("RobotoMono-Bold", size: 14))
                 }
             }
             .buttonStyle(.plain)

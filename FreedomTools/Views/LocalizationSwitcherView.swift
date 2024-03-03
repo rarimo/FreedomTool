@@ -11,8 +11,7 @@ struct LocalizationSwitcherView: View {
                 HStack {
                     Image(systemName: "globe")
                     Text("Country")
-                        .bold()
-                        .opacity(0.5)
+                        .font(.custom("RobotoMono-Regular", size: 16))
                 }
             }
         }

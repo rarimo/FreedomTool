@@ -30,7 +30,7 @@ struct OnboardStepView: View {
                     .opacity(0.5)
                 Spacer()
             }
-            .frame(height: 40)
+            .frame(height: 10)
             .padding(.horizontal)
         }
     }

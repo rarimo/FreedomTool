@@ -20,6 +20,9 @@
 		<string>RobotoMono-SemiBoldItalic.ttf</string>
 		<string>RobotoMono-Thin.ttf</string>
 		<string>RobotoMono-ThinItalic.ttf</string>
+		<string>RobotoSlab-Regular.ttf</string>
+		<string>RobotoSlab-Bold.ttf</string>
+		<string>RobotoSlab-SemiBold.ttf</string>
 	</array>
 	<key>com.apple.developer.nfc.readersession.iso7816.select-identifiers</key>
 	<array>
@@ -38,11 +41,13 @@
 	<string>urn:uuid:f2c8db83-7e1b-493d-a65e-9939d643e79d</string>
 	<key>RarimoCoreURL</key>
 	<string>https://rpc-api.node1.mainnet-beta.rarimo.com</string>
-	<key>VotingAddress</key>
-	<string>0xe3Ad6c70806b1895AD43e404D877a7f6F3549b10</string>
-	<key>RegisterAddress</key>
-	<string>0x5e6Cc7319184CCd3904547f1eb15022D55e381B1</string>
 	<key>EVMRPC</key>
-	<string>https://rpc.qdevnet.org/</string>
+	<string>https://rpc.qtestnet.org/</string>
+	<key>VotingRegistryAddress</key>
+	<string>0xABE3Ea83e12d1b31FA4F9e7AD2ea79A604Cf6387</string>
+	<key>RegistryPollType</key>
+	<string>Simple Registration</string>
+	<key>VotingProposer</key>
+	<string>0xf41ceE234219D6cc3d90A6996dC3276aD378cfCF</string>
 </dict>
 </plist>

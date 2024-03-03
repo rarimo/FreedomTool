@@ -37,7 +37,7 @@ class NFCScannerController: ObservableObject {
     private func _read(_ mrzKey: String) async throws {
         let masterListURL = Bundle.main.url(forResource: "masterList", withExtension: ".pem")!
                 
-        nfcModel = try await PassportReader(masterListURL: masterListURL).readPassport(mrzKey: mrzKey, tags: [.DG1, .DG2, .DG7, .DG11, .SOD])
+        nfcModel = try await PassportReader(masterListURL: masterListURL).readPassport(mrzKey: mrzKey, tags: [.DG1, .DG2, .SOD])
         
         if nfcModel != nil {
             KeychainUtils.saveNfcModelData(nfcModel!.getDataGroupsRead())
@@ -47,12 +47,6 @@ class NFCScannerController: ObservableObject {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             self.onScanned()
         }
-    }
-}
-
-extension String {
-    func toHexEncodedString(uppercase: Bool = true, prefix: String = "", separator: String = "") -> String {
-        return unicodeScalars.map { prefix + .init($0.value, radix: 16, uppercase: uppercase) } .joined(separator: separator)
     }
 }
 

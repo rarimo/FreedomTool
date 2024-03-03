@@ -5,49 +5,54 @@ struct OnboardMRZScannerView: View {
     
     var body: some View {
         VStack {
+            HStack {
+                Text("ScanDoc")
+                    .font(.custom("RobotoMono-Bold", size: 20))
+                Spacer()
+            }
+            .padding(.horizontal)
+            HStack {
+                Text("ScanDocSub")
+                    .font(.custom("RobotoMono-Regular", size: 14))
+                    .opacity(0.5)
+                Spacer()
+            }
+            .frame(height: 10)
+            .padding(.horizontal)
+            Spacer()
             ZStack {
                 MRZScannerView(mrtScannerController: mrzScannerController)
                     .mask {
                         RoundedRectangle(cornerRadius: 15)
-                            .frame(width: 380, height: 300)
+                            .frame(width: 370, height: 270)
                     }
-                Image("PassportTemplate")
-                    .resizable()
-                    .frame(width: 380, height: 300)
+                LottieView(animationFileName: "passport", loopMode: .loop)
+                    .frame(width: 360, height: 230)
             }
-            .frame(height: 400)
+            .frame(height: 320)
             Text("MRZHint")
                 .font(.custom("RobotoMono-Regular", size: 15))
                 .multilineTextAlignment(.center)
                 .frame(width: 300)
                 .opacity(0.5)
+            Spacer()
+            Link(destination: URL(string: "https://freedomtool.org/privacy-policy.html")!) {
+                HStack {
+                    Image("ShieldLocked")
+                        .resizable()
+                        .frame(width: 15, height: 15)
+                    Text("PrivacyPolicy")
+                        .underline()
+                        .font(.system(size: 13))
+                }
+            }
+                .underline()
+                .foregroundStyle(.black)
+                .opacity(0.5)
         }
         .onAppear {
             mrzScannerController.startScanning()
         }
-    }
-}
-
-extension String {
-    func parsableDateToPretty() -> String {
-        let partYearStartIndex = self.startIndex
-        let partYearEndIndex = self.index(self.startIndex, offsetBy: 2)
-        
-        let partYear = self[partYearStartIndex..<partYearEndIndex]
-        
-        let year = Int(partYear, radix: 10)! <= 34 ? "20" + partYear : "19" + partYear
-        
-        let monthStartIndex = self.index(self.startIndex, offsetBy: 2)
-        let monthEndIndex = self.index(self.startIndex, offsetBy: 4)
-        
-        let month = self[monthStartIndex..<monthEndIndex]
-        
-        let dayStartIndex = self.index(self.startIndex, offsetBy: 4)
-        let dayEndIndex = self.index(self.startIndex, offsetBy: 6)
-        
-        let day = self[dayStartIndex..<dayEndIndex]
-        
-        return "\(year).\(month).\(day)"
     }
 }
 

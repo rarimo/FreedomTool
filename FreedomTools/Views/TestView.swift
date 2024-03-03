@@ -67,7 +67,7 @@ struct TestView: View {
                 ZStack {
                     Circle()
                         .foregroundStyle(isFifthFinished ? .borderGray : .second)
-                    Text("Vote")
+                    Text("Test")
                         .bold()
                         .multilineTextAlignment(.center)
                         .font(.system(size: 10))
@@ -133,48 +133,22 @@ struct TestView: View {
     }
     
     func verify() {
-        defer {
+//        defer {
             isFourFinished = true
-        }
-        
-        let semaphore = DispatchSemaphore(value: 0)
-        Task {
-            do {
-                var error: NSError?
-                let issuerIDHash = identityManager!.identity.did(toIDHex: IssuerDid!, error: &error)
-                if error != nil {
-                    fatalError(error!.localizedDescription)
-                }
-                
-                let coreStateHash = try await identityManager!.getCoreStateHash(issuerIdHex: issuerIDHash)
-                
-                let votingAddress = try IdentityManager.getStringFromInfoPlist(key: "VotingAddress")
-                
-                let schemaJson = NSDataAsset(name: "VotingCredential.jsonld")!.data
-                
-                let inputs = try identityManager!.identity.prepareQueryInputs(
-                    coreStateHash,
-                    votingAddress: votingAddress,
-                    schemaJson: schemaJson
-                )
-                
-                print("Inputs: \(String(data: inputs, encoding: .utf8)!)")
-                
-                let wtns = try ZKUtils.calcWtnscredentialAtomicQueryMTPV2OnChainVoting(inputsJson: inputs)
-                
-                let (proof, pubSignals) = try ZKUtils.groth16credentialAtomicQueryMTPV2OnChainVoting(wtns: wtns)
-                
-                print("Proof: \(String(data: proof, encoding: .utf8)!)")
-                print("PubSignals: \(String(data: pubSignals, encoding: .utf8)!)")
-                
-            } catch let error {
-                print(error)
-            }
-            
-            semaphore.signal()
-        }
-        
-        semaphore.wait()
+//        }
+//        
+//        let semaphore = DispatchSemaphore(value: 0)
+//        Task {
+//            do {
+//                let _ = try await identityManager!.register(issuerDid: IssuerDid!)
+//            } catch let error {
+//                print(error)
+//            }
+//            
+//            semaphore.signal()
+//        }
+//        
+//        semaphore.wait()
     }
     
     func vote() {
@@ -185,19 +159,9 @@ struct TestView: View {
         let semaphore = DispatchSemaphore(value: 0)
         Task {            
             do {
-                let votingInputs = try await identityManager!.getVotingInputs(vote: "1")
-                
-                print("voting inputs: \(String(data: votingInputs, encoding: .utf8)!)")
-                
-                let wtns = try ZKUtils.calcWtnsvoteSMT(inputsJson: votingInputs)
-                
-                let (proof, pubSignals) = try ZKUtils.groth16voteSMT(wtns: wtns)
-                
-                print("Vote proof: \(String(data: proof, encoding: .utf8)!)")
-                print("Vote pubSignals: \(String(data: pubSignals, encoding: .utf8)!)")
-                
+                let _ = try await RegistrationEntity.fromRegistryLast()
             } catch let error {
-                print("vote error: \(error)")
+                print("test error: \(error)")
             }
             
             semaphore.signal()

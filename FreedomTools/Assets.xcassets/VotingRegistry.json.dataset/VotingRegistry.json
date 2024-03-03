@@ -1,0 +1,525 @@
+[
+    {
+        "inputs": [],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "previousAdmin",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "newAdmin",
+                "type": "address"
+            }
+        ],
+        "name": "AdminChanged",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "beacon",
+                "type": "address"
+            }
+        ],
+        "name": "BeaconUpgraded",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "uint8",
+                "name": "version",
+                "type": "uint8"
+            }
+        ],
+        "name": "Initialized",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "previousOwner",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+            }
+        ],
+        "name": "OwnershipTransferred",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "implementation",
+                "type": "address"
+            }
+        ],
+        "name": "Upgraded",
+        "type": "event"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "poolFactory_",
+                "type": "address"
+            }
+        ],
+        "name": "__VotingRegistry_init",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "poolType_",
+                "type": "string"
+            },
+            {
+                "internalType": "address",
+                "name": "proposer_",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "pool_",
+                "type": "address"
+            }
+        ],
+        "name": "addProxyPool",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "proposer_",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "voting_",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "registration_",
+                "type": "address"
+            }
+        ],
+        "name": "bindVotingToRegistration",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "poolType_",
+                "type": "string"
+            }
+        ],
+        "name": "getPoolImplementation",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "proposer_",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "registration_",
+                "type": "address"
+            }
+        ],
+        "name": "getVotingForRegistration",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "proposer_",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "pool_",
+                "type": "address"
+            }
+        ],
+        "name": "isPoolExistByProposer",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "proposer_",
+                "type": "address"
+            },
+            {
+                "internalType": "string",
+                "name": "poolType_",
+                "type": "string"
+            },
+            {
+                "internalType": "address",
+                "name": "pool_",
+                "type": "address"
+            }
+        ],
+        "name": "isPoolExistByProposerAndType",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "poolType_",
+                "type": "string"
+            },
+            {
+                "internalType": "address",
+                "name": "pool_",
+                "type": "address"
+            }
+        ],
+        "name": "isPoolExistByType",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "proposer_",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "offset_",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "limit_",
+                "type": "uint256"
+            }
+        ],
+        "name": "listPoolsByProposer",
+        "outputs": [
+            {
+                "internalType": "address[]",
+                "name": "pools_",
+                "type": "address[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "proposer_",
+                "type": "address"
+            },
+            {
+                "internalType": "string",
+                "name": "poolType_",
+                "type": "string"
+            },
+            {
+                "internalType": "uint256",
+                "name": "offset_",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "limit_",
+                "type": "uint256"
+            }
+        ],
+        "name": "listPoolsByProposerAndType",
+        "outputs": [
+            {
+                "internalType": "address[]",
+                "name": "pools_",
+                "type": "address[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "poolType_",
+                "type": "string"
+            },
+            {
+                "internalType": "uint256",
+                "name": "offset_",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "limit_",
+                "type": "uint256"
+            }
+        ],
+        "name": "listPoolsByType",
+        "outputs": [
+            {
+                "internalType": "address[]",
+                "name": "pools_",
+                "type": "address[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "owner",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "proposer_",
+                "type": "address"
+            }
+        ],
+        "name": "poolCountByProposer",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "proposer_",
+                "type": "address"
+            },
+            {
+                "internalType": "string",
+                "name": "poolType_",
+                "type": "string"
+            }
+        ],
+        "name": "poolCountByProposerAndType",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "poolType_",
+                "type": "string"
+            }
+        ],
+        "name": "poolCountByType",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "poolFactory",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "proxiableUUID",
+        "outputs": [
+            {
+                "internalType": "bytes32",
+                "name": "",
+                "type": "bytes32"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "renounceOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "string[]",
+                "name": "poolTypes_",
+                "type": "string[]"
+            },
+            {
+                "internalType": "address[]",
+                "name": "newImplementations_",
+                "type": "address[]"
+            }
+        ],
+        "name": "setNewImplementations",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+            }
+        ],
+        "name": "transferOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "newImplementation",
+                "type": "address"
+            }
+        ],
+        "name": "upgradeTo",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "newImplementation",
+                "type": "address"
+            },
+            {
+                "internalType": "bytes",
+                "name": "data",
+                "type": "bytes"
+            }
+        ],
+        "name": "upgradeToAndCall",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    }
+]

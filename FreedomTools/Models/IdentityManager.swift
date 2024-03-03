@@ -9,22 +9,13 @@ import NFCPassportReader
 import Alamofire
 
 class IdentityManager {
-    let web3: Web3
-    
     let stateProvider = StateProvider()
     
     let identity: IdentityIdentity
     
     init() throws {
         var identityCreationError: NSError?
-//        let newIdentityResult = IdentityNewIdentity(
-//            stateProvider,
-//            &identityCreationError
-//        )
-        let newIdentityResult = IdentityNewIdentityWithData(
-            "597fdce5f4d976dfb80dd62d618d8a5f14753b64acec0dc5bc1e92eb38033023",
-            "e1fc8bcc04dd03cf9f2177a6ce54391b7a425908fefffd1af811c3f3eaae6a",
-            "47b15ac5203b7aab1e62650dcefda0df0a20885408609e361a53f05c5913a9",
+        let newIdentityResult = IdentityNewIdentity(
             stateProvider,
             &identityCreationError
         )
@@ -36,30 +27,33 @@ class IdentityManager {
             throw "Identity wasn't initialized"
         }
         
-        print("secretKeyHex: \(newIdentity.getSecretKeyHex())")
-        print("secretHex: \(newIdentity.getSecretHex())")
-        print("nullifierHex: \(newIdentity.getNullifierHex())")
-//
-        let vcsJSON = NSDataAsset(name: "VCYaroslav")!.data
-//        
-        try newIdentity.setVCsJSON(vcsJSON)
+        identity = newIdentity
+    }
+    
+    init(secretKeyHex: String, secretHex: String, nullifierHex: String) throws {
+        var identityCreationError: NSError?
         
-        guard let evmRPC = Bundle.main.object(forInfoDictionaryKey: "EVMRPC") as? String else {
-            throw "EVMRPC is not defined"
+        let newIdentityResult = IdentityNewIdentityWithData(
+            secretKeyHex,
+            secretHex,
+            nullifierHex,
+            stateProvider,
+            &identityCreationError
+        )
+        if let error = identityCreationError {
+            throw error
         }
         
-        web3 = Web3(rpcURL: evmRPC)
+        guard let newIdentity = newIdentityResult else {
+            throw "Identity wasn't initialized"
+        }
         
         identity = newIdentity
     }
     
     func issueIdentity(_ model: NFCPassportModel) async throws -> CreateIdentityResponse {
-        guard let identityProviderNodeURLRawObj = Bundle.main.object(forInfoDictionaryKey: "IdentityProviderNodeURL") else {
+        guard var identityProviderNodeURLRaw = Bundle.main.object(forInfoDictionaryKey: "IdentityProviderNodeURL") as? String else {
             throw "IdentityProviderNodeURL is not defined"
-        }
-        
-        guard var identityProviderNodeURLRaw = identityProviderNodeURLRawObj as? String else {
-            throw "IdentityProviderNodeURL is not string"
         }
         
         identityProviderNodeURLRaw += "/integrations/identity-provider-service/v1/create-identity"
@@ -117,7 +111,7 @@ class IdentityManager {
             proof: proof,
             pubSignals: pubSignals
         )
-        
+                
         let documentSod = DocumentSod(
             signedAttributes: signedAttributes,
             algorithm: signatureAlgorithm,
@@ -174,161 +168,89 @@ class IdentityManager {
         throw "Unsupported digest algorithm"
     }
     
-    func getCoreStateHash(issuerIdHex: String) async throws -> String {
-        var rarimoCoreURL = try Self.getRarimoCoreURL()
-        rarimoCoreURL += "/rarimo/rarimo-core/identity/state/\(issuerIdHex)"
+//    func getVotingRoot() async throws -> Data {
+//        let registerContract = try getRegisterContract()
+//        
+//        let response = try registerContract["getRoot"]!().call().wait()
+//                
+//        guard let root = response[""] as? Data else {
+//            throw "Invalid root type"
+//        }
+//        
+//        return root
+//    }
+//    
+//    func getVotingSiblings() async throws -> [Data] {
+//        let registerContract = try getRegisterContract()
+//        
+//        let commitmentIndex = try identity.getCommitmentIndex()
+//        
+//        let response = try registerContract["getProof"]!(commitmentIndex).call().wait()
+//        
+//        guard let proof = response[""] as? [String: Any] else {
+//            throw "Proof is not hex"
+//        }
+//        
+//        guard let siblings = proof["siblings"] as? [Data] else {
+//            throw "Proof does not contain siblings"
+//        }
+//        
+//        return siblings
+//    }
+//    
+//    func getVotingInputs(vote: String) async throws -> Data {
+//        guard let votingAddressStr = Bundle.main.object(forInfoDictionaryKey: "VotingAddress") as? String else {
+//            throw "VotingAddress is not defined"
+//        }
+//        
+//        let root = try await getVotingRoot()
+//        let siblingsData = try await getVotingSiblings()
+//        
+//        let secret = identity.getSecretIntStr()
+//        let nullifier = identity.getNullifierIntStr()
+//        
+//        var siblings = [String]()
+//        for siblingData in siblingsData {
+//            siblings.append("0x" + siblingData.hexStringEncoded())
+//        }
+//        
+//        let votingInputs = VotingInputs(
+//            root: "0x" + root.toHexString(),
+//            vote: vote,
+//            votingAddress: votingAddressStr,
+//            secret: secret,
+//            nullifier: nullifier,
+//            siblings: siblings
+//        )
+//        
+//        return try JSONEncoder().encode(votingInputs)
+//    }
+    
+    func register(issuerDid: String, votingAddress: String, issuingAuthorityCode: String) async throws {
+        let calldata = try identity.register(
+            Self.getRarimoCoreURL(),
+            issuerDid: issuerDid,
+            votingAddress: votingAddress,
+            schemaJsonLd: NSDataAsset(name: "VotingCredential.jsonld")!.data,
+            issuingAuthorityCode: issuingAuthorityCode
+        )
         
-        let response = try await AF.request(rarimoCoreURL, method: .get)
-            .serializingDecodable(GetStateInfoResponse.self)
+        try await sendCalldata(calldata)
+    }
+    
+    func sendCalldata(_ calldata: Data) async throws {
+        guard var identityProviderNodeURL = Bundle.main.object(forInfoDictionaryKey: "IdentityProviderNodeURL") as? String else {
+            throw "IdentityProviderNodeURL is not defined"
+        }
+        
+        identityProviderNodeURL += "/integrations/proof-verification-relayer/v1/verify-proof"
+        
+        let calldataRequest = SendCalldataRequest(data: SendCalldataRequestData(txData: "0x" + calldata.toHexString()))
+        
+        let _ = try await AF.request(identityProviderNodeURL, method: .post, parameters: calldataRequest, encoder: JSONParameterEncoder() )
+            .serializingData()
             .result
             .get()
-        
-        return response.state.hash
-    }
-    
-    func getVotingRoot() async throws -> Data {
-        let registerContract = try getRegisterContract()
-        
-        let response = try registerContract["getRoot"]!().call().wait()
-                
-        guard let root = response[""] as? Data else {
-            throw "Invalid root type"
-        }
-        
-        return root
-    }
-    
-    func getVotingSiblings() async throws -> [Data] {
-        let registerContract = try getRegisterContract()
-        
-        let commitmentIndex = try identity.getCommitmentIndex()
-        
-        let response = try registerContract["getProof"]!(commitmentIndex).call().wait()
-        
-        guard let proof = response[""] as? [String: Any] else {
-            throw "Proof is not hex"
-        }
-        
-        guard let siblings = proof["siblings"] as? [Data] else {
-            throw "Proof does not contain siblings"
-        }
-        
-        return siblings
-    }
-    
-    func getRegisterContract() throws -> DynamicContract {
-        guard let registerAddressStr = Bundle.main.object(forInfoDictionaryKey: "RegisterAddress") as? String else {
-            throw "RegisterAddress is not defined"
-        }
-        
-        let registerAddress = try EthereumAddress(hex: registerAddressStr, eip55: false)
-        
-        let registrationJson = NSDataAsset(name: "Registration.json")!.data
-        
-        return try web3.eth.Contract(json: registrationJson, abiKey: nil, address: registerAddress)
-    }
-    
-    func getVotingInputs(vote: String) async throws -> Data {
-        guard let votingAddressStr = Bundle.main.object(forInfoDictionaryKey: "VotingAddress") as? String else {
-            throw "VotingAddress is not defined"
-        }
-        
-        let root = try await getVotingRoot()
-        let siblingsData = try await getVotingSiblings()
-        
-        let secret = identity.getSecretIntStr()
-        let nullifier = identity.getNullifierIntStr()
-        
-        var siblings = [String]()
-        for siblingData in siblingsData {
-            siblings.append("0x" + siblingData.hexStringEncoded())
-        }
-        
-        let votingInputs = VotingInputs(
-            root: "0x" + root.toHexString(),
-            vote: vote,
-            votingAddress: votingAddressStr,
-            secret: secret,
-            nullifier: nullifier,
-            siblings: siblings
-        )
-        
-        return try JSONEncoder().encode(votingInputs)
-    }
-    
-    func register(issuerDid: String) async throws -> String {
-        var error: NSError?
-        let issuerIDHash = identity.did(toIDHex: issuerDid, error: &error)
-        if let error = error {
-            throw error
-        }
-        
-        let issuerId = identity.did(toId: issuerDid, error: &error)
-        if let error = error {
-            throw error
-        }
-        
-        let coreStateHash = try await getCoreStateHash(issuerIdHex: issuerIDHash)
-        
-        let votingAddress = try Self.getStringFromInfoPlist(key: "VotingAddress")
-        
-        let schemaJson = NSDataAsset(name: "VotingCredential.jsonld")!.data
-        
-        let inputs = try identity.prepareQueryInputs(
-            coreStateHash,
-            votingAddress: votingAddress,
-            schemaJson: schemaJson
-        )
-        
-        let wtns = try ZKUtils.calcWtnscredentialAtomicQueryMTPV2OnChainVoting(inputsJson: inputs)
-        
-        let (proofJson, pubSignalsJson) = try ZKUtils.groth16credentialAtomicQueryMTPV2OnChainVoting(wtns: wtns)
-        
-        let proof = try JSONDecoder().decode(Proof.self, from: proofJson)
-        let pubSignals = try JSONDecoder().decode([String].self, from: pubSignalsJson)
-        
-        let issuerState = identity.getIssuerState(&error)
-        if let error = error {
-            throw error
-        }
-        
-        let statesMerkleData = StatesMerkleData(
-            issuerId: issuerId,
-            issuerState: issuerState,
-            createdAtTimestamp: Date().timeIntervalSince1970.description,
-            merkleProof: []
-        )
-        
-        let _proveIdentityParams = ProveIdentityParams(
-            statesMerkleData: statesMerkleData,
-            inputs: pubSignals,
-            a: proof.piA,
-            b: proof.piB,
-            c: proof.piC
-        )
-        
-        let _newIdentitiesStatesRoot = identity.newIdentitiesStatesRoot(
-            statesMerkleData.issuerId,
-            issuerState: statesMerkleData.issuerState,
-            createdAtTimestamp: statesMerkleData.createdAtTimestamp,
-            error: &error
-        )
-        if let error = error {
-            throw error
-        }
-        
-        let inputsData = try JSONDecoder().decode(AtomicQueryMTPV2OnChainVotingCircuitInputs.self, from: inputs)
-        
-        let _gistRootData = GistRootData(
-            root: inputsData.gistRoot,
-            createdAtTimestamp: inputsData.timestamp.description
-        )
-        
-        // get Threshold signature
-        
-        
-        
-        return ""
     }
     
     static func getIssuerProviderNodeURL() throws -> String {
@@ -353,6 +275,23 @@ class IdentityManager {
 }
 
 class StateProvider: NSObject, IdentityStateProviderProtocol {
+    func proveCredentialAtomicQueryMTPV2(onChainVoting inputs: Data?) throws -> Data {
+        guard let inputs = inputs else {
+            throw "inputs is not presented"
+        }
+        
+        let wtns = try ZKUtils.calcWtnscredentialAtomicQueryMTPV2OnChainVoting(inputsJson: inputs)
+        
+        let (proofRaw, pubSignalsRaw) = try ZKUtils.groth16credentialAtomicQueryMTPV2OnChainVoting(wtns: wtns)
+        
+        let proof = try JSONDecoder().decode(Proof.self, from: proofRaw)
+        let pubSignals = try JSONDecoder().decode([String].self, from: pubSignalsRaw)
+        
+        let zkproof = Zkproof(proof: proof, pubSignals: pubSignals)
+        
+        return try JSONEncoder().encode(zkproof)
+    }
+    
     var lastRetrivedData = Data()
     var error: Error? = nil
     
@@ -360,28 +299,32 @@ class StateProvider: NSObject, IdentityStateProviderProtocol {
         print(msg!)
     }
     
-    func fetch(_ url: String?, method: String?, body: String?) throws -> Data {
+    func fetch(_ url: String?, method: String?, body: Data?, headerKey: String?, headerValue: String?) throws -> Data {
         guard
             let urlRaw = url,
             let method = method,
-            let body = body
+            let headerKey = headerKey,
+            let headerValue = headerValue
         else {
-            throw "url/method/body is invalid"
+            throw "url/method/headerKey/headerValue is invalid"
         }
         
         guard let url = URL(string: urlRaw) else {
             throw "invalid url format"
         }
         
-        guard let bodyRaw = body.data(using: .utf8) else {
-            throw "invalid body"
-        }
         
         var request = URLRequest(url: url)
         request.httpMethod = method
-        if body != "" {
-            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.httpBody = bodyRaw
+        if let body = body {
+            if !body.isEmpty {
+                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                request.httpBody = body
+            }
+        }
+        
+        if !headerKey.isEmpty && !headerValue.isEmpty {
+            request.setValue(headerKey, forHTTPHeaderField: headerValue)
         }
         
         let finishedRequest = request
@@ -630,14 +573,14 @@ struct VotingInputs: Codable {
     let siblings: [String]
 }
 
-struct StatesMerkleData {
+struct StatesMerkleData: Codable {
     let issuerId: String
     let issuerState: String
     let createdAtTimestamp: String
-    let merkleProof: [String]
+    let merkleProof: [Data]
 }
 
-struct ProveIdentityParams {
+struct ProveIdentityParams: Codable {
     let statesMerkleData: StatesMerkleData
     let inputs: [String]
     let a: [String]
@@ -645,24 +588,82 @@ struct ProveIdentityParams {
     let c: [String]
 }
 
-struct TransitStateParams {
-    let newIdentitiesStatesRoot: String
+struct TransitStateParams: Codable {
+    let newIdentitiesStatesRoot: Data
     let gistData: GistRootData
-    let proof: String
+    let proof: Data
 }
 
-struct GistRootData {
+struct GistRootData: Codable {
     let root: String
     let createdAtTimestamp: String
 }
 
-struct RegisterProofParams {
+struct RegisterProofParams: Codable {
     let issuingAuthority: String
     let documentNullifier: String
-    let commitment: String
+    let commitment: Data
+}
+
+struct RegisterInputs {
+    let proveIdentityParams: ProveIdentityParams
+    let transitStateParams: TransitStateParams
+    let registerProofParams: RegisterProofParams
 }
 
 struct AtomicQueryMTPV2OnChainVotingCircuitInputs: Codable {
     let gistRoot: String
     let timestamp: Int
+}
+
+struct CoreMTP: Codable {
+    let proof: [String]
+}
+
+struct Operation: Codable {
+    let index: String
+    let operationType: String
+    let details: OperationDetails
+    let status: String
+    let creator: String
+    let timestamp: String
+}
+
+struct OperationDetails: Codable {
+    let type: String
+    let contract: String
+    let chain: String
+    let GISTHash: String
+    let stateRootHash: String
+    let timestamp: String
+    
+    enum CodingKeys: String, CodingKey {
+        case type = "@type"
+        case contract, chain, GISTHash, stateRootHash, timestamp
+    }
+}
+
+struct OperationResponse: Codable {
+    let operation: Operation
+}
+
+struct OperationProof: Codable {
+    let path: [String]
+    let signature: String
+}
+
+struct SendCalldataRequest: Codable {
+    let data: SendCalldataRequestData
+    
+    enum CodingKeys: String, CodingKey {
+        case data
+    }
+}
+
+struct SendCalldataRequestData: Codable {
+    let txData: String
+    
+    enum CodingKeys: String, CodingKey {
+        case txData = "tx_data"
+    }
 }

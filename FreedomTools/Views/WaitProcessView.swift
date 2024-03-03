@@ -30,9 +30,13 @@ struct WaitProcessView: View {
     
     var body: some View {
         VStack {
-            Image(isDone ? "Done" : "Wait")
-                .resizable()
-                .frame(width: 90, height: 90)
+            if isDone {
+                LottieView(animationFileName: "checkbox", loopMode: .playOnce)
+                    .frame(width: 110,  height: 110)
+            } else {
+                LottieView(animationFileName: "loader", loopMode: .loop)
+                    .frame(width: 125,  height: 125)
+            }
             Text(LocalizedStringKey(isDone ? doneTitle : waitTitle))
                 .font(.custom("RobotoMono-Semibold", size: 20))
                 .frame(height: 30)
