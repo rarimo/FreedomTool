@@ -57,5 +57,5 @@ struct IntroStepView: View {
 }
 
 #Preview {
-    IntroStepView(step: .zero, appController: AppController())
+    IntroStepView(step: .one, appController: AppController())
 }

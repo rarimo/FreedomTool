@@ -13,22 +13,25 @@ struct MainActiveView: View {
     
     var body: some View {
         List {
-            ZStack {
-                RegistrationListElemView(registrationEntity: registrationEntity)
-                NavigationLink {
-                    RegistrationView(
-                        appController: appController,
-                        registrationEntity: registrationEntity
-                    )
-                } label: {
-                    EmptyView()
-                }.opacity(0.0)
+            HStack {
+                Spacer()
+                ZStack {
+                    RegistrationListElemView(registrationEntity: registrationEntity)
+                    NavigationLink {
+                        RegistrationView(
+                            appController: appController,
+                            registrationEntity: registrationEntity
+                        )
+                    } label: {
+                        EmptyView()
+                    }.opacity(0.0)
+                }
+                .buttonStyle(.plain)
+                .frame(width: 350, height: 190)
+                Spacer()
             }
             .listRowSeparator(.hidden)
             .listRowBackground(Color.clear)
-            .buttonStyle(.plain)
-            .frame(width: 350, height: 190)
-            
         }
         .scrollContentBackground(.hidden)
         .background(.clear)

@@ -42,7 +42,7 @@ struct RegistrationSignedManifestView: View {
                                 Text("YouAnd")
                                     .font(.custom("RobotoMono-Semibold", size: 14))
                                 +
-                                Text(" \(registrationEntity.info.counters.totalRegistrations.description) ")
+                                Text(" \((registrationEntity.info.counters.totalRegistrations > 0 ? registrationEntity.info.counters.totalRegistrations-1 : 0).description) ")
                                     .font(.custom("RobotoMono-Semibold", size: 14))
                                 +
                                 Text("OtherPeopleAlreadySigned")

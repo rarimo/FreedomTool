@@ -13,7 +13,6 @@ struct IntroView: View {
             }
             if !introController.isZero {
                 IntroProgressView(introController: introController)
-                
                 TabView(selection: $introController.currentStepIndex) {
                     IntroStepView(step: .one, appController: appController)
                         .tag(1)
