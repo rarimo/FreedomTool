@@ -19,19 +19,21 @@ struct MainTopView: View {
             Spacer()
             LocalizationSwitcherView(appController: appController)
             if appController.identityManager != nil {
+                Rectangle()
+                    .frame(width: 1, height: 25)
+                    .opacity(0.05)
                 Button(action: {
                     isExiting = true
                 }) {
                     ZStack {
                         Circle()
-                            .foregroundStyle(.second)
+                            .foregroundStyle(.clear)
                         Image("Exit")
                             .resizable()
                             .frame(width: 20, height: 20)
                     }
                 }
-                .frame(width: 50, height: 50)
-                .offset(x: 10)
+                .frame(width: 40, height: 40)
             }
         }
     }

@@ -61,6 +61,7 @@
 "Hours" = "hours";
 "LessThanHour" = "Less than an hour";
 "ErrorIsNotAdult" = "You're not adult";
+"ErrorYourDocumentExpired" = "Your document has expired";
 "Ended" = "Ended";
 "Heading" = "HEADING";
 "Description" = "DESCRIPTION";
@@ -79,3 +80,4 @@
 "Anonymization" = "Anonymization";
 "SendingSignature" = "Sending a signature";
 "Finalizing" = "Finalizing";
+"ErrorTitle" = "You can't sign";

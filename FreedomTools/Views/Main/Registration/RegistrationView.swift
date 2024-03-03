@@ -13,6 +13,9 @@ struct RegistrationView: View {
     @StateObject private var registrationController: RegistrationController = RegistrationController()
     @ObservedObject var appController: AppController
     
+    @State private var isErrorAlertPresent = false
+    @State private var errorMessage = ""
+    
     let registrationEntity: RegistrationEntity
     
     init(appController: AppController, registrationEntity: RegistrationEntity) {
@@ -55,14 +58,20 @@ struct RegistrationView: View {
                     if self.registrationController.currentStep == .waiting {
                         RegistrationWaitingView(
                             appController: appController,
+                            registrationController: registrationController,
                             registrationEntity: registrationEntity,
-                            model: self.registrationController.nfcScannerController.nfcModel
+                            model: self.registrationController.nfcScannerController.nfcModel,
+                            isErrorAlertPresent: $isErrorAlertPresent,
+                            errorMessage: $errorMessage
                         )
                     }
                 }
             } else {
-                ProgressView()
-                    .controlSize(.large)
+                ZStack {
+                    Color.white.ignoresSafeArea()
+                    ProgressView()
+                        .controlSize(.large)
+                }
             }
         }
         .navigationBarBackButtonHidden(true)
@@ -71,6 +80,13 @@ struct RegistrationView: View {
             initCallbacks()
             checkUserRegistration()
         })
+        .alert(isPresented: $isErrorAlertPresent) {
+            Alert(
+                title: Text("ErrorTitle"),
+                message: Text(LocalizedStringKey(errorMessage)),
+                dismissButton: .default(Text("Ok"))
+            )
+        }
     }
     
     var btnBack : some View {
@@ -121,8 +137,6 @@ struct RegistrationView: View {
                 registrationController.isAlreadyRegistered = isUserRegistered
             }
         }
-                
-        registrationController.isAlreadyRegistered = false
     }
 }
 

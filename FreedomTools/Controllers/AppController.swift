@@ -57,13 +57,7 @@ class AppController: ObservableObject {
         self.identityManager = identityManager
     }
     
-    func newUser(_ model: NFCPassportModel) async throws {
-        let birthday = model.dateOfBirth.parsableDateToDate()
-        let age = birthday.age()
-        if age < 18 {
-            throw "ErrorIsNotAdult"
-        }
-        
+    func newUser(_ model: NFCPassportModel) async throws {        
         let newIdentityManager = try IdentityManager()
         
         let issueResponse = try await newIdentityManager.issueIdentity(model)

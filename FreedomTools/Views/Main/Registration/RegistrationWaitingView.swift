@@ -10,15 +10,19 @@ import NFCPassportReader
 
 struct RegistrationWaitingView: View {
     @ObservedObject var appController: AppController
+    @ObservedObject var registrationController: RegistrationController
     let registrationEntity: RegistrationEntity
+    
+    let model: NFCPassportModel?
+    
+    @Binding var isErrorAlertPresent: Bool
+    @Binding var errorMessage: String
     
     @State private var isDone = false
     @State private var viewPetitionActive = false
     @State private var waitingStepper = 0;
     
     @State private var checkingTask: Task = Task {}
-    
-    let model: NFCPassportModel?
     
     var body: some View {
         VStack {
@@ -91,6 +95,19 @@ struct RegistrationWaitingView: View {
                         
                         print("Got an old user: \(userID)")
                     } else {
+                        do {
+                           try validateModel()
+                        } catch let error {
+                            if !error.isCancelled {                                
+                                errorMessage = "\(error)"
+                                isErrorAlertPresent = true
+                                
+                                registrationController.currentStep = .sign
+                            }
+                            
+                            return
+                        }
+                        
                         try await appController.newUser(model!)
                         
                         print("Creating new user, userID: \(userID)")
@@ -154,12 +171,30 @@ struct RegistrationWaitingView: View {
         
         self.checkingTask = task
     }
+    
+    func validateModel() throws {
+        let model = registrationController.nfcScannerController.nfcModel!
+        
+        let birthday = model.dateOfBirth.parsableDateToDate()
+        let age = birthday.age()
+        if age < 18 {
+            throw "ErrorIsNotAdult"
+        }
+        
+        let expityDate = model.documentExpiryDate.parsableDateToDate()
+        if Date() > expityDate {
+            throw "ErrorYourDocumentExpired"
+        }
+    }
 }
 
 #Preview {
     RegistrationWaitingView(
         appController: AppController(),
+        registrationController: RegistrationController(),
         registrationEntity: RegistrationEntity.sample,
-        model: nil
+        model: nil,
+        isErrorAlertPresent: .constant(false),
+        errorMessage: .constant("")
     )
 }

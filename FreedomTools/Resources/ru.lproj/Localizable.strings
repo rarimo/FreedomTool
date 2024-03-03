@@ -61,6 +61,7 @@
 "Hours" = "часов";
 "LessThanHour" = "Меньше часа";
 "ErrorIsNotAdult" = "Вы не совершеннолетние";
+"ErrorYourDocumentExpired" = "Your document has expired";
 "Ended" = "Завершено";
 "Heading" = "ЗАГОЛОВОК";
 "Description" = "ОПИСАНИЕ";
@@ -78,3 +79,4 @@
 "Anonymization" = "Анонимизация";
 "SendingSignature" = "Отправка подписи";
 "Finalizing" = "Завершение";
+"ErrorTitle" = "Вы не можете подписать";

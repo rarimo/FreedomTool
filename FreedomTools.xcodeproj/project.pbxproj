@@ -13,7 +13,6 @@
 		CE3866412B7E5C85003BA2C5 /* NFCPassportReader in Frameworks */ = {isa = PBXBuildFile; productRef = CE3866402B7E5C85003BA2C5 /* NFCPassportReader */; };
 		CE4D931B2B51D38300E8AC67 /* KeychainUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4D931A2B51D38300E8AC67 /* KeychainUtils.swift */; };
 		CE64068D2B8786250019BB81 /* libwitnesscalc_credentialAtomicQueryMTPV2OnChainVoting.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE64068C2B8786250019BB81 /* libwitnesscalc_credentialAtomicQueryMTPV2OnChainVoting.a */; };
-		CE6443662B7CF302005AEA5C /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6443652B7CF302005AEA5C /* TestView.swift */; };
 		CE70B3932B5689CC005F5868 /* StorageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70B3922B5689CC005F5868 /* StorageUtils.swift */; };
 		CE7908FB2B88C38B000FE927 /* Web3 in Frameworks */ = {isa = PBXBuildFile; productRef = CE7908FA2B88C38B000FE927 /* Web3 */; };
 		CE7908FD2B88C38B000FE927 /* Web3ContractABI in Frameworks */ = {isa = PBXBuildFile; productRef = CE7908FC2B88C38B000FE927 /* Web3ContractABI */; };
@@ -126,7 +125,6 @@
 		CE4D931A2B51D38300E8AC67 /* KeychainUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainUtils.swift; sourceTree = "<group>"; };
 		CE64068C2B8786250019BB81 /* libwitnesscalc_credentialAtomicQueryMTPV2OnChainVoting.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwitnesscalc_credentialAtomicQueryMTPV2OnChainVoting.a; sourceTree = "<group>"; };
 		CE64068E2B8787B80019BB81 /* witnesscalc_credentialAtomicQueryMTPV2OnChainVoting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = witnesscalc_credentialAtomicQueryMTPV2OnChainVoting.h; sourceTree = "<group>"; };
-		CE6443652B7CF302005AEA5C /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		CE70B3922B5689CC005F5868 /* StorageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageUtils.swift; sourceTree = "<group>"; };
 		CE7909062B88F285000FE927 /* libwitnesscalc_voteSMT.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwitnesscalc_voteSMT.a; sourceTree = "<group>"; };
 		CE7909082B88F295000FE927 /* witnesscalc_voteSMT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = witnesscalc_voteSMT.h; sourceTree = "<group>"; };
@@ -377,7 +375,6 @@
 				CED6488B2B44DA65008488E0 /* NFCScannerView.swift */,
 				CEF2C40D2B52D93700B44A7C /* GifimageView.swift */,
 				CE81E8DE2B7A8EDD00B7545C /* LocalizationSwitcherView.swift */,
-				CE6443652B7CF302005AEA5C /* TestView.swift */,
 				CEE51BE62B8DFA8F00B5D1DE /* LottieView.swift */,
 			);
 			path = Views;
@@ -654,7 +651,6 @@
 				CEBC4E972B45B204005D560A /* PollDetailsHeaderView.swift in Sources */,
 				CE004B4D2B9355D7006D0188 /* RegistrationWaitingCheckboxesView.swift in Sources */,
 				CEDE211E2B4578E300406B1A /* MainController.swift in Sources */,
-				CE6443662B7CF302005AEA5C /* TestView.swift in Sources */,
 				CEA1522B2B449690006616DD /* OnboardView.swift in Sources */,
 				CE004B492B9335CF006D0188 /* RegistrationConfirmView.swift in Sources */,
 				CEE169662B91035300BF2B84 /* MainTopView.swift in Sources */,
@@ -818,7 +814,7 @@
 				CODE_SIGN_ENTITLEMENTS = FreedomTools/FreedomTools.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FreedomTools/Preview Content\"";
 				DEVELOPMENT_TEAM = M8N2G576YD;
 				ENABLE_PREVIEWS = YES;
@@ -830,8 +826,8 @@
 				INFOPLIST_FILE = FreedomTools/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = FreedomTool;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
-				INFOPLIST_KEY_NFCReaderUsageDescription = "Used to read data from ePassport";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Used to read MRZ";
+				INFOPLIST_KEY_NFCReaderUsageDescription = "In order to enhance your document reading experience and provide seamless access, the NFC permission is required in our iOS app to enable efficient and secure interaction with NFC-enabled documents";
+				INFOPLIST_KEY_NSCameraUsageDescription = "\"In order to enhance the user experience and efficiently read the Machine Readable Zone of your document, our iOS app requests camera permission, ensuring seamless and secure verification processes.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -846,7 +842,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.4;
 				OTHER_LDFLAGS = "-lc++";
 				PRODUCT_BUNDLE_IDENTIFIER = FreedomTool.FreedomTool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -868,7 +864,7 @@
 				CODE_SIGN_ENTITLEMENTS = FreedomTools/FreedomTools.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FreedomTools/Preview Content\"";
 				DEVELOPMENT_TEAM = M8N2G576YD;
 				ENABLE_PREVIEWS = YES;
@@ -880,8 +876,8 @@
 				INFOPLIST_FILE = FreedomTools/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = FreedomTool;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
-				INFOPLIST_KEY_NFCReaderUsageDescription = "Used to read data from ePassport";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Used to read MRZ";
+				INFOPLIST_KEY_NFCReaderUsageDescription = "In order to enhance your document reading experience and provide seamless access, the NFC permission is required in our iOS app to enable efficient and secure interaction with NFC-enabled documents";
+				INFOPLIST_KEY_NSCameraUsageDescription = "\"In order to enhance the user experience and efficiently read the Machine Readable Zone of your document, our iOS app requests camera permission, ensuring seamless and secure verification processes.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -896,7 +892,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.4;
 				OTHER_LDFLAGS = "-lc++";
 				PRODUCT_BUNDLE_IDENTIFIER = FreedomTool.FreedomTool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
