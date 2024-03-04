@@ -62,6 +62,8 @@
 "LessThanHour" = "Less than an hour";
 "ErrorIsNotAdult" = "You're not adult";
 "ErrorYourDocumentExpired" = "Your document has expired";
+"ErrorYouAlredySigned" = "You have already signed this manifest from another device";
+"ErrorIdentityRevoked" = "You cannot be verified on multiple devices";
 "Ended" = "Ended";
 "Heading" = "HEADING";
 "Description" = "DESCRIPTION";

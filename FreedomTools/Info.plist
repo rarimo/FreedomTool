@@ -44,7 +44,7 @@
 	<key>EVMRPC</key>
 	<string>https://rpc.qtestnet.org/</string>
 	<key>VotingRegistryAddress</key>
-	<string>0xABE3Ea83e12d1b31FA4F9e7AD2ea79A604Cf6387</string>
+	<string>0xECB5371C727a664160c4F4360af77F0Fe4aeb7F9</string>
 	<key>RegistryPollType</key>
 	<string>Simple Registration</string>
 	<key>VotingProposer</key>

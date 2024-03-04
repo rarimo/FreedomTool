@@ -275,6 +275,40 @@ class IdentityManager {
 }
 
 class StateProvider: NSObject, IdentityStateProviderProtocol {
+    func isUserRegistered(_ contract: String?, documentNullifier: Data?, ret0_: UnsafeMutablePointer<ObjCBool>?) throws {
+        guard
+            let contract = contract,
+            let documentNullifier = documentNullifier,
+            let returnPointer = ret0_
+        else {
+            throw "contract, returnPointer, and/or documentNullifier are empty"
+        }
+        
+        let documentNullifierBigUInt = BigUInt(documentNullifier)
+        
+        let evmRPC = Bundle.main.object(forInfoDictionaryKey: "EVMRPC") as! String
+        let web3 = Web3(rpcURL: evmRPC)
+        
+        let registrationJson = NSDataAsset(name: "Registration.json")!.data
+        
+        let contractAddress = try EthereumAddress(hex: contract, eip55: false)
+        let registrationContract = try web3.eth.Contract(json: registrationJson, abiKey: nil, address: contractAddress)
+        
+        let isUserRegisteredMethod = registrationContract["isUserRegistered"]!
+        
+        let result = try isUserRegisteredMethod(documentNullifierBigUInt).call().wait()
+        
+        guard let resultValue = result[""] else {
+            throw "unable to get result value"
+        }
+        
+        guard let isUserRegistered = resultValue as? Bool else {
+            throw "resultValue is not Bool"
+        }
+        
+        returnPointer.initialize(to: ObjCBool(isUserRegistered))
+    }
+    
     func proveCredentialAtomicQueryMTPV2(onChainVoting inputs: Data?) throws -> Data {
         guard let inputs = inputs else {
             throw "inputs is not presented"
@@ -308,6 +342,8 @@ class StateProvider: NSObject, IdentityStateProviderProtocol {
         else {
             throw "url/method/headerKey/headerValue is invalid"
         }
+        
+        print("URL: \(urlRaw)")
         
         guard let url = URL(string: urlRaw) else {
             throw "invalid url format"

@@ -98,12 +98,7 @@ struct RegistrationWaitingView: View {
                         do {
                            try validateModel()
                         } catch let error {
-                            if !error.isCancelled {                                
-                                errorMessage = "\(error)"
-                                isErrorAlertPresent = true
-                                
-                                registrationController.currentStep = .sign
-                            }
+                            self.registerHandledError(error)
                             
                             return
                         }
@@ -134,7 +129,17 @@ struct RegistrationWaitingView: View {
                     waitingStepper += 1
                     
                     print("registering new user")
-                    try await appController.register(address: registrationEntity.address)
+                    do {
+                        try await appController.register(address: registrationEntity.address)
+                    } catch let error {
+                        if "\(error)".contains("user already registered") {
+                            self.registerHandledError("ErrorYouAlredySigned")
+                            
+                            return
+                        }
+                        
+                        throw error
+                    }
                     
                     print("New user was registered")
                     
@@ -170,6 +175,15 @@ struct RegistrationWaitingView: View {
         }
         
         self.checkingTask = task
+    }
+    
+    func registerHandledError(_ error: Error) {
+        if !error.isCancelled {
+            errorMessage = "\(error)"
+            isErrorAlertPresent = true
+            
+            registrationController.currentStep = .sign
+        }
     }
     
     func validateModel() throws {

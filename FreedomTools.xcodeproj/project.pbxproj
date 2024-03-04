@@ -12,6 +12,7 @@
 		CE004B4D2B9355D7006D0188 /* RegistrationWaitingCheckboxesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE004B4C2B9355D7006D0188 /* RegistrationWaitingCheckboxesView.swift */; };
 		CE3866412B7E5C85003BA2C5 /* NFCPassportReader in Frameworks */ = {isa = PBXBuildFile; productRef = CE3866402B7E5C85003BA2C5 /* NFCPassportReader */; };
 		CE4D931B2B51D38300E8AC67 /* KeychainUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4D931A2B51D38300E8AC67 /* KeychainUtils.swift */; };
+		CE4F26972B95FF3D000ABB0C /* Identity.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4F26962B95FF3D000ABB0C /* Identity.xcframework */; };
 		CE64068D2B8786250019BB81 /* libwitnesscalc_credentialAtomicQueryMTPV2OnChainVoting.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE64068C2B8786250019BB81 /* libwitnesscalc_credentialAtomicQueryMTPV2OnChainVoting.a */; };
 		CE70B3932B5689CC005F5868 /* StorageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70B3922B5689CC005F5868 /* StorageUtils.swift */; };
 		CE7908FB2B88C38B000FE927 /* Web3 in Frameworks */ = {isa = PBXBuildFile; productRef = CE7908FA2B88C38B000FE927 /* Web3 */; };
@@ -21,7 +22,6 @@
 		CE81E8DA2B7A5D8300B7545C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE81E8DC2B7A5D8300B7545C /* Localizable.strings */; };
 		CE81E8DF2B7A8EDD00B7545C /* LocalizationSwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE81E8DE2B7A8EDD00B7545C /* LocalizationSwitcherView.swift */; };
 		CE85D9DA2B91D6DD008F0E13 /* RegistrationDetailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85D9D92B91D6DD008F0E13 /* RegistrationDetailsHeaderView.swift */; };
-		CE85D9E62B921D0B008F0E13 /* Identity.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE85D9E52B921D0B008F0E13 /* Identity.xcframework */; };
 		CE85D9E82B922B87008F0E13 /* RegistrationManifestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85D9E72B922B87008F0E13 /* RegistrationManifestView.swift */; };
 		CE85D9EA2B923B46008F0E13 /* RegistrationSignedManifestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85D9E92B923B46008F0E13 /* RegistrationSignedManifestView.swift */; };
 		CE85D9EC2B925865008F0E13 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85D9EB2B925865008F0E13 /* RegistrationController.swift */; };
@@ -123,6 +123,7 @@
 		CE004B4A2B934729006D0188 /* RegistrationWaitingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationWaitingView.swift; sourceTree = "<group>"; };
 		CE004B4C2B9355D7006D0188 /* RegistrationWaitingCheckboxesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationWaitingCheckboxesView.swift; sourceTree = "<group>"; };
 		CE4D931A2B51D38300E8AC67 /* KeychainUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainUtils.swift; sourceTree = "<group>"; };
+		CE4F26962B95FF3D000ABB0C /* Identity.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Identity.xcframework; sourceTree = "<group>"; };
 		CE64068C2B8786250019BB81 /* libwitnesscalc_credentialAtomicQueryMTPV2OnChainVoting.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwitnesscalc_credentialAtomicQueryMTPV2OnChainVoting.a; sourceTree = "<group>"; };
 		CE64068E2B8787B80019BB81 /* witnesscalc_credentialAtomicQueryMTPV2OnChainVoting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = witnesscalc_credentialAtomicQueryMTPV2OnChainVoting.h; sourceTree = "<group>"; };
 		CE70B3922B5689CC005F5868 /* StorageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageUtils.swift; sourceTree = "<group>"; };
@@ -132,7 +133,6 @@
 		CE81E8DD2B7A5D8400B7545C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CE81E8DE2B7A8EDD00B7545C /* LocalizationSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationSwitcherView.swift; sourceTree = "<group>"; };
 		CE85D9D92B91D6DD008F0E13 /* RegistrationDetailsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationDetailsHeaderView.swift; sourceTree = "<group>"; };
-		CE85D9E52B921D0B008F0E13 /* Identity.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Identity.xcframework; sourceTree = "<group>"; };
 		CE85D9E72B922B87008F0E13 /* RegistrationManifestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationManifestView.swift; sourceTree = "<group>"; };
 		CE85D9E92B923B46008F0E13 /* RegistrationSignedManifestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationSignedManifestView.swift; sourceTree = "<group>"; };
 		CE85D9EB2B925865008F0E13 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
@@ -253,7 +253,7 @@
 				CEE51BE02B8DF85C00B5D1DE /* Alamofire in Frameworks */,
 				CE7908FD2B88C38B000FE927 /* Web3ContractABI in Frameworks */,
 				CE7908FB2B88C38B000FE927 /* Web3 in Frameworks */,
-				CE85D9E62B921D0B008F0E13 /* Identity.xcframework in Frameworks */,
+				CE4F26972B95FF3D000ABB0C /* Identity.xcframework in Frameworks */,
 				CE3866412B7E5C85003BA2C5 /* NFCPassportReader in Frameworks */,
 				CEC6DCC02B7E301500E63213 /* libwitnesscalc_passportVerificationSHA1.a in Frameworks */,
 			);
@@ -453,7 +453,7 @@
 		CEDFC1E82B5ECFCA00E0691B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CE85D9E52B921D0B008F0E13 /* Identity.xcframework */,
+				CE4F26962B95FF3D000ABB0C /* Identity.xcframework */,
 				CE7909082B88F295000FE927 /* witnesscalc_voteSMT.h */,
 				CE7909062B88F285000FE927 /* libwitnesscalc_voteSMT.a */,
 				CE64068E2B8787B80019BB81 /* witnesscalc_credentialAtomicQueryMTPV2OnChainVoting.h */,

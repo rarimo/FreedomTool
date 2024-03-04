@@ -1,0 +1,557 @@
+[
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "documentNullifier",
+        "type": "uint256"
+      },
+      {
+        "components": [
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "issuingAuthority",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "documentNullifier",
+                "type": "uint256"
+              },
+              {
+                "internalType": "bytes32",
+                "name": "commitment",
+                "type": "bytes32"
+              }
+            ],
+            "internalType": "struct IRegisterVerifier.RegisterProofParams",
+            "name": "registerProofParams",
+            "type": "tuple"
+          },
+          {
+            "internalType": "address",
+            "name": "registrationContractAddress",
+            "type": "address"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct IRegisterVerifier.RegisterProofInfo",
+        "name": "registerProofInfo",
+        "type": "tuple"
+      }
+    ],
+    "name": "RegisterAccepted",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "countIssuingAuthorityBlacklist",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "countIssuingAuthorityWhitelist",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "schema_",
+        "type": "uint256"
+      }
+    ],
+    "name": "getAllowedIssuers",
+    "outputs": [
+      {
+        "internalType": "uint256[]",
+        "name": "",
+        "type": "uint256[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "registrationContract_",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "documentNullifier_",
+        "type": "uint256"
+      }
+    ],
+    "name": "getRegisterProofInfo",
+    "outputs": [
+      {
+        "components": [
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "issuingAuthority",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "documentNullifier",
+                "type": "uint256"
+              },
+              {
+                "internalType": "bytes32",
+                "name": "commitment",
+                "type": "bytes32"
+              }
+            ],
+            "internalType": "struct IRegisterVerifier.RegisterProofParams",
+            "name": "registerProofParams",
+            "type": "tuple"
+          },
+          {
+            "internalType": "address",
+            "name": "registrationContractAddress",
+            "type": "address"
+          }
+        ],
+        "internalType": "struct IRegisterVerifier.RegisterProofInfo",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "schema_",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "issuerId_",
+        "type": "uint256"
+      }
+    ],
+    "name": "isAllowedIssuer",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "registrationContract_",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "documentNullifier_",
+        "type": "uint256"
+      }
+    ],
+    "name": "isIdentityRegistered",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "issuingAuthority_",
+        "type": "uint256"
+      }
+    ],
+    "name": "isIssuingAuthorityBlacklisted",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "issuingAuthority_",
+        "type": "uint256"
+      }
+    ],
+    "name": "isIssuingAuthorityWhitelisted",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "offset_",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "limit_",
+        "type": "uint256"
+      }
+    ],
+    "name": "listIssuingAuthorityBlacklist",
+    "outputs": [
+      {
+        "internalType": "uint256[]",
+        "name": "",
+        "type": "uint256[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "offset_",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "limit_",
+        "type": "uint256"
+      }
+    ],
+    "name": "listIssuingAuthorityWhitelist",
+    "outputs": [
+      {
+        "internalType": "uint256[]",
+        "name": "",
+        "type": "uint256[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "issuerId",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "issuerState",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "createdAtTimestamp",
+                "type": "uint256"
+              },
+              {
+                "internalType": "bytes32[]",
+                "name": "merkleProof",
+                "type": "bytes32[]"
+              }
+            ],
+            "internalType": "struct ILightweightState.StatesMerkleData",
+            "name": "statesMerkleData",
+            "type": "tuple"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "inputs",
+            "type": "uint256[]"
+          },
+          {
+            "internalType": "uint256[2]",
+            "name": "a",
+            "type": "uint256[2]"
+          },
+          {
+            "internalType": "uint256[2][2]",
+            "name": "b",
+            "type": "uint256[2][2]"
+          },
+          {
+            "internalType": "uint256[2]",
+            "name": "c",
+            "type": "uint256[2]"
+          }
+        ],
+        "internalType": "struct IBaseVerifier.ProveIdentityParams",
+        "name": "proveIdentityParams_",
+        "type": "tuple"
+      },
+      {
+        "components": [
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "issuingAuthority",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "documentNullifier",
+                "type": "uint256"
+              },
+              {
+                "internalType": "bytes32",
+                "name": "commitment",
+                "type": "bytes32"
+              }
+            ],
+            "internalType": "struct IRegisterVerifier.RegisterProofParams",
+            "name": "registerProofParams",
+            "type": "tuple"
+          },
+          {
+            "internalType": "address",
+            "name": "registrationContractAddress",
+            "type": "address"
+          }
+        ],
+        "internalType": "struct IRegisterVerifier.RegisterProofInfo",
+        "name": "registerProofInfo_",
+        "type": "tuple"
+      }
+    ],
+    "name": "proveRegistration",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract IZKPQueriesStorage",
+        "name": "newZKPQueriesStorage_",
+        "type": "address"
+      }
+    ],
+    "name": "setZKPQueriesStorage",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "issuerId",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "issuerState",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "createdAtTimestamp",
+                "type": "uint256"
+              },
+              {
+                "internalType": "bytes32[]",
+                "name": "merkleProof",
+                "type": "bytes32[]"
+              }
+            ],
+            "internalType": "struct ILightweightState.StatesMerkleData",
+            "name": "statesMerkleData",
+            "type": "tuple"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "inputs",
+            "type": "uint256[]"
+          },
+          {
+            "internalType": "uint256[2]",
+            "name": "a",
+            "type": "uint256[2]"
+          },
+          {
+            "internalType": "uint256[2][2]",
+            "name": "b",
+            "type": "uint256[2][2]"
+          },
+          {
+            "internalType": "uint256[2]",
+            "name": "c",
+            "type": "uint256[2]"
+          }
+        ],
+        "internalType": "struct IBaseVerifier.ProveIdentityParams",
+        "name": "proveIdentityParams_",
+        "type": "tuple"
+      },
+      {
+        "components": [
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "issuingAuthority",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "documentNullifier",
+                "type": "uint256"
+              },
+              {
+                "internalType": "bytes32",
+                "name": "commitment",
+                "type": "bytes32"
+              }
+            ],
+            "internalType": "struct IRegisterVerifier.RegisterProofParams",
+            "name": "registerProofParams",
+            "type": "tuple"
+          },
+          {
+            "internalType": "address",
+            "name": "registrationContractAddress",
+            "type": "address"
+          }
+        ],
+        "internalType": "struct IRegisterVerifier.RegisterProofInfo",
+        "name": "registerProofInfo_",
+        "type": "tuple"
+      },
+      {
+        "components": [
+          {
+            "internalType": "bytes32",
+            "name": "newIdentitiesStatesRoot",
+            "type": "bytes32"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "root",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "createdAtTimestamp",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct ILightweightState.GistRootData",
+            "name": "gistData",
+            "type": "tuple"
+          },
+          {
+            "internalType": "bytes",
+            "name": "proof",
+            "type": "bytes"
+          }
+        ],
+        "internalType": "struct IBaseVerifier.TransitStateParams",
+        "name": "transitStateParams_",
+        "type": "tuple"
+      }
+    ],
+    "name": "transitStateAndProveRegistration",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "schema_",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "issuerIds_",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "bool",
+        "name": "isAdding_",
+        "type": "bool"
+      }
+    ],
+    "name": "updateAllowedIssuers",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "zkpQueriesStorage",
+    "outputs": [
+      {
+        "internalType": "contract IZKPQueriesStorage",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

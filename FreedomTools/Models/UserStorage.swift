@@ -30,6 +30,10 @@ class UserStorage {
         return try JSONDecoder().decode(User.self, from: Data(json.bytes))
     }
     
+    static func eraceUser(id: String) throws {
+        try keychain.remove(id)
+    }
+    
     static func setUser(user: User) throws {        
         let jsonData = try JSONEncoder().encode(user)
         

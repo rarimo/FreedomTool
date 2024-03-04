@@ -71,6 +71,7 @@
 @protocol IdentityStateProvider <NSObject>
 - (NSData* _Nullable)fetch:(NSString* _Nullable)url method:(NSString* _Nullable)method body:(NSData* _Nullable)body headerKey:(NSString* _Nullable)headerKey headerValue:(NSString* _Nullable)headerValue error:(NSError* _Nullable* _Nullable)error;
 - (NSData* _Nullable)getGISTProof:(NSString* _Nullable)userId error:(NSError* _Nullable* _Nullable)error;
+- (BOOL)isUserRegistered:(NSString* _Nullable)contract documentNullifier:(NSData* _Nullable)documentNullifier ret0_:(BOOL* _Nullable)ret0_ error:(NSError* _Nullable* _Nullable)error;
 - (void)localPrinter:(NSString* _Nullable)msg;
 - (NSData* _Nullable)proveAuthV2:(NSData* _Nullable)inputs error:(NSError* _Nullable* _Nullable)error;
 - (NSData* _Nullable)proveCredentialAtomicQueryMTPV2OnChainVoting:(NSData* _Nullable)inputs error:(NSError* _Nullable* _Nullable)error;
@@ -988,6 +989,7 @@ FOUNDATION_EXPORT IdentityIdentity* _Nullable IdentityNewIdentityWithData(NSStri
 - (nonnull instancetype)initWithRef:(_Nonnull id)ref;
 - (NSData* _Nullable)fetch:(NSString* _Nullable)url method:(NSString* _Nullable)method body:(NSData* _Nullable)body headerKey:(NSString* _Nullable)headerKey headerValue:(NSString* _Nullable)headerValue error:(NSError* _Nullable* _Nullable)error;
 - (NSData* _Nullable)getGISTProof:(NSString* _Nullable)userId error:(NSError* _Nullable* _Nullable)error;
+- (BOOL)isUserRegistered:(NSString* _Nullable)contract documentNullifier:(NSData* _Nullable)documentNullifier ret0_:(BOOL* _Nullable)ret0_ error:(NSError* _Nullable* _Nullable)error;
 - (void)localPrinter:(NSString* _Nullable)msg;
 - (NSData* _Nullable)proveAuthV2:(NSData* _Nullable)inputs error:(NSError* _Nullable* _Nullable)error;
 - (NSData* _Nullable)proveCredentialAtomicQueryMTPV2OnChainVoting:(NSData* _Nullable)inputs error:(NSError* _Nullable* _Nullable)error;

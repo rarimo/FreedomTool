@@ -17,6 +17,8 @@ class AppController: ObservableObject {
         guard let activeUserId = UserStorage.getActiveUserId() else {
             print("No active userID found")
             
+            
+            
             return
         }
         

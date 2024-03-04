@@ -61,7 +61,9 @@
 "Hours" = "часов";
 "LessThanHour" = "Меньше часа";
 "ErrorIsNotAdult" = "Вы не совершеннолетние";
-"ErrorYourDocumentExpired" = "Your document has expired";
+"ErrorYourDocumentExpired" = "Срок действия вашего документа истек";
+"ErrorYouAlredySigned" = "Вы уже подписали этот манифест с другого устройства";
+"ErrorIdentityRevoked" = "Вы не можете пройти верификацию на нескольких устройствах";
 "Ended" = "Завершено";
 "Heading" = "ЗАГОЛОВОК";
 "Description" = "ОПИСАНИЕ";
