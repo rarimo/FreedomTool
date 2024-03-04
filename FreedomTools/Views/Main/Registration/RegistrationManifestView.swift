@@ -87,7 +87,7 @@ struct RegistrationManifestView: View {
                 }
             }
             .buttonStyle(.plain)
-            .disabled(self.registrationEntity.remark.isActive ?? false)
+            .disabled(!(self.registrationEntity.remark.isActive ?? true))
             .frame(width: 341, height: 48)
         }
     }

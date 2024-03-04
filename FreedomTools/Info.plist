@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>IssuerNodeURL</key>
-	<string>https://issuer.polygon.robotornot.mainnet-beta.rarimo.com</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>RobotoMono-Bold.ttf</string>
@@ -35,6 +33,10 @@
 		<string>A0000002480300</string>
 		<string>A00000045645444C2D3031</string>
 	</array>
+	<key>RegistryPollType</key>
+	<string>Simple Registration</string>
+	<key>IssuerNodeURL</key>
+	<string>https://issuer.polygon.robotornot.mainnet-beta.rarimo.com</string>
 	<key>IdentityProviderNodeURL</key>
 	<string>https://api.stage.freedomtool.org</string>
 	<key>VotingCredentialType</key>
@@ -45,8 +47,6 @@
 	<string>https://rpc.qtestnet.org/</string>
 	<key>VotingRegistryAddress</key>
 	<string>0xECB5371C727a664160c4F4360af77F0Fe4aeb7F9</string>
-	<key>RegistryPollType</key>
-	<string>Simple Registration</string>
 	<key>VotingProposer</key>
 	<string>0xf41ceE234219D6cc3d90A6996dC3276aD378cfCF</string>
 	<key>ProofVerificationRelayerURL</key>
