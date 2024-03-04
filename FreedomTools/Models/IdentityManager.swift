@@ -168,64 +168,6 @@ class IdentityManager {
         throw "Unsupported digest algorithm"
     }
     
-//    func getVotingRoot() async throws -> Data {
-//        let registerContract = try getRegisterContract()
-//        
-//        let response = try registerContract["getRoot"]!().call().wait()
-//                
-//        guard let root = response[""] as? Data else {
-//            throw "Invalid root type"
-//        }
-//        
-//        return root
-//    }
-//    
-//    func getVotingSiblings() async throws -> [Data] {
-//        let registerContract = try getRegisterContract()
-//        
-//        let commitmentIndex = try identity.getCommitmentIndex()
-//        
-//        let response = try registerContract["getProof"]!(commitmentIndex).call().wait()
-//        
-//        guard let proof = response[""] as? [String: Any] else {
-//            throw "Proof is not hex"
-//        }
-//        
-//        guard let siblings = proof["siblings"] as? [Data] else {
-//            throw "Proof does not contain siblings"
-//        }
-//        
-//        return siblings
-//    }
-//    
-//    func getVotingInputs(vote: String) async throws -> Data {
-//        guard let votingAddressStr = Bundle.main.object(forInfoDictionaryKey: "VotingAddress") as? String else {
-//            throw "VotingAddress is not defined"
-//        }
-//        
-//        let root = try await getVotingRoot()
-//        let siblingsData = try await getVotingSiblings()
-//        
-//        let secret = identity.getSecretIntStr()
-//        let nullifier = identity.getNullifierIntStr()
-//        
-//        var siblings = [String]()
-//        for siblingData in siblingsData {
-//            siblings.append("0x" + siblingData.hexStringEncoded())
-//        }
-//        
-//        let votingInputs = VotingInputs(
-//            root: "0x" + root.toHexString(),
-//            vote: vote,
-//            votingAddress: votingAddressStr,
-//            secret: secret,
-//            nullifier: nullifier,
-//            siblings: siblings
-//        )
-//        
-//        return try JSONEncoder().encode(votingInputs)
-//    }
-    
     func register(issuerDid: String, votingAddress: String, issuingAuthorityCode: String) async throws {
         let calldata = try identity.register(
             Self.getRarimoCoreURL(),
@@ -239,15 +181,15 @@ class IdentityManager {
     }
     
     func sendCalldata(_ calldata: Data) async throws {
-        guard var identityProviderNodeURL = Bundle.main.object(forInfoDictionaryKey: "IdentityProviderNodeURL") as? String else {
-            throw "IdentityProviderNodeURL is not defined"
+        guard var proofVerificationRelayerURL = Bundle.main.object(forInfoDictionaryKey: "ProofVerificationRelayerURL") as? String else {
+            throw "ProofVerificationRelayerURL is not defined"
         }
         
-        identityProviderNodeURL += "/integrations/proof-verification-relayer/v1/verify-proof"
+        proofVerificationRelayerURL += "/integrations/proof-verification-relayer/v1/verify-proof"
         
         let calldataRequest = SendCalldataRequest(data: SendCalldataRequestData(txData: "0x" + calldata.toHexString()))
         
-        let _ = try await AF.request(identityProviderNodeURL, method: .post, parameters: calldataRequest, encoder: JSONParameterEncoder() )
+        let _ = try await AF.request(proofVerificationRelayerURL, method: .post, parameters: calldataRequest, encoder: JSONParameterEncoder() )
             .serializingData()
             .result
             .get()
@@ -342,8 +284,6 @@ class StateProvider: NSObject, IdentityStateProviderProtocol {
         else {
             throw "url/method/headerKey/headerValue is invalid"
         }
-        
-        print("URL: \(urlRaw)")
         
         guard let url = URL(string: urlRaw) else {
             throw "invalid url format"

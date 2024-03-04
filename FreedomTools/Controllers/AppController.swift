@@ -17,8 +17,6 @@ class AppController: ObservableObject {
         guard let activeUserId = UserStorage.getActiveUserId() else {
             print("No active userID found")
             
-            
-            
             return
         }
         
@@ -57,6 +55,15 @@ class AppController: ObservableObject {
         
         self.user = user
         self.identityManager = identityManager
+    }
+    
+    func eraceUser() throws {
+        guard let userId = user?.id else {
+            throw "failed to get user id"
+        }
+        
+        UserStorage.eraceActiveUserId()
+        try UserStorage.eraceUser(id: userId)
     }
     
     func newUser(_ model: NFCPassportModel) async throws {        

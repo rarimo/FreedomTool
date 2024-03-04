@@ -132,6 +132,14 @@ struct RegistrationWaitingView: View {
                     do {
                         try await appController.register(address: registrationEntity.address)
                     } catch let error {
+                        if "\(error)".contains("no non-revoked credentials found") {
+                            try self.appController.eraceUser()
+                            
+                            self.registerHandledError("ErrorIdentityRevoked")
+                            
+                            return
+                        }
+                        
                         if "\(error)".contains("user already registered") {
                             self.registerHandledError("ErrorYouAlredySigned")
                             
@@ -181,6 +189,9 @@ struct RegistrationWaitingView: View {
         if !error.isCancelled {
             errorMessage = "\(error)"
             isErrorAlertPresent = true
+            
+            appController.identityManager = nil
+            appController.user = nil
             
             registrationController.currentStep = .sign
         }

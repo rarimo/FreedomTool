@@ -129,7 +129,8 @@ struct RegistrationEntity {
             name: "Cool Poll",
             description: "Some cool description",
             excerpt: "Short description",
-            externalURL: "https://example.com"
+            externalURL: "https://example.com",
+            isActive: nil
         )
     )
 }
@@ -138,12 +139,14 @@ struct RegistrationRemark: Codable {
     let chainID, contractAddress, name, description: String
     let excerpt: String
     let externalURL: String
+    let isActive: Bool?
     
     enum CodingKeys: String, CodingKey {
         case chainID = "chain_id"
         case contractAddress = "contract_address"
         case name, description, excerpt
         case externalURL = "external_url"
+        case isActive = "is_active"
     }
     
     static func fromURL(url: String) async throws -> Self {

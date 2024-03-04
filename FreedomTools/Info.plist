@@ -49,5 +49,7 @@
 	<string>Simple Registration</string>
 	<key>VotingProposer</key>
 	<string>0xf41ceE234219D6cc3d90A6996dC3276aD378cfCF</string>
+	<key>ProofVerificationRelayerURL</key>
+	<string>https://api.stage.freedomtool.org</string>
 </dict>
 </plist>

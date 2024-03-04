@@ -41,9 +41,6 @@ struct RegistrationListElemView: View {
                         .frame(width: 20, height: 20)
                     RegistrationStatusView(registrationEntity: registrationEntity)
                     Spacer()
-                    Image("Manifest")
-                        .resizable()
-                        .frame(width: 66, height: 20)
                 }
                 .padding(.bottom)
                 .padding(.horizontal)
