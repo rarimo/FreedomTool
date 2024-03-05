@@ -5,6 +5,7 @@
 //  Created by Ivan Lele on 02.03.2024.
 //
 
+import Web3
 import SwiftUI
 import NFCPassportReader
 
@@ -101,7 +102,17 @@ struct RegistrationWaitingView: View {
                             return
                         }
                         
-                        try await appController.newUser(model!)
+                        do {
+                            try await appController.newUser(model!)
+                        } catch let error {
+                            if "\(error)".contains("ErrorTooManyRequest") {
+                                self.registerHandledError("ErrorTooManyRequest")
+                                
+                                return
+                            }
+                            
+                            throw error
+                        }
                     }
                 }
                 
@@ -114,13 +125,15 @@ struct RegistrationWaitingView: View {
                     while !isFinalized {
                         isFinalized = try appController.isUserFinalized()
                         // sleep 10 second
-                        try await Task.sleep(nanoseconds: 10000000000)
+                        try await Task.sleep(nanoseconds: 10_000_000_000)
                     }
                     
                     waitingStepper += 1
                     
                     do {
-                        try await appController.register(address: registrationEntity.address)
+                        let txHash = try await appController.register(address: registrationEntity.address)
+                        
+                        print("register tx hash: \(txHash)")
                     } catch let error {
                         if "\(error)".contains("no non-revoked credentials found") {
                             try self.appController.eraceUser()
@@ -153,7 +166,7 @@ struct RegistrationWaitingView: View {
                         address: registrationEntity.address
                     )
                     // sleep 10 second
-                    try await Task.sleep(nanoseconds: 10000000000)
+                    try await Task.sleep(nanoseconds: 10_000_000_000)
                 }
                 
                 waitingStepper += 1
@@ -190,6 +203,16 @@ struct RegistrationWaitingView: View {
         let expityDate = model.documentExpiryDate.parsableDateToDate()
         if Date() > expityDate {
             throw "ErrorYourDocumentExpired"
+        }
+        
+        if registrationEntity.issuingAuthorityWhitelist.isEmpty {
+            return
+        }
+        
+        let issuingAuthorityCodeStr = model.issuingAuthority.reversedInt()
+        let issuingAuthorityCode = BigUInt(issuingAuthorityCodeStr, radix: 10) ?? BigUInt(0)
+        if !registrationEntity.issuingAuthorityWhitelist.contains(issuingAuthorityCode) {
+            throw "ErrorIssuingAuthority"
         }
     }
 }

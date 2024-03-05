@@ -69,10 +69,15 @@ class IdentityManager {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = payload
         
-        return try await AF.request(request)
+        let response = await AF.request(request)
             .serializingDecodable(CreateIdentityResponse.self)
-            .result
-            .get()
+            .response
+        
+        if response.response?.statusCode == 429 {
+            throw "ErrorTooManyRequest"
+        }
+        
+        return try response.result.get()
     }
     
     func preparePayloadForCreateIdentity(_ model: NFCPassportModel) throws -> Data {
@@ -168,7 +173,7 @@ class IdentityManager {
         throw "Unsupported digest algorithm"
     }
     
-    func register(issuerDid: String, votingAddress: String, issuingAuthorityCode: String) async throws {
+    func register(issuerDid: String, votingAddress: String, issuingAuthorityCode: String) async throws -> String {
         let calldata = try identity.register(
             Self.getRarimoCoreURL(),
             issuerDid: issuerDid,
@@ -177,10 +182,10 @@ class IdentityManager {
             issuingAuthorityCode: issuingAuthorityCode
         )
         
-        try await sendCalldata(calldata)
+        return try await sendCalldata(calldata)
     }
     
-    func sendCalldata(_ calldata: Data) async throws {
+    func sendCalldata(_ calldata: Data) async throws -> String {
         guard var proofVerificationRelayerURL = Bundle.main.object(forInfoDictionaryKey: "ProofVerificationRelayerURL") as? String else {
             throw "ProofVerificationRelayerURL is not defined"
         }
@@ -189,10 +194,17 @@ class IdentityManager {
         
         let calldataRequest = SendCalldataRequest(data: SendCalldataRequestData(txData: "0x" + calldata.toHexString()))
         
-        let _ = try await AF.request(proofVerificationRelayerURL, method: .post, parameters: calldataRequest, encoder: JSONParameterEncoder() )
-            .serializingData()
+        let relayerResponse = try await AF.request(
+            proofVerificationRelayerURL,
+            method: .post,
+            parameters: calldataRequest,
+            encoder: JSONParameterEncoder()
+        )
+            .serializingDecodable(RelayerResponse.self)
             .result
             .get()
+        
+        return relayerResponse.data.attributes.txHash
     }
     
     static func getIssuerProviderNodeURL() throws -> String {
@@ -288,7 +300,6 @@ class StateProvider: NSObject, IdentityStateProviderProtocol {
         guard let url = URL(string: urlRaw) else {
             throw "invalid url format"
         }
-        
         
         var request = URLRequest(url: url)
         request.httpMethod = method
@@ -642,4 +653,24 @@ struct SendCalldataRequestData: Codable {
     enum CodingKeys: String, CodingKey {
         case txData = "tx_data"
     }
+}
+
+// MARK: - Attributes
+struct RelayerResponseAttributes: Codable {
+    let txHash: String
+    
+    enum CodingKeys: String, CodingKey {
+        case txHash = "tx_hash"
+    }
+}
+
+// MARK: - GISTResponse
+struct RelayerResponse: Codable {
+    let data: RelayerResponseData
+}
+
+// MARK: - DataClass
+struct RelayerResponseData: Codable {
+    let id, type: String
+    let attributes: RelayerResponseAttributes
 }

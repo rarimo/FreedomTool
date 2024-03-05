@@ -64,6 +64,8 @@
 "ErrorYourDocumentExpired" = "Your document has expired";
 "ErrorYouAlredySigned" = "You have already signed this manifest from another device";
 "ErrorIdentityRevoked" = "You cannot be verified on multiple devices";
+"ErrorIssuingAuthority" = "Your issuing authority is not eligible for registration";
+"ErrorTooManyRequest" = "You cannot create a new identity, so try again later";
 "Ended" = "Ended";
 "Heading" = "HEADING";
 "Description" = "DESCRIPTION";
@@ -83,3 +85,4 @@
 "SendingSignature" = "Sending a signature";
 "Finalizing" = "Finalizing";
 "ErrorTitle" = "You can't sign";
+"CitizenOf" = "Citizen of";

@@ -1,3 +1,4 @@
+import Web3
 import Foundation
 import CommonCrypto
 import KeychainAccess
@@ -57,16 +58,7 @@ class UserStorage {
         var requestedIn: [String]
         
         func getIssuingAuthorityCode() -> String {
-            switch self.issuingAuthority {
-            case "UKR":
-                return "4903594"
-            case "RUS":
-                return "13281866"
-            case "GEO":
-                return "15901410"
-            default:
-                return "0"
-            }
+            return self.issuingAuthority.reversedInt()
         }
         
         static let sample = User(
@@ -81,6 +73,47 @@ class UserStorage {
             creationTimestamp: 1709319521,
             requestedIn: []
         )
+    }
+}
+
+extension String {
+    func reversedInt() -> String {
+        var result = ""
+        for byte in self.utf8 {
+            let bitsStr: String = byte.bits()
+            let bitsStrReversed = String(bitsStr.reversed()).dropFirst()
+            
+            result = bitsStrReversed + result
+        }
+
+        return String(Int(result, radix: 2) ?? 0)
+    }
+}
+
+extension String {
+    func reversedIntPreImage() -> String {
+        let rawInt = Int32(self, radix: 10) ?? 0
+        
+        var result = ""
+        for byte in rawInt.data.dropLast() {
+            let bitsStr: String = byte.bits()
+            let bitsStrReversed = String(bitsStr.reversed()).dropFirst()
+            
+            result = bitsStrReversed + result
+        }
+        
+        let intPreImageRepr = Int(result, radix: 2) ?? 0
+        
+        let preImageRepr = intPreImageRepr.data
+        
+        return String(data: preImageRepr, encoding: .utf8) ?? ""
+    }
+}
+
+extension FixedWidthInteger {
+    var data: Data {
+        let data = withUnsafeBytes(of: self) { Data($0) }
+        return data
     }
 }
 
