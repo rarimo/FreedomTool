@@ -204,7 +204,7 @@ class IdentityManager {
             .result
             .get()
         
-        return relayerResponse.data.attributes.txHash
+        return relayerResponse.attributes.txHash
     }
     
     static func getIssuerProviderNodeURL() throws -> String {
@@ -655,22 +655,17 @@ struct SendCalldataRequestData: Codable {
     }
 }
 
+struct RelayerResponse: Codable {
+    let id, type: String
+    let attributes: RelayerResponseAttributes
+}
+
 // MARK: - Attributes
 struct RelayerResponseAttributes: Codable {
     let txHash: String
-    
+
     enum CodingKeys: String, CodingKey {
         case txHash = "tx_hash"
     }
 }
 
-// MARK: - GISTResponse
-struct RelayerResponse: Codable {
-    let data: RelayerResponseData
-}
-
-// MARK: - DataClass
-struct RelayerResponseData: Codable {
-    let id, type: String
-    let attributes: RelayerResponseAttributes
-}
