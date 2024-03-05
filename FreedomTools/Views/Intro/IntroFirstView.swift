@@ -27,10 +27,10 @@ struct IntroFirstView: View {
                 Text("IntroZeroDescription")
                     .font(.custom("RobotoMono-Regular", size: 14))
                     .opacity(0.5)
-                    .padding(.horizontal)
-                    .frame(width: 300)
                 Spacer()
             }
+            .padding(.horizontal)
+            .padding(.leading)
             Image("IntroPeople")
                 .resizable()
                 .frame(width: 390, height: 390)

@@ -52,6 +52,23 @@ struct RegistrationVerifyView: View {
                 Spacer()
             }
             .padding(.horizontal)
+            if !registrationEntity.issuingAuthorityWhitelist.isEmpty {
+                HStack {
+                    Image("YellowCircle")
+                        .resizable()
+                        .frame(width: 20.83, height: 21.67)
+                    Spacer()
+                        .frame(width: 15)
+                    Text("CitizenOf")
+                        .font(.custom("RobotoSlab-Regular", size: 14))
+                    ForEach(registrationEntity.issuingAuthorityWhitelist, id: \.self) { issuingAuthority in
+                        Text(issuingAuthority.description.reversedIntPreImage())
+                            .font(.custom("RobotoSlab-Regular", size: 14))
+                    }
+                    Spacer()
+                }
+                .padding(.horizontal)
+            }
             Spacer()
                 .frame(height: 40)
             Text("VerifyTip")

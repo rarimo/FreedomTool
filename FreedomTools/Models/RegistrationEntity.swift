@@ -15,6 +15,7 @@ struct RegistrationEntity {
     let address: String
     let info: RegistrationInfo
     let remark: RegistrationRemark
+    let issuingAuthorityWhitelist: [BigUInt]
     
     static func fromRegistryLast() async throws -> Self {
         let evmRPC = Bundle.main.object(forInfoDictionaryKey: "EVMRPC") as! String
@@ -23,6 +24,10 @@ struct RegistrationEntity {
         
         let lastPool = try await Self.getLastRegisryEntity(web3)
         
+        let registerVerifier = try await Self.getRegisterVerifier(web3, lastPool: lastPool)
+        
+        let issuingAuthorityWhitelist = try await Self.getIssuingAuthorityWhitelist(web3, registerVerifier: registerVerifier)
+        
         let info = try await Self.getRegistrationInfo(web3, lastPool: lastPool)
         
         let remark = try await RegistrationRemark.fromURL(url: info.remark)
@@ -30,8 +35,90 @@ struct RegistrationEntity {
         return Self(
             address: lastPool.hex(eip55: false),
             info: info,
-            remark: remark
+            remark: remark,
+            issuingAuthorityWhitelist: issuingAuthorityWhitelist
         )
+    }
+    
+    static func getRegisterVerifier(_ web3: Web3, lastPool: EthereumAddress) async throws -> EthereumAddress {
+        let registrationJson = NSDataAsset(name: "Registration.json")!.data
+        
+        let registrationContract = try web3.eth.Contract(json: registrationJson, abiKey: nil, address: lastPool)
+        
+        let registerVerifierMethod = registrationContract["registerVerifier"]!
+        
+        let result = try registerVerifierMethod().call().wait()
+        
+        guard let resultValue = result[""] else {
+            throw "unable to get result value"
+        }
+        
+        guard let registerVerifier = resultValue as? EthereumAddress else {
+            throw "resultValue is not EthereumAddress"
+        }
+        
+        return registerVerifier
+    }
+    
+    static func getIssuingAuthorityWhitelist(_ web3: Web3, registerVerifier: EthereumAddress) async throws -> [BigUInt] {
+        let registerVerifierJson = NSDataAsset(name: "IRegisterVerifier.json")!.data
+        
+        let registerVerifierContract = try web3.eth.Contract(
+            json: registerVerifierJson,
+            abiKey: nil,
+            address: registerVerifier
+        )
+        
+        let countIssuingAuthorityWhitelist = try await Self.countIssuingAuthorityWhitelist(registerVerifierContract)
+        if countIssuingAuthorityWhitelist == 0 {
+            return []
+        }
+        
+        let listIssuingAuthorityWhitelist = try await Self.listIssuingAuthorityWhitelist(
+            registerVerifierContract,
+            offset: 0,
+            limit: countIssuingAuthorityWhitelist
+        )
+        
+        return listIssuingAuthorityWhitelist
+    }
+    
+    static func countIssuingAuthorityWhitelist(
+        _ contract: DynamicContract
+    ) async throws -> BigUInt {
+        let countIssuingAuthorityWhitelistMethod = contract["countIssuingAuthorityWhitelist"]!
+        
+        let result = try countIssuingAuthorityWhitelistMethod().call().wait()
+        
+        guard let resultValue = result[""] else {
+            throw "unable to get result value"
+        }
+        
+        guard let countIssuingAuthorityWhitelist = resultValue as? BigUInt else {
+            throw "resultValue is not Int"
+        }
+        
+        return countIssuingAuthorityWhitelist
+    }
+    
+    static func listIssuingAuthorityWhitelist(
+        _ contract: DynamicContract,
+        offset: BigUInt,
+        limit: BigUInt
+    ) async throws -> [BigUInt] {
+        let listIssuingAuthorityWhitelistMethod = contract["listIssuingAuthorityWhitelist"]!
+        
+        let result = try listIssuingAuthorityWhitelistMethod(offset, limit).call().wait()
+        
+        guard let resultValue = result[""] else {
+            throw "unable to get result value"
+        }
+        
+        guard let listIssuingAuthorityWhitelist = resultValue as? [BigUInt] else {
+            throw "resultValue is not [Int]"
+        }
+        
+        return listIssuingAuthorityWhitelist
     }
     
     static func getRegistrationInfo(_ web3: Web3, lastPool: EthereumAddress) async throws -> RegistrationInfo {
@@ -131,7 +218,8 @@ struct RegistrationEntity {
             excerpt: "Short description",
             externalURL: "https://example.com",
             isActive: nil
-        )
+        ),
+        issuingAuthorityWhitelist: ["4903594"]
     )
 }
 
@@ -149,7 +237,7 @@ struct RegistrationRemark: Codable {
         case isActive
     }
     
-    static func fromURL(url: String) async throws -> Self {        
+    static func fromURL(url: String) async throws -> Self {
         return try await AF.request(url)
             .serializingDecodable(Self.self)
             .result

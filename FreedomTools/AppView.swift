@@ -1,3 +1,4 @@
+import Web3
 import SwiftUI
 import Identity
 import KeychainAccess
@@ -6,7 +7,6 @@ import NFCPassportReader
 struct AppView: View {
     @StateObject private var appController = AppController()
     @StateObject var introController = IntroController()
-    @StateObject var onboardController = OnboardController()
     @StateObject var mainController = MainController()
     @StateObject private var registrationController: RegistrationController = RegistrationController()
     

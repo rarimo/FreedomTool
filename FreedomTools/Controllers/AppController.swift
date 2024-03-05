@@ -151,7 +151,7 @@ class AppController: ObservableObject {
         return isRegistered
     }
     
-    func register(address: String) async throws {
+    func register(address: String) async throws -> String {
         guard let identityManager = identityManager else {
             throw "identity manager is not initialized"
         }
@@ -166,11 +166,13 @@ class AppController: ObservableObject {
         
         try identityManager.identity.initVerifiableCredentials(claimOfferData)
         
-        try await identityManager.register(
+        let calldata = try await identityManager.register(
             issuerDid: user.issuerDid,
             votingAddress: address,
             issuingAuthorityCode: user.getIssuingAuthorityCode()
         )
+        
+        return calldata
     }
     
     func switchLocalization() {
