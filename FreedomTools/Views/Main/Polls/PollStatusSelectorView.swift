@@ -12,34 +12,31 @@ struct PollStatusSelectorView: View {
                     isActive = true
                 }) {
                     ZStack {
-                        if isActive {
-                            RoundedRectangle(cornerRadius: 30)
-                                .foregroundStyle(.white)
-                                .shadow(radius: 1, x: 0, y: 1)
-                        }
+                        RoundedRectangle(cornerRadius: 30)
+                            .shadow(radius: 1, x: 0, y: 1)
+                            .foregroundStyle(isActive ? .white : .clear)
                         Text("Active")
                             .font(.custom("RobotoMono-Medium", size: 14))
                             .opacity(isActive ? 1 : 0.5)
                     }
-                    .frame(width: 170, height: 30)
                 }
                 .buttonStyle(.plain)
+                .frame(width: 170, height: 30)
                 Button(action: {
                     isActive = false
                 }) {
                     ZStack {
-                        if !isActive {
-                            RoundedRectangle(cornerRadius: 30)
-                                .foregroundStyle(.white)
-                                .shadow(radius: 1, x: 0, y: 1)
-                        }
+                        RoundedRectangle(cornerRadius: 30)
+                            .shadow(radius: 1, x: 0, y: 1)
+                            .foregroundStyle(!isActive ? .white : .clear)
                         Text("Finished")
                             .font(.custom("RobotoMono-Medium", size: 14))
                             .opacity(!isActive ? 1 : 0.5)
                     }
-                    .frame(width: 170, height: 30)
+                    
                 }
                 .buttonStyle(.plain)
+                .frame(width: 170, height: 30)
             }
         }
         .frame(width: 350, height: 35)

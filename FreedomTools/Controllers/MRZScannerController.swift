@@ -13,9 +13,9 @@ class MRZScannerController: ObservableObject, QKMRZScannerViewDelegate {
         let dateOfBirth = scanResult.birthdate ?? Date(timeIntervalSince1970: 0)
         let dateOfExpiry = scanResult.expiryDate ?? Date(timeIntervalSince1970: 0)
         
-        
         let mrzDateFormatter = DateFormatter()
-        mrzDateFormatter.dateFormat = "YYMMdd"
+        mrzDateFormatter.timeZone = .gmt
+        mrzDateFormatter.dateFormat = "yyMMdd"
         
         mrzKey = PassportUtils.getMRZKey(
             passportNumber: passwordNumber,

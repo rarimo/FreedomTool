@@ -1,5 +1,6 @@
 import SwiftUI
 import Identity
+import KeychainAccess
 import NFCPassportReader
 
 struct AppView: View {
@@ -7,6 +8,7 @@ struct AppView: View {
     @StateObject var introController = IntroController()
     @StateObject var onboardController = OnboardController()
     @StateObject var mainController = MainController()
+    @StateObject private var registrationController: RegistrationController = RegistrationController()
     
     var body: some View {
         ZStack {
@@ -20,12 +22,8 @@ struct AppView: View {
                 MainView(
                     appController: appController,
                     mainController: mainController,
-                    introController: introController,
-                    onboardController: onboardController
+                    introController: introController
                 )
-            }
-            if introController.isOff && !onboardController.isOff {
-                OnboardView(onboardController: onboardController)
             }
         }
         .environment(\.locale, .init(identifier: appController.localization))

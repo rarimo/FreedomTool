@@ -1,13 +1,23 @@
 import SwiftUI
 
-struct PollStatusView: View {
-    let poll: Poll
+struct RegistrationStatusView: View {
+    let till: Date
+    
+    init(registrationEntity: RegistrationEntity) {
+        let endTimestamp = registrationEntity.info.values.commitmentEndTime
+            
+        till = Date(timeIntervalSince1970: TimeInterval(Int(exactly: endTimestamp)!))
+    }
     
     var body: some View {
         HStack {
-            if case .pending(let till, _) = poll.status {
-            (Text("StartsIn") + Text(" \(till.timeUntil())"))
-                    .font(.custom("RobotoMono-Regular", size: 14))
+            if Date() < till {
+                (Text("EndsIn") + Text(" \(till.timeUntil())"))
+                    .font(.custom("RobotoMono-Regular", size: 12))
+                    .opacity(0.6)
+            } else {
+                Text("Ended")
+                    .font(.custom("RobotoMono-Regular", size: 12))
                     .opacity(0.6)
             }
         }
@@ -15,7 +25,7 @@ struct PollStatusView: View {
 }
 
 #Preview {
-    PollStatusView(poll: Poll.sampleData[0])
+    RegistrationStatusView(registrationEntity: RegistrationEntity.sample)
 }
 
 extension Date {
@@ -31,7 +41,8 @@ extension Date {
             } else if days > 0 {
                 return Text("\(days) ") + Text(LocalizedStringKey("Days"))
             } else if hours > 0 {
-                return Text("\(hours) ") + Text(LocalizedStringKey("Hours"))
+                return (Text("\(hours) ") + Text(LocalizedStringKey("Hours")))
+                    .foregroundColor(.blood)
             } else {
                 return Text(LocalizedStringKey("LessThanHour"))
             }

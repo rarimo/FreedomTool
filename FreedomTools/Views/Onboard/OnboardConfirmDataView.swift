@@ -4,7 +4,7 @@ import NFCPassportReader
 struct OnboardConfirmDataView: View {
     @ObservedObject var onboardController: OnboardController
     
-    let passportModel: NFCPassportModel
+    let passportModel: NFCPassportModel?
     
     @State var isConfirmed = false
     
@@ -17,19 +17,19 @@ struct OnboardConfirmDataView: View {
                     HStack {
                         VStack {
                             HStack {
-                                Text("\(passportModel.firstName) \(passportModel.lastName)")
+                                Text("\(passportModel?.firstName ?? "John") \(passportModel?.lastName ?? "Smith")")
                                     .font(.custom("RobotoMono-Medium", size: 17))
                                 Spacer()
                             }
                             HStack {
-                                Text("\(passportModel.gender == "M" ? "Male" : "Female")")
+                                Text("\(passportModel?.gender == "M" ? "Male" : "Female")")
                                     .font(.custom("RobotoMono-Regular", size: 15))
                                     .opacity(0.5)
                                 Spacer()
                             }
                         }
                         Spacer()
-                        Image(uiImage: passportModel.passportImage ?? UIImage(named: "ManFace")!)
+                        Image(uiImage: passportModel?.passportImage ?? UIImage(named: "ManFace")!)
                             .resizable()
                             .frame(width: 50, height: 65)
                     }
@@ -44,7 +44,7 @@ struct OnboardConfirmDataView: View {
                             .font(.custom("RobotoMono-Regular", size: 15))
                             .opacity(0.5)
                         Spacer()
-                        Text(passportModel.issuingAuthority)
+                        Text(passportModel?.issuingAuthority ?? "USA")
                             .font(.custom("RobotoMono-Medium", size: 15))
                     }
                     .padding(.bottom)
@@ -53,7 +53,7 @@ struct OnboardConfirmDataView: View {
                             .font(.custom("RobotoMono-Regular", size: 15))
                             .opacity(0.5)
                         Spacer()
-                        Text(passportModel.documentNumber)
+                        Text(passportModel?.documentNumber ?? "9324531")
                             .font(.custom("RobotoMono-Medium", size: 15))
                     }
                     .padding(.bottom)
@@ -62,7 +62,7 @@ struct OnboardConfirmDataView: View {
                             .font(.custom("RobotoMono-Regular", size: 15))
                             .opacity(0.5)
                         Spacer()
-                        Text(passportModel.documentExpiryDate.parsableDateToPretty())
+                        Text(passportModel?.documentExpiryDate.parsableDateToPretty() ?? "2030.10.10")
                             .font(.custom("RobotoMono-Medium", size: 15))
                     }
                     .padding(.bottom)
@@ -71,7 +71,7 @@ struct OnboardConfirmDataView: View {
                             .font(.custom("RobotoMono-Regular", size: 15))
                             .opacity(0.5)
                         Spacer()
-                        Text(passportModel.dateOfBirth.parsableDateToPretty())
+                        Text(passportModel?.dateOfBirth.parsableDateToPretty() ?? "2000.10.10")
                             .font(.custom("RobotoMono-Medium", size: 15))
                     }
                     .padding(.bottom)
@@ -93,5 +93,5 @@ struct OnboardConfirmDataView: View {
 }
 
 #Preview {
-    OnboardConfirmDataView(onboardController: OnboardController(), passportModel: NFCPassportModel())
+    OnboardConfirmDataView(onboardController: OnboardController(), passportModel: nil)
 }

@@ -29,7 +29,6 @@ struct PollListElemView: View {
                     Image("Calendar")
                         .resizable()
                         .frame(width: 20, height: 20)
-                    PollStatusView(poll: poll)
                     Spacer()
                     Image("RightArrow")
                         .resizable()

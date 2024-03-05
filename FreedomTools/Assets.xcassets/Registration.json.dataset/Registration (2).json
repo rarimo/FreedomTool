@@ -318,6 +318,55 @@
   },
   {
     "inputs": [],
+    "name": "getRegistrationInfo",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "string",
+            "name": "remark",
+            "type": "string"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "commitmentStartTime",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "commitmentEndTime",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct IRegistration.RegistrationValues",
+            "name": "values",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "totalRegistrations",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct IRegistration.RegistrationCounters",
+            "name": "counters",
+            "type": "tuple"
+          }
+        ],
+        "internalType": "struct IRegistration.RegistrationInfo",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "getRegistrationStatus",
     "outputs": [
       {
@@ -351,6 +400,25 @@
       }
     ],
     "name": "isRootExists",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "documentNullifier",
+        "type": "uint256"
+      }
+    ],
+    "name": "isUserRegistered",
     "outputs": [
       {
         "internalType": "bool",

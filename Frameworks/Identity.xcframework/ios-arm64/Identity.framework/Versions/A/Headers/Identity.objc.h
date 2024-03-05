@@ -19,6 +19,7 @@
 @class IdentityCircuitClaim;
 @class IdentityClaimDetails;
 @class IdentityClaimOfferResponse;
+@class IdentityCoreMTP;
 @class IdentityCreateProofRequest;
 @class IdentityCredentialHash;
 @class IdentityCredentialRequest;
@@ -27,6 +28,15 @@
 @class IdentityCredentialsRequestBody;
 @class IdentityGISTProof;
 @class IdentityGISTProofInfo;
+@class IdentityGetStateInfoResponse;
+@class IdentityIBaseVerifierProveIdentityParams;
+@class IdentityIBaseVerifierTransitStateParams;
+@class IdentityILightweightStateGistRootData;
+@class IdentityILightweightStateStatesMerkleData;
+@class IdentityIRegisterVerifierRegisterProofParams;
+@class IdentityIRegistrationRegistrationCounters;
+@class IdentityIRegistrationRegistrationParams;
+@class IdentityIRegistrationRegistrationValues;
 @class IdentityIden3SparseMerkleTreeProof;
 @class IdentityIdentity;
 @class IdentityIssuer;
@@ -34,6 +44,10 @@
 @class IdentityJSONSchema;
 @class IdentityMTP;
 @class IdentityNodeAuxValue;
+@class IdentityOperation;
+@class IdentityOperationData;
+@class IdentityOperationDetails;
+@class IdentityOperationProof;
 @class IdentityProofData;
 @class IdentityProofQuery;
 @class IdentityProofQueryCredentialSubject;
@@ -43,6 +57,8 @@
 @class IdentityQueryWithFieldName;
 @class IdentitySchemaMetadata;
 @class IdentitySerializationSchema;
+@class IdentitySparseMerkleTreeProof;
+@class IdentityStateInfo;
 @class IdentityTreeState;
 @class IdentityTreeStateIssuerPreparedState;
 @class IdentityVSResponse;
@@ -53,10 +69,12 @@
 @class IdentityStateProvider;
 
 @protocol IdentityStateProvider <NSObject>
-- (NSData* _Nullable)fetch:(NSString* _Nullable)url method:(NSString* _Nullable)method body:(NSString* _Nullable)body error:(NSError* _Nullable* _Nullable)error;
+- (NSData* _Nullable)fetch:(NSString* _Nullable)url method:(NSString* _Nullable)method body:(NSData* _Nullable)body headerKey:(NSString* _Nullable)headerKey headerValue:(NSString* _Nullable)headerValue error:(NSError* _Nullable* _Nullable)error;
 - (NSData* _Nullable)getGISTProof:(NSString* _Nullable)userId error:(NSError* _Nullable* _Nullable)error;
+- (BOOL)isUserRegistered:(NSString* _Nullable)contract documentNullifier:(NSData* _Nullable)documentNullifier ret0_:(BOOL* _Nullable)ret0_ error:(NSError* _Nullable* _Nullable)error;
 - (void)localPrinter:(NSString* _Nullable)msg;
 - (NSData* _Nullable)proveAuthV2:(NSData* _Nullable)inputs error:(NSError* _Nullable* _Nullable)error;
+- (NSData* _Nullable)proveCredentialAtomicQueryMTPV2OnChainVoting:(NSData* _Nullable)inputs error:(NSError* _Nullable* _Nullable)error;
 @end
 
 @interface IdentityAtomicQueryMTPV2OnChainVotingCircuitInputs : NSObject <goSeqRefInterface> {
@@ -283,6 +301,16 @@ JSON path
 @property (nonatomic) NSString* _Nonnull to;
 @end
 
+@interface IdentityCoreMTP : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+// skipped field CoreMTP.Proof with unsupported type: []string
+
+@end
+
 @interface IdentityCreateProofRequest : NSObject <goSeqRefInterface> {
 }
 @property(strong, readonly) _Nonnull id _ref;
@@ -384,6 +412,148 @@ JSON path
 - (IdentityGISTProof* _Nullable)getProof:(NSError* _Nullable* _Nullable)error;
 @end
 
+@interface IdentityGetStateInfoResponse : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+// skipped field GetStateInfoResponse.State with unsupported type: github.com/rarimovoting/identity.StateInfo
+
+@end
+
+/**
+ * IBaseVerifierProveIdentityParams is an auto generated low-level Go binding around an user-defined struct.
+ */
+@interface IdentityIBaseVerifierProveIdentityParams : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+// skipped field IBaseVerifierProveIdentityParams.StatesMerkleData with unsupported type: github.com/rarimovoting/identity.ILightweightStateStatesMerkleData
+
+// skipped field IBaseVerifierProveIdentityParams.Inputs with unsupported type: []*math/big.Int
+
+// skipped field IBaseVerifierProveIdentityParams.A with unsupported type: [2]*math/big.Int
+
+// skipped field IBaseVerifierProveIdentityParams.B with unsupported type: [2][2]*math/big.Int
+
+// skipped field IBaseVerifierProveIdentityParams.C with unsupported type: [2]*math/big.Int
+
+@end
+
+/**
+ * IBaseVerifierTransitStateParams is an auto generated low-level Go binding around an user-defined struct.
+ */
+@interface IdentityIBaseVerifierTransitStateParams : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+// skipped field IBaseVerifierTransitStateParams.NewIdentitiesStatesRoot with unsupported type: [32]byte
+
+// skipped field IBaseVerifierTransitStateParams.GistData with unsupported type: github.com/rarimovoting/identity.ILightweightStateGistRootData
+
+@property (nonatomic) NSData* _Nullable proof;
+@end
+
+/**
+ * ILightweightStateGistRootData is an auto generated low-level Go binding around an user-defined struct.
+ */
+@interface IdentityILightweightStateGistRootData : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+// skipped field ILightweightStateGistRootData.Root with unsupported type: *math/big.Int
+
+// skipped field ILightweightStateGistRootData.CreatedAtTimestamp with unsupported type: *math/big.Int
+
+@end
+
+/**
+ * ILightweightStateStatesMerkleData is an auto generated low-level Go binding around an user-defined struct.
+ */
+@interface IdentityILightweightStateStatesMerkleData : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+// skipped field ILightweightStateStatesMerkleData.IssuerId with unsupported type: *math/big.Int
+
+// skipped field ILightweightStateStatesMerkleData.IssuerState with unsupported type: *math/big.Int
+
+// skipped field ILightweightStateStatesMerkleData.CreatedAtTimestamp with unsupported type: *math/big.Int
+
+// skipped field ILightweightStateStatesMerkleData.MerkleProof with unsupported type: [][32]byte
+
+@end
+
+/**
+ * IRegisterVerifierRegisterProofParams is an auto generated low-level Go binding around an user-defined struct.
+ */
+@interface IdentityIRegisterVerifierRegisterProofParams : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+// skipped field IRegisterVerifierRegisterProofParams.IssuingAuthority with unsupported type: *math/big.Int
+
+// skipped field IRegisterVerifierRegisterProofParams.DocumentNullifier with unsupported type: *math/big.Int
+
+// skipped field IRegisterVerifierRegisterProofParams.Commitment with unsupported type: [32]byte
+
+@end
+
+/**
+ * IRegistrationRegistrationCounters is an auto generated low-level Go binding around an user-defined struct.
+ */
+@interface IdentityIRegistrationRegistrationCounters : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+// skipped field IRegistrationRegistrationCounters.TotalRegistrations with unsupported type: *math/big.Int
+
+@end
+
+/**
+ * IRegistrationRegistrationParams is an auto generated low-level Go binding around an user-defined struct.
+ */
+@interface IdentityIRegistrationRegistrationParams : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+@property (nonatomic) NSString* _Nonnull remark;
+// skipped field IRegistrationRegistrationParams.CommitmentStart with unsupported type: *math/big.Int
+
+// skipped field IRegistrationRegistrationParams.CommitmentPeriod with unsupported type: *math/big.Int
+
+@end
+
+/**
+ * IRegistrationRegistrationValues is an auto generated low-level Go binding around an user-defined struct.
+ */
+@interface IdentityIRegistrationRegistrationValues : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+// skipped field IRegistrationRegistrationValues.CommitmentStartTime with unsupported type: *math/big.Int
+
+// skipped field IRegistrationRegistrationValues.CommitmentEndTime with unsupported type: *math/big.Int
+
+@end
+
 @interface IdentityIden3SparseMerkleTreeProof : NSObject <goSeqRefInterface> {
 }
 @property(strong, readonly) _Nonnull id _ref;
@@ -409,8 +579,8 @@ JSON path
 - (nonnull instancetype)initWithRef:(_Nonnull id)ref;
 - (nullable instancetype)init:(id<IdentityStateProvider> _Nullable)stateProvider;
 - (nullable instancetype)initWithData:(NSString* _Nullable)secretKeyHex secretHex:(NSString* _Nullable)secretHex nullifierHex:(NSString* _Nullable)nullifierHex stateProvider:(id<IdentityStateProvider> _Nullable)stateProvider;
-- (NSString* _Nonnull)didToIDHex:(NSString* _Nullable)did error:(NSError* _Nullable* _Nullable)error;
 - (NSString* _Nonnull)didToId:(NSString* _Nullable)did error:(NSError* _Nullable* _Nullable)error;
+- (NSData* _Nullable)getCommitment;
 - (NSData* _Nullable)getCommitmentIndex:(NSError* _Nullable* _Nullable)error;
 - (NSString* _Nonnull)getDID;
 - (NSString* _Nonnull)getID:(NSError* _Nullable* _Nullable)error;
@@ -420,13 +590,11 @@ JSON path
 - (NSString* _Nonnull)getSecretHex;
 - (NSString* _Nonnull)getSecretIntStr;
 - (NSString* _Nonnull)getSecretKeyHex;
-- (NSData* _Nullable)getVCsJSON:(NSError* _Nullable* _Nullable)error;
 - (BOOL)initVerifiableCredentials:(NSData* _Nullable)offerData error:(NSError* _Nullable* _Nullable)error;
-- (NSString* _Nonnull)newIdentitiesStatesRoot:(NSString* _Nullable)issuerId issuerState:(NSString* _Nullable)issuerState createdAtTimestamp:(NSString* _Nullable)createdAtTimestamp error:(NSError* _Nullable* _Nullable)error;
+- (BOOL)isFinalized:(NSString* _Nullable)rarimoCoreURL issuerDid:(NSString* _Nullable)issuerDid creationTimestamp:(int64_t)creationTimestamp ret0_:(BOOL* _Nullable)ret0_ error:(NSError* _Nullable* _Nullable)error;
 // skipped method Identity.PrepareAuth2Inputs with unsupported parameter or return types
 
-- (NSData* _Nullable)prepareQueryInputs:(NSString* _Nullable)coreStateHash votingAddress:(NSString* _Nullable)votingAddress schemaJson:(NSData* _Nullable)schemaJson error:(NSError* _Nullable* _Nullable)error;
-- (BOOL)setVCsJSON:(NSData* _Nullable)vcJSON error:(NSError* _Nullable* _Nullable)error;
+- (NSData* _Nullable)register:(NSString* _Nullable)rarimoCoreURL issuerDid:(NSString* _Nullable)issuerDid votingAddress:(NSString* _Nullable)votingAddress schemaJsonLd:(NSData* _Nullable)schemaJsonLd issuingAuthorityCode:(NSString* _Nullable)issuingAuthorityCode error:(NSError* _Nullable* _Nullable)error;
 @end
 
 @interface IdentityIssuer : NSObject <goSeqRefInterface> {
@@ -488,6 +656,56 @@ JSON path
 
 - (nonnull instancetype)initWithRef:(_Nonnull id)ref;
 - (nonnull instancetype)init;
+@end
+
+@interface IdentityOperation : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+@property (nonatomic) NSString* _Nonnull index;
+@property (nonatomic) NSString* _Nonnull operationType;
+// skipped field Operation.Details with unsupported type: github.com/rarimovoting/identity.OperationDetails
+
+@property (nonatomic) NSString* _Nonnull status;
+@property (nonatomic) NSString* _Nonnull creator;
+@property (nonatomic) NSString* _Nonnull timestamp;
+@end
+
+@interface IdentityOperationData : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+// skipped field OperationData.Operation with unsupported type: github.com/rarimovoting/identity.Operation
+
+@end
+
+@interface IdentityOperationDetails : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+@property (nonatomic) NSString* _Nonnull type;
+@property (nonatomic) NSString* _Nonnull contract;
+@property (nonatomic) NSString* _Nonnull chain;
+@property (nonatomic) NSString* _Nonnull gistHash;
+@property (nonatomic) NSString* _Nonnull stateRootHash;
+@property (nonatomic) NSString* _Nonnull timestamp;
+@end
+
+@interface IdentityOperationProof : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+// skipped field OperationProof.Path with unsupported type: []string
+
+@property (nonatomic) NSString* _Nonnull signature;
 @end
 
 @interface IdentityProofData : NSObject <goSeqRefInterface> {
@@ -603,6 +821,44 @@ JSON path
 @property (nonatomic) NSString* _Nonnull valueDataSlotB;
 @end
 
+/**
+ * SparseMerkleTreeProof is an auto generated low-level Go binding around an user-defined struct.
+ */
+@interface IdentitySparseMerkleTreeProof : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+// skipped field SparseMerkleTreeProof.Root with unsupported type: [32]byte
+
+// skipped field SparseMerkleTreeProof.Siblings with unsupported type: [][32]byte
+
+@property (nonatomic) BOOL existence;
+// skipped field SparseMerkleTreeProof.Key with unsupported type: [32]byte
+
+// skipped field SparseMerkleTreeProof.Value with unsupported type: [32]byte
+
+@property (nonatomic) BOOL auxExistence;
+// skipped field SparseMerkleTreeProof.AuxKey with unsupported type: [32]byte
+
+// skipped field SparseMerkleTreeProof.AuxValue with unsupported type: [32]byte
+
+@end
+
+@interface IdentityStateInfo : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+@property (nonatomic) NSString* _Nonnull index;
+@property (nonatomic) NSString* _Nonnull hash;
+@property (nonatomic) NSString* _Nonnull createdAtTimestamp;
+@property (nonatomic) NSString* _Nonnull createdAtBlock;
+@property (nonatomic) NSString* _Nonnull lastUpdateOperationIdx;
+@end
+
 @interface IdentityTreeState : NSObject <goSeqRefInterface> {
 }
 @property(strong, readonly) _Nonnull id _ref;
@@ -698,13 +954,16 @@ JSON path
 
 
 @interface Identity : NSObject
++ (NSString* _Nonnull) operationFinalizedStatus;
++ (void) setOperationFinalizedStatus:(NSString* _Nonnull)v;
+
 // skipped variable QueryOperators with unsupported type: map[string]github.com/rarimovoting/identity.Operators
+
+// skipped variable RegistrationMetaData with unsupported type: *github.com/ethereum/go-ethereum/accounts/abi/bind.MetaData
 
 @end
 
 FOUNDATION_EXPORT long IdentityBtoi(BOOL b);
-
-FOUNDATION_EXPORT void IdentityCheckConversible(void);
 
 // skipped function NewClaimOfferResponse with unsupported parameter or return types
 
@@ -718,6 +977,9 @@ FOUNDATION_EXPORT IdentityIdentity* _Nullable IdentityNewIdentity(id<IdentitySta
 
 FOUNDATION_EXPORT IdentityIdentity* _Nullable IdentityNewIdentityWithData(NSString* _Nullable secretKeyHex, NSString* _Nullable secretHex, NSString* _Nullable nullifierHex, id<IdentityStateProvider> _Nullable stateProvider, NSError* _Nullable* _Nullable error);
 
+// skipped function NewRegistrationCoder with unsupported parameter or return types
+
+
 @class IdentityStateProvider;
 
 @interface IdentityStateProvider : NSObject <goSeqRefInterface, IdentityStateProvider> {
@@ -725,10 +987,12 @@ FOUNDATION_EXPORT IdentityIdentity* _Nullable IdentityNewIdentityWithData(NSStri
 @property(strong, readonly) _Nonnull id _ref;
 
 - (nonnull instancetype)initWithRef:(_Nonnull id)ref;
-- (NSData* _Nullable)fetch:(NSString* _Nullable)url method:(NSString* _Nullable)method body:(NSString* _Nullable)body error:(NSError* _Nullable* _Nullable)error;
+- (NSData* _Nullable)fetch:(NSString* _Nullable)url method:(NSString* _Nullable)method body:(NSData* _Nullable)body headerKey:(NSString* _Nullable)headerKey headerValue:(NSString* _Nullable)headerValue error:(NSError* _Nullable* _Nullable)error;
 - (NSData* _Nullable)getGISTProof:(NSString* _Nullable)userId error:(NSError* _Nullable* _Nullable)error;
+- (BOOL)isUserRegistered:(NSString* _Nullable)contract documentNullifier:(NSData* _Nullable)documentNullifier ret0_:(BOOL* _Nullable)ret0_ error:(NSError* _Nullable* _Nullable)error;
 - (void)localPrinter:(NSString* _Nullable)msg;
 - (NSData* _Nullable)proveAuthV2:(NSData* _Nullable)inputs error:(NSError* _Nullable* _Nullable)error;
+- (NSData* _Nullable)proveCredentialAtomicQueryMTPV2OnChainVoting:(NSData* _Nullable)inputs error:(NSError* _Nullable* _Nullable)error;
 @end
 
 #endif

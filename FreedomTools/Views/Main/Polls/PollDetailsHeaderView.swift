@@ -22,7 +22,7 @@ struct PollDetailsHeaderView: View {
                 .resizable()
                 .frame(width: 15, height: 15)
                 .padding(.leading)
-            PollStatusView(poll: poll)
+//            PollStatusView(poll: poll)
             Spacer()
         }
     }

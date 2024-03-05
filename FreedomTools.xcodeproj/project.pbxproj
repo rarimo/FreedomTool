@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE004B492B9335CF006D0188 /* RegistrationConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE004B482B9335CF006D0188 /* RegistrationConfirmView.swift */; };
+		CE004B4B2B934729006D0188 /* RegistrationWaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE004B4A2B934729006D0188 /* RegistrationWaitingView.swift */; };
+		CE004B4D2B9355D7006D0188 /* RegistrationWaitingCheckboxesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE004B4C2B9355D7006D0188 /* RegistrationWaitingCheckboxesView.swift */; };
 		CE3866412B7E5C85003BA2C5 /* NFCPassportReader in Frameworks */ = {isa = PBXBuildFile; productRef = CE3866402B7E5C85003BA2C5 /* NFCPassportReader */; };
 		CE4D931B2B51D38300E8AC67 /* KeychainUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4D931A2B51D38300E8AC67 /* KeychainUtils.swift */; };
+		CE4F26972B95FF3D000ABB0C /* Identity.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4F26962B95FF3D000ABB0C /* Identity.xcframework */; };
 		CE64068D2B8786250019BB81 /* libwitnesscalc_credentialAtomicQueryMTPV2OnChainVoting.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE64068C2B8786250019BB81 /* libwitnesscalc_credentialAtomicQueryMTPV2OnChainVoting.a */; };
-		CE6443662B7CF302005AEA5C /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6443652B7CF302005AEA5C /* TestView.swift */; };
 		CE70B3932B5689CC005F5868 /* StorageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70B3922B5689CC005F5868 /* StorageUtils.swift */; };
 		CE7908FB2B88C38B000FE927 /* Web3 in Frameworks */ = {isa = PBXBuildFile; productRef = CE7908FA2B88C38B000FE927 /* Web3 */; };
 		CE7908FD2B88C38B000FE927 /* Web3ContractABI in Frameworks */ = {isa = PBXBuildFile; productRef = CE7908FC2B88C38B000FE927 /* Web3ContractABI */; };
@@ -18,6 +21,11 @@
 		CE7909072B88F285000FE927 /* libwitnesscalc_voteSMT.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7909062B88F285000FE927 /* libwitnesscalc_voteSMT.a */; };
 		CE81E8DA2B7A5D8300B7545C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE81E8DC2B7A5D8300B7545C /* Localizable.strings */; };
 		CE81E8DF2B7A8EDD00B7545C /* LocalizationSwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE81E8DE2B7A8EDD00B7545C /* LocalizationSwitcherView.swift */; };
+		CE85D9DA2B91D6DD008F0E13 /* RegistrationDetailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85D9D92B91D6DD008F0E13 /* RegistrationDetailsHeaderView.swift */; };
+		CE85D9E82B922B87008F0E13 /* RegistrationManifestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85D9E72B922B87008F0E13 /* RegistrationManifestView.swift */; };
+		CE85D9EA2B923B46008F0E13 /* RegistrationSignedManifestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85D9E92B923B46008F0E13 /* RegistrationSignedManifestView.swift */; };
+		CE85D9EC2B925865008F0E13 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85D9EB2B925865008F0E13 /* RegistrationController.swift */; };
+		CE85D9EE2B925AC1008F0E13 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE85D9ED2B925AC1008F0E13 /* RegistrationView.swift */; };
 		CE8DE6292B6B992100143E59 /* masterList.pem in Resources */ = {isa = PBXBuildFile; fileRef = CE8DE6282B6B992100143E59 /* masterList.pem */; };
 		CEA151E52B447991006616DD /* FreedomToolsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA151E42B447991006616DD /* FreedomToolsApp.swift */; };
 		CEA151E92B447992006616DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEA151E82B447992006616DD /* Assets.xcassets */; };
@@ -51,7 +59,6 @@
 		CEA152352B44B442006616DD /* OnboardConfirmDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA152342B44B442006616DD /* OnboardConfirmDataView.swift */; };
 		CEA24C8B2B7CD48E009DF14F /* IdentityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA24C8A2B7CD48E009DF14F /* IdentityManager.swift */; };
 		CEA24C972B7CD8E4009DF14F /* QKMRZScanner in Frameworks */ = {isa = PBXBuildFile; productRef = CEA24C962B7CD8E4009DF14F /* QKMRZScanner */; };
-		CEA24CA02B7CD972009DF14F /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = CEA24C9F2B7CD972009DF14F /* KeychainAccess */; };
 		CEB6E1352B7BBBD400043AB6 /* IntroFirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6E1342B7BBBD400043AB6 /* IntroFirstView.swift */; };
 		CEBC4E7A2B459DB4005D560A /* PollDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC4E792B459DB4005D560A /* PollDetailsView.swift */; };
 		CEBC4E8D2B45AF50005D560A /* RobotoSlab-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEBC4E842B45AF50005D560A /* RobotoSlab-Light.ttf */; };
@@ -84,35 +91,52 @@
 		CED648952B456E34008488E0 /* Poll.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED648942B456E34008488E0 /* Poll.swift */; };
 		CEDE211E2B4578E300406B1A /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDE211D2B4578E300406B1A /* MainController.swift */; };
 		CEDE21202B457A3700406B1A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDE211F2B457A3700406B1A /* MainView.swift */; };
-		CEDE21222B457AA500406B1A /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDE21212B457AA500406B1A /* MainMenuView.swift */; };
 		CEDE21242B457E0800406B1A /* PollStatusSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDE21232B457E0800406B1A /* PollStatusSelectorView.swift */; };
 		CEDE21262B45810B00406B1A /* PollListElemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDE21252B45810B00406B1A /* PollListElemView.swift */; };
-		CEDE212A2B4581DA00406B1A /* PollStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDE21292B4581DA00406B1A /* PollStatusView.swift */; };
 		CEDFC1F42B5ECFCB00E0691B /* libgmp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDFC1EC2B5ECFCA00E0691B /* libgmp.a */; };
 		CEDFC1F52B5ECFCB00E0691B /* libfq.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDFC1EE2B5ECFCA00E0691B /* libfq.a */; };
 		CEDFC1F62B5ECFCB00E0691B /* librapidsnark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDFC1F02B5ECFCA00E0691B /* librapidsnark.a */; };
 		CEDFC1F72B5ECFCB00E0691B /* libfr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDFC1F12B5ECFCA00E0691B /* libfr.a */; };
 		CEDFC1FA2B5ED25200E0691B /* ZKUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDFC1F92B5ED25200E0691B /* ZKUtils.swift */; };
+		CEE1695F2B90D3EB00BF2B84 /* RegistrationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE1695E2B90D3EB00BF2B84 /* RegistrationEntity.swift */; };
+		CEE169622B90FE2600BF2B84 /* RegistrationListElemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE169612B90FE2600BF2B84 /* RegistrationListElemView.swift */; };
+		CEE169642B91030B00BF2B84 /* HoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE169632B91030B00BF2B84 /* HoodView.swift */; };
+		CEE169662B91035300BF2B84 /* MainTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE169652B91035300BF2B84 /* MainTopView.swift */; };
+		CEE169682B91040400BF2B84 /* MainActiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE169672B91040400BF2B84 /* MainActiveView.swift */; };
+		CEE1696A2B910A9300BF2B84 /* RegistrationStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE169692B910A9300BF2B84 /* RegistrationStatusView.swift */; };
+		CEE51BDD2B8DF83C00B5D1DE /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = CEE51BDC2B8DF83C00B5D1DE /* Lottie */; };
+		CEE51BE02B8DF85C00B5D1DE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CEE51BDF2B8DF85C00B5D1DE /* Alamofire */; };
+		CEE51BE32B8DF8AE00B5D1DE /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = CEE51BE22B8DF8AE00B5D1DE /* KeychainAccess */; };
+		CEE51BE52B8DFA7000B5D1DE /* passport.json in Resources */ = {isa = PBXBuildFile; fileRef = CEE51BE42B8DFA7000B5D1DE /* passport.json */; };
+		CEE51BE72B8DFA8F00B5D1DE /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE51BE62B8DFA8F00B5D1DE /* LottieView.swift */; };
+		CEE51BE92B8E059000B5D1DE /* checkbox.json in Resources */ = {isa = PBXBuildFile; fileRef = CEE51BE82B8E059000B5D1DE /* checkbox.json */; };
+		CEE51BEB2B8E05A700B5D1DE /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = CEE51BEA2B8E05A700B5D1DE /* loader.json */; };
 		CEECEEF12B8A0EF2005704E4 /* UserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEECEEF02B8A0EF2005704E4 /* UserStorage.swift */; };
-		CEECEEFB2B8A4A52005704E4 /* Identity.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEECEEFA2B8A4A52005704E4 /* Identity.xcframework */; };
-		CEECEEFD2B8A5058005704E4 /* PollRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEECEEFC2B8A5058005704E4 /* PollRegisterView.swift */; };
+		CEECEEFD2B8A5058005704E4 /* RegistrationVerifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEECEEFC2B8A5058005704E4 /* RegistrationVerifyView.swift */; };
 		CEF2C40A2B52B47600B44A7C /* EmptyPollsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF2C4092B52B47600B44A7C /* EmptyPollsView.swift */; };
 		CEF2C40E2B52D93700B44A7C /* GifimageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF2C40D2B52D93700B44A7C /* GifimageView.swift */; };
 		CEF2C4122B52E7E000B44A7C /* merged.gif in Resources */ = {isa = PBXBuildFile; fileRef = CEF2C4112B52E7E000B44A7C /* merged.gif */; };
-		CEF470DB2B7F83F2003F590D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CEF470DA2B7F83F2003F590D /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE004B482B9335CF006D0188 /* RegistrationConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmView.swift; sourceTree = "<group>"; };
+		CE004B4A2B934729006D0188 /* RegistrationWaitingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationWaitingView.swift; sourceTree = "<group>"; };
+		CE004B4C2B9355D7006D0188 /* RegistrationWaitingCheckboxesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationWaitingCheckboxesView.swift; sourceTree = "<group>"; };
 		CE4D931A2B51D38300E8AC67 /* KeychainUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainUtils.swift; sourceTree = "<group>"; };
+		CE4F26962B95FF3D000ABB0C /* Identity.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Identity.xcframework; sourceTree = "<group>"; };
 		CE64068C2B8786250019BB81 /* libwitnesscalc_credentialAtomicQueryMTPV2OnChainVoting.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwitnesscalc_credentialAtomicQueryMTPV2OnChainVoting.a; sourceTree = "<group>"; };
 		CE64068E2B8787B80019BB81 /* witnesscalc_credentialAtomicQueryMTPV2OnChainVoting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = witnesscalc_credentialAtomicQueryMTPV2OnChainVoting.h; sourceTree = "<group>"; };
-		CE6443652B7CF302005AEA5C /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		CE70B3922B5689CC005F5868 /* StorageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageUtils.swift; sourceTree = "<group>"; };
 		CE7909062B88F285000FE927 /* libwitnesscalc_voteSMT.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwitnesscalc_voteSMT.a; sourceTree = "<group>"; };
 		CE7909082B88F295000FE927 /* witnesscalc_voteSMT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = witnesscalc_voteSMT.h; sourceTree = "<group>"; };
 		CE81E8DB2B7A5D8300B7545C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CE81E8DD2B7A5D8400B7545C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CE81E8DE2B7A8EDD00B7545C /* LocalizationSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationSwitcherView.swift; sourceTree = "<group>"; };
+		CE85D9D92B91D6DD008F0E13 /* RegistrationDetailsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationDetailsHeaderView.swift; sourceTree = "<group>"; };
+		CE85D9E72B922B87008F0E13 /* RegistrationManifestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationManifestView.swift; sourceTree = "<group>"; };
+		CE85D9E92B923B46008F0E13 /* RegistrationSignedManifestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationSignedManifestView.swift; sourceTree = "<group>"; };
+		CE85D9EB2B925865008F0E13 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
+		CE85D9ED2B925AC1008F0E13 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		CE8DE6282B6B992100143E59 /* masterList.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = masterList.pem; sourceTree = "<group>"; };
 		CEA151E12B447991006616DD /* FreedomTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreedomTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA151E42B447991006616DD /* FreedomToolsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreedomToolsApp.swift; sourceTree = "<group>"; };
@@ -183,10 +207,8 @@
 		CED648942B456E34008488E0 /* Poll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poll.swift; sourceTree = "<group>"; };
 		CEDE211D2B4578E300406B1A /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		CEDE211F2B457A3700406B1A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		CEDE21212B457AA500406B1A /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
 		CEDE21232B457E0800406B1A /* PollStatusSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollStatusSelectorView.swift; sourceTree = "<group>"; };
 		CEDE21252B45810B00406B1A /* PollListElemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollListElemView.swift; sourceTree = "<group>"; };
-		CEDE21292B4581DA00406B1A /* PollStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollStatusView.swift; sourceTree = "<group>"; };
 		CEDFC1EA2B5ECFCA00E0691B /* bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bridge.h; sourceTree = "<group>"; };
 		CEDFC1EB2B5ECFCA00E0691B /* prover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prover.h; sourceTree = "<group>"; };
 		CEDFC1EC2B5ECFCA00E0691B /* libgmp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgmp.a; sourceTree = "<group>"; };
@@ -194,9 +216,18 @@
 		CEDFC1F02B5ECFCA00E0691B /* librapidsnark.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = librapidsnark.a; sourceTree = "<group>"; };
 		CEDFC1F12B5ECFCA00E0691B /* libfr.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libfr.a; sourceTree = "<group>"; };
 		CEDFC1F92B5ED25200E0691B /* ZKUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZKUtils.swift; sourceTree = "<group>"; };
+		CEE1695E2B90D3EB00BF2B84 /* RegistrationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationEntity.swift; sourceTree = "<group>"; };
+		CEE169612B90FE2600BF2B84 /* RegistrationListElemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationListElemView.swift; sourceTree = "<group>"; };
+		CEE169632B91030B00BF2B84 /* HoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoodView.swift; sourceTree = "<group>"; };
+		CEE169652B91035300BF2B84 /* MainTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTopView.swift; sourceTree = "<group>"; };
+		CEE169672B91040400BF2B84 /* MainActiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainActiveView.swift; sourceTree = "<group>"; };
+		CEE169692B910A9300BF2B84 /* RegistrationStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationStatusView.swift; sourceTree = "<group>"; };
+		CEE51BE42B8DFA7000B5D1DE /* passport.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = passport.json; sourceTree = "<group>"; };
+		CEE51BE62B8DFA8F00B5D1DE /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		CEE51BE82B8E059000B5D1DE /* checkbox.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = checkbox.json; sourceTree = "<group>"; };
+		CEE51BEA2B8E05A700B5D1DE /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
 		CEECEEF02B8A0EF2005704E4 /* UserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorage.swift; sourceTree = "<group>"; };
-		CEECEEFA2B8A4A52005704E4 /* Identity.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Identity.xcframework; sourceTree = "<group>"; };
-		CEECEEFC2B8A5058005704E4 /* PollRegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollRegisterView.swift; sourceTree = "<group>"; };
+		CEECEEFC2B8A5058005704E4 /* RegistrationVerifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVerifyView.swift; sourceTree = "<group>"; };
 		CEF2C4092B52B47600B44A7C /* EmptyPollsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPollsView.swift; sourceTree = "<group>"; };
 		CEF2C40D2B52D93700B44A7C /* GifimageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifimageView.swift; sourceTree = "<group>"; };
 		CEF2C4112B52E7E000B44A7C /* merged.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = merged.gif; sourceTree = "<group>"; };
@@ -209,21 +240,22 @@
 			files = (
 				CED5E9ED2B7E83D90097282B /* libwitnesscalc_authV2.a in Frameworks */,
 				CEDFC1F52B5ECFCB00E0691B /* libfq.a in Frameworks */,
+				CEE51BE32B8DF8AE00B5D1DE /* KeychainAccess in Frameworks */,
 				CEDFC1F42B5ECFCB00E0691B /* libgmp.a in Frameworks */,
 				CEA24C972B7CD8E4009DF14F /* QKMRZScanner in Frameworks */,
 				CEDFC1F62B5ECFCB00E0691B /* librapidsnark.a in Frameworks */,
 				CE7909072B88F285000FE927 /* libwitnesscalc_voteSMT.a in Frameworks */,
-				CEA24CA02B7CD972009DF14F /* KeychainAccess in Frameworks */,
 				CE7908FF2B88C38B000FE927 /* Web3PromiseKit in Frameworks */,
+				CEE51BDD2B8DF83C00B5D1DE /* Lottie in Frameworks */,
 				CE64068D2B8786250019BB81 /* libwitnesscalc_credentialAtomicQueryMTPV2OnChainVoting.a in Frameworks */,
 				CEDFC1F72B5ECFCB00E0691B /* libfr.a in Frameworks */,
-				CEECEEFB2B8A4A52005704E4 /* Identity.xcframework in Frameworks */,
 				CEC6DCC12B7E301500E63213 /* libwitnesscalc_passportVerificationSHA256.a in Frameworks */,
+				CEE51BE02B8DF85C00B5D1DE /* Alamofire in Frameworks */,
 				CE7908FD2B88C38B000FE927 /* Web3ContractABI in Frameworks */,
 				CE7908FB2B88C38B000FE927 /* Web3 in Frameworks */,
+				CE4F26972B95FF3D000ABB0C /* Identity.xcframework in Frameworks */,
 				CE3866412B7E5C85003BA2C5 /* NFCPassportReader in Frameworks */,
 				CEC6DCC02B7E301500E63213 /* libwitnesscalc_passportVerificationSHA1.a in Frameworks */,
-				CEF470DB2B7F83F2003F590D /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +265,9 @@
 		CE81E8D72B7A5D5900B7545C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CEE51BEA2B8E05A700B5D1DE /* loader.json */,
+				CEE51BE82B8E059000B5D1DE /* checkbox.json */,
+				CEE51BE42B8DFA7000B5D1DE /* passport.json */,
 				CE81E8DC2B7A5D8300B7545C /* Localizable.strings */,
 			);
 			path = Resources;
@@ -294,6 +329,7 @@
 				CEC5A1202B76874D00DB7BB4 /* IssuerConnector.swift */,
 				CEA24C8A2B7CD48E009DF14F /* IdentityManager.swift */,
 				CEECEEF02B8A0EF2005704E4 /* UserStorage.swift */,
+				CEE1695E2B90D3EB00BF2B84 /* RegistrationEntity.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -339,7 +375,7 @@
 				CED6488B2B44DA65008488E0 /* NFCScannerView.swift */,
 				CEF2C40D2B52D93700B44A7C /* GifimageView.swift */,
 				CE81E8DE2B7A8EDD00B7545C /* LocalizationSwitcherView.swift */,
-				CE6443652B7CF302005AEA5C /* TestView.swift */,
+				CEE51BE62B8DFA8F00B5D1DE /* LottieView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -373,9 +409,12 @@
 		CEDE211A2B45780D00406B1A /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				CEE169602B90FE0300BF2B84 /* Registration */,
 				CEDE211B2B45782A00406B1A /* Polls */,
 				CEDE211F2B457A3700406B1A /* MainView.swift */,
-				CEDE21212B457AA500406B1A /* MainMenuView.swift */,
+				CEE169632B91030B00BF2B84 /* HoodView.swift */,
+				CEE169652B91035300BF2B84 /* MainTopView.swift */,
+				CEE169672B91040400BF2B84 /* MainActiveView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -385,7 +424,6 @@
 			children = (
 				CEDE21232B457E0800406B1A /* PollStatusSelectorView.swift */,
 				CEDE21252B45810B00406B1A /* PollListElemView.swift */,
-				CEDE21292B4581DA00406B1A /* PollStatusView.swift */,
 				CEBC4E792B459DB4005D560A /* PollDetailsView.swift */,
 				CEBC4E962B45B204005D560A /* PollDetailsHeaderView.swift */,
 				CEBC4E982B45B25D005D560A /* PollDetailsPandingView.swift */,
@@ -394,7 +432,6 @@
 				CEBC4E9E2B45C66E005D560A /* PollProcessVotingView.swift */,
 				CEBC4EA02B45CAB9005D560A /* PollProcessPendingView.swift */,
 				CEF2C4092B52B47600B44A7C /* EmptyPollsView.swift */,
-				CEECEEFC2B8A5058005704E4 /* PollRegisterView.swift */,
 			);
 			path = Polls;
 			sourceTree = "<group>";
@@ -408,6 +445,7 @@
 				CEA151F82B447BA0006616DD /* IntroController.swift */,
 				CEA1522C2B4498E2006616DD /* OnboardController.swift */,
 				CEDE211D2B4578E300406B1A /* MainController.swift */,
+				CE85D9EB2B925865008F0E13 /* RegistrationController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -415,7 +453,7 @@
 		CEDFC1E82B5ECFCA00E0691B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CEECEEFA2B8A4A52005704E4 /* Identity.xcframework */,
+				CE4F26962B95FF3D000ABB0C /* Identity.xcframework */,
 				CE7909082B88F295000FE927 /* witnesscalc_voteSMT.h */,
 				CE7909062B88F285000FE927 /* libwitnesscalc_voteSMT.a */,
 				CE64068E2B8787B80019BB81 /* witnesscalc_credentialAtomicQueryMTPV2OnChainVoting.h */,
@@ -436,6 +474,23 @@
 			path = Frameworks;
 			sourceTree = "<group>";
 		};
+		CEE169602B90FE0300BF2B84 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				CEECEEFC2B8A5058005704E4 /* RegistrationVerifyView.swift */,
+				CE85D9D92B91D6DD008F0E13 /* RegistrationDetailsHeaderView.swift */,
+				CEE169612B90FE2600BF2B84 /* RegistrationListElemView.swift */,
+				CEE169692B910A9300BF2B84 /* RegistrationStatusView.swift */,
+				CE85D9E72B922B87008F0E13 /* RegistrationManifestView.swift */,
+				CE85D9E92B923B46008F0E13 /* RegistrationSignedManifestView.swift */,
+				CE85D9ED2B925AC1008F0E13 /* RegistrationView.swift */,
+				CE004B482B9335CF006D0188 /* RegistrationConfirmView.swift */,
+				CE004B4A2B934729006D0188 /* RegistrationWaitingView.swift */,
+				CE004B4C2B9355D7006D0188 /* RegistrationWaitingCheckboxesView.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -454,12 +509,13 @@
 			name = FreedomTools;
 			packageProductDependencies = (
 				CEA24C962B7CD8E4009DF14F /* QKMRZScanner */,
-				CEA24C9F2B7CD972009DF14F /* KeychainAccess */,
 				CE3866402B7E5C85003BA2C5 /* NFCPassportReader */,
-				CEF470DA2B7F83F2003F590D /* Alamofire */,
 				CE7908FA2B88C38B000FE927 /* Web3 */,
 				CE7908FC2B88C38B000FE927 /* Web3ContractABI */,
 				CE7908FE2B88C38B000FE927 /* Web3PromiseKit */,
+				CEE51BDC2B8DF83C00B5D1DE /* Lottie */,
+				CEE51BDF2B8DF85C00B5D1DE /* Alamofire */,
+				CEE51BE22B8DF8AE00B5D1DE /* KeychainAccess */,
 			);
 			productName = FreedomTools;
 			productReference = CEA151E12B447991006616DD /* FreedomTools.app */;
@@ -492,10 +548,11 @@
 			mainGroup = CEA151D82B447991006616DD;
 			packageReferences = (
 				CEA24C952B7CD8E4009DF14F /* XCRemoteSwiftPackageReference "QKMRZScanner" */,
-				CEA24C9E2B7CD972009DF14F /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				CE38663F2B7E5C85003BA2C5 /* XCRemoteSwiftPackageReference "NFCPassportReader" */,
-				CEF470D92B7F83F2003F590D /* XCRemoteSwiftPackageReference "Alamofire" */,
 				CE7908F92B88C38B000FE927 /* XCRemoteSwiftPackageReference "Web3.swift" */,
+				CEE51BDB2B8DF83C00B5D1DE /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				CEE51BDE2B8DF85C00B5D1DE /* XCRemoteSwiftPackageReference "Alamofire" */,
+				CEE51BE12B8DF8AE00B5D1DE /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			productRefGroup = CEA151E22B447991006616DD /* Products */;
 			projectDirPath = "";
@@ -527,11 +584,14 @@
 				CEA152092B447E2F006616DD /* RobotoMono-ExtraLight.ttf in Resources */,
 				CEA152102B447E2F006616DD /* RobotoMono-ThinItalic.ttf in Resources */,
 				CEA152162B447E2F006616DD /* RobotoMono-MediumItalic.ttf in Resources */,
+				CEE51BE92B8E059000B5D1DE /* checkbox.json in Resources */,
 				CEA1520F2B447E2F006616DD /* RobotoMono-LightItalic.ttf in Resources */,
 				CE81E8DA2B7A5D8300B7545C /* Localizable.strings in Resources */,
 				CEA1520C2B447E2F006616DD /* RobotoMono-ExtraLightItalic.ttf in Resources */,
 				CEBC4E902B45AF50005D560A /* RobotoSlab-ExtraBold.ttf in Resources */,
 				CEBC4E8E2B45AF50005D560A /* RobotoSlab-Regular.ttf in Resources */,
+				CEE51BE52B8DFA7000B5D1DE /* passport.json in Resources */,
+				CEE51BEB2B8E05A700B5D1DE /* loader.json in Resources */,
 				CEA1520D2B447E2F006616DD /* RobotoMono-Bold.ttf in Resources */,
 				CE8DE6292B6B992100143E59 /* masterList.pem in Resources */,
 				CEBC4E912B45AF50005D560A /* RobotoSlab-Thin.ttf in Resources */,
@@ -549,13 +609,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE85D9DA2B91D6DD008F0E13 /* RegistrationDetailsHeaderView.swift in Sources */,
+				CEE169622B90FE2600BF2B84 /* RegistrationListElemView.swift in Sources */,
 				CEB6E1352B7BBBD400043AB6 /* IntroFirstView.swift in Sources */,
 				CEBC4E9D2B45C440005D560A /* PollDetailsEndedView.swift in Sources */,
 				CEA152202B448130006616DD /* SubmitButtonView.swift in Sources */,
 				CEBC4E9F2B45C66E005D560A /* PollProcessVotingView.swift in Sources */,
 				CEDE21202B457A3700406B1A /* MainView.swift in Sources */,
+				CEE169642B91030B00BF2B84 /* HoodView.swift in Sources */,
 				CE81E8DF2B7A8EDD00B7545C /* LocalizationSwitcherView.swift in Sources */,
 				CE4D931B2B51D38300E8AC67 /* KeychainUtils.swift in Sources */,
+				CE85D9EC2B925865008F0E13 /* RegistrationController.swift in Sources */,
+				CEE169682B91040400BF2B84 /* MainActiveView.swift in Sources */,
 				CED648872B44D9C2008488E0 /* MRZScannerController.swift in Sources */,
 				CED648922B44E62B008488E0 /* OnboardNFCScannerView.swift in Sources */,
 				CEA152242B4485AB006616DD /* IntroProgressItemView.swift in Sources */,
@@ -565,13 +630,14 @@
 				CED6488C2B44DA65008488E0 /* NFCScannerView.swift in Sources */,
 				CEBC4E7A2B459DB4005D560A /* PollDetailsView.swift in Sources */,
 				CED6488E2B44DE9B008488E0 /* OnboardStepView.swift in Sources */,
-				CEECEEFD2B8A5058005704E4 /* PollRegisterView.swift in Sources */,
+				CEECEEFD2B8A5058005704E4 /* RegistrationVerifyView.swift in Sources */,
+				CE85D9EA2B923B46008F0E13 /* RegistrationSignedManifestView.swift in Sources */,
 				CEC5A1212B76874D00DB7BB4 /* IssuerConnector.swift in Sources */,
 				CEA151F92B447BA0006616DD /* IntroController.swift in Sources */,
+				CEE1695F2B90D3EB00BF2B84 /* RegistrationEntity.swift in Sources */,
 				CEA151F72B447AB6006616DD /* AppView.swift in Sources */,
 				CED648812B44D8D1008488E0 /* OnboardFakeGenView.swift in Sources */,
 				CED648882B44D9C2008488E0 /* NFCScannerController.swift in Sources */,
-				CEDE212A2B4581DA00406B1A /* PollStatusView.swift in Sources */,
 				CEF2C40A2B52B47600B44A7C /* EmptyPollsView.swift in Sources */,
 				CE70B3932B5689CC005F5868 /* StorageUtils.swift in Sources */,
 				CEA24C8B2B7CD48E009DF14F /* IdentityManager.swift in Sources */,
@@ -583,17 +649,23 @@
 				CEA152282B448D26006616DD /* IntroStepView.swift in Sources */,
 				CEA152312B449A4F006616DD /* OnboardParticipateView.swift in Sources */,
 				CEBC4E972B45B204005D560A /* PollDetailsHeaderView.swift in Sources */,
+				CE004B4D2B9355D7006D0188 /* RegistrationWaitingCheckboxesView.swift in Sources */,
 				CEDE211E2B4578E300406B1A /* MainController.swift in Sources */,
-				CE6443662B7CF302005AEA5C /* TestView.swift in Sources */,
-				CEDE21222B457AA500406B1A /* MainMenuView.swift in Sources */,
 				CEA1522B2B449690006616DD /* OnboardView.swift in Sources */,
+				CE004B492B9335CF006D0188 /* RegistrationConfirmView.swift in Sources */,
+				CEE169662B91035300BF2B84 /* MainTopView.swift in Sources */,
 				CEBC4EA12B45CAB9005D560A /* PollProcessPendingView.swift in Sources */,
+				CE85D9EE2B925AC1008F0E13 /* RegistrationView.swift in Sources */,
+				CEE51BE72B8DFA8F00B5D1DE /* LottieView.swift in Sources */,
 				CEA1521E2B4480CF006616DD /* IntroView.swift in Sources */,
+				CE004B4B2B934729006D0188 /* RegistrationWaitingView.swift in Sources */,
+				CE85D9E82B922B87008F0E13 /* RegistrationManifestView.swift in Sources */,
 				CEBC4E992B45B25D005D560A /* PollDetailsPandingView.swift in Sources */,
 				CEF2C40E2B52D93700B44A7C /* GifimageView.swift in Sources */,
 				CEA151E52B447991006616DD /* FreedomToolsApp.swift in Sources */,
 				CEA151F42B447A42006616DD /* AppController.swift in Sources */,
 				CEDE21262B45810B00406B1A /* PollListElemView.swift in Sources */,
+				CEE1696A2B910A9300BF2B84 /* RegistrationStatusView.swift in Sources */,
 				CEECEEF12B8A0EF2005704E4 /* UserStorage.swift in Sources */,
 				CEA1522D2B4498E2006616DD /* OnboardController.swift in Sources */,
 				CEDFC1FA2B5ED25200E0691B /* ZKUtils.swift in Sources */,
@@ -742,7 +814,7 @@
 				CODE_SIGN_ENTITLEMENTS = FreedomTools/FreedomTools.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FreedomTools/Preview Content\"";
 				DEVELOPMENT_TEAM = M8N2G576YD;
 				ENABLE_PREVIEWS = YES;
@@ -754,8 +826,8 @@
 				INFOPLIST_FILE = FreedomTools/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = FreedomTool;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
-				INFOPLIST_KEY_NFCReaderUsageDescription = "Used to read data from ePassport";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Used to read MRZ";
+				INFOPLIST_KEY_NFCReaderUsageDescription = "In order to enhance your document reading experience and provide seamless access, the NFC permission is required in our iOS app to enable efficient and secure interaction with NFC-enabled documents";
+				INFOPLIST_KEY_NSCameraUsageDescription = "\"In order to enhance the user experience and efficiently read the Machine Readable Zone of your document, our iOS app requests camera permission, ensuring seamless and secure verification processes.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -770,7 +842,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.4;
 				OTHER_LDFLAGS = "-lc++";
 				PRODUCT_BUNDLE_IDENTIFIER = FreedomTool.FreedomTool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -792,7 +864,7 @@
 				CODE_SIGN_ENTITLEMENTS = FreedomTools/FreedomTools.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FreedomTools/Preview Content\"";
 				DEVELOPMENT_TEAM = M8N2G576YD;
 				ENABLE_PREVIEWS = YES;
@@ -804,8 +876,8 @@
 				INFOPLIST_FILE = FreedomTools/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = FreedomTool;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
-				INFOPLIST_KEY_NFCReaderUsageDescription = "Used to read data from ePassport";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Used to read MRZ";
+				INFOPLIST_KEY_NFCReaderUsageDescription = "In order to enhance your document reading experience and provide seamless access, the NFC permission is required in our iOS app to enable efficient and secure interaction with NFC-enabled documents";
+				INFOPLIST_KEY_NSCameraUsageDescription = "\"In order to enhance the user experience and efficiently read the Machine Readable Zone of your document, our iOS app requests camera permission, ensuring seamless and secure verification processes.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -820,7 +892,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.4;
 				OTHER_LDFLAGS = "-lc++";
 				PRODUCT_BUNDLE_IDENTIFIER = FreedomTool.FreedomTool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -882,20 +954,28 @@
 				kind = branch;
 			};
 		};
-		CEA24C9E2B7CD972009DF14F /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+		CEE51BDB2B8DF83C00B5D1DE /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:kishikawakatsumi/KeychainAccess.git";
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
 			requirement = {
 				kind = exactVersion;
-				version = 4.2.2;
+				version = 4.4.1;
 			};
 		};
-		CEF470D92B7F83F2003F590D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		CEE51BDE2B8DF85C00B5D1DE /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:Alamofire/Alamofire.git";
 			requirement = {
 				kind = exactVersion;
 				version = 5.8.1;
+			};
+		};
+		CEE51BE12B8DF8AE00B5D1DE /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:kishikawakatsumi/KeychainAccess.git";
+			requirement = {
+				kind = exactVersion;
+				version = 4.2.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -926,15 +1006,20 @@
 			package = CEA24C952B7CD8E4009DF14F /* XCRemoteSwiftPackageReference "QKMRZScanner" */;
 			productName = QKMRZScanner;
 		};
-		CEA24C9F2B7CD972009DF14F /* KeychainAccess */ = {
+		CEE51BDC2B8DF83C00B5D1DE /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CEA24C9E2B7CD972009DF14F /* XCRemoteSwiftPackageReference "KeychainAccess" */;
-			productName = KeychainAccess;
+			package = CEE51BDB2B8DF83C00B5D1DE /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
 		};
-		CEF470DA2B7F83F2003F590D /* Alamofire */ = {
+		CEE51BDF2B8DF85C00B5D1DE /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CEF470D92B7F83F2003F590D /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = CEE51BDE2B8DF85C00B5D1DE /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		CEE51BE22B8DF8AE00B5D1DE /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEE51BE12B8DF8AE00B5D1DE /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

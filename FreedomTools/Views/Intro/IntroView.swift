@@ -12,8 +12,9 @@ struct IntroView: View {
                 }
             }
             if !introController.isZero {
-                IntroProgressView(introController: introController)
-                
+                if introController.currentStepIndex != 4 {
+                    IntroProgressView(introController: introController)
+                }
                 TabView(selection: $introController.currentStepIndex) {
                     IntroStepView(step: .one, appController: appController)
                         .tag(1)
@@ -21,29 +22,35 @@ struct IntroView: View {
                         .tag(2)
                     IntroStepView(step: .three, appController: appController)
                         .tag(3)
-                    ZStack {}
+                    ProgressView()
+                        .controlSize(.large)
                         .tag(4)
                 }
                 .onChange(of: introController.currentStepIndex) { index in
+                    if index == 4 {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            introController.finish()
+                        }
+                        
+                        return
+                    }
+                    
                     introController.setStep(IntroController.Step(rawValue: introController.currentStepIndex) ?? .off)
                 }
                 .tabViewStyle(.page(indexDisplayMode: .always))
                 .indexViewStyle(.page(backgroundDisplayMode: .never))
                 Spacer()
-                HStack {
-                    Image("ShieldLocked")
-                        .resizable()
-                        .frame(width: 15, height: 15)
-                    Text("SafeAndDecentralized")
-                        .font(.custom("RobotoMono-Regular", size: 13))
-                        .opacity(0.5)
+                if introController.currentStepIndex != 4 {
+                    HStack {
+                        Image("ShieldLocked")
+                            .resizable()
+                            .frame(width: 15, height: 15)
+                        Text("SafeAndDecentralized")
+                            .font(.custom("RobotoMono-Regular", size: 13))
+                            .opacity(0.5)
+                    }
+                    .frame(height: 30)
                 }
-                .frame(height: 30)
-            }
-        }
-        .onChange(of: introController.currentStepIndex) { index in
-            if index == 4 {
-                introController.finish()
             }
         }
     }
