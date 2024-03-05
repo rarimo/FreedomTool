@@ -92,8 +92,6 @@ struct RegistrationWaitingView: View {
                     
                     if try UserStorage.isUserExist(id: userID) {
                         try appController.loadUser(userId: userID)
-                        
-                        print("Got an old user: \(userID)")
                     } else {
                         do {
                            try validateModel()
@@ -104,31 +102,23 @@ struct RegistrationWaitingView: View {
                         }
                         
                         try await appController.newUser(model!)
-                        
-                        print("Creating new user, userID: \(userID)")
                     }
                 }
                 
                 waitingStepper += 1
                 
                 if appController.user!.requestedIn.contains(registrationEntity.address) {
-                    print("Found reqistrationRequest")
                     waitingStepper += 2
                 } else {
-                    print("Waiting for user identity to finalize")
                     var isFinalized = false
                     while !isFinalized {
-                        print("Check user finalization...")
                         isFinalized = try appController.isUserFinalized()
                         // sleep 10 second
                         try await Task.sleep(nanoseconds: 10000000000)
                     }
                     
-                    print("user identity was finalized")
-                    
                     waitingStepper += 1
                     
-                    print("registering new user")
                     do {
                         try await appController.register(address: registrationEntity.address)
                     } catch let error {
@@ -149,31 +139,22 @@ struct RegistrationWaitingView: View {
                         throw error
                     }
                     
-                    print("New user was registered")
-                    
                     var updatedUser = appController.user!
                     updatedUser.requestedIn.append(registrationEntity.address)
                     
                     waitingStepper += 1
                         
                     try! appController.updateUser(updatedUser)
-                    
-                    print("User local base updated")
                 }
-                
-                print("Waiting for the registration tx to execute")
                 
                 var isReqistered = false
                 while !isReqistered {
-                    print("Check user registration...")
                     isReqistered = try await appController.isUserRegistered(
                         address: registrationEntity.address
                     )
                     // sleep 10 second
                     try await Task.sleep(nanoseconds: 10000000000)
                 }
-                
-                print("The registration tx was executed")
                 
                 waitingStepper += 1
                 self.isDone = true

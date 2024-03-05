@@ -15,8 +15,6 @@ class AppController: ObservableObject {
         self.localization = Locale.current.identifier == "ru_US" ? "ru" : "en"
         
         guard let activeUserId = UserStorage.getActiveUserId() else {
-            print("No active userID found")
-            
             return
         }
         
@@ -39,8 +37,6 @@ class AppController: ObservableObject {
         
         self.user = user
         self.identityManager = identityManager
-        
-        print("Got active userID: \(activeUserId)")
     }
     
     func loadUser(userId: String) throws {

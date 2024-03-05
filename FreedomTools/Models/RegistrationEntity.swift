@@ -146,10 +146,10 @@ struct RegistrationRemark: Codable {
         case contractAddress = "contract_address"
         case name, description, excerpt
         case externalURL = "external_url"
-        case isActive = "is_active"
+        case isActive
     }
     
-    static func fromURL(url: String) async throws -> Self {
+    static func fromURL(url: String) async throws -> Self {        
         return try await AF.request(url)
             .serializingDecodable(Self.self)
             .result
