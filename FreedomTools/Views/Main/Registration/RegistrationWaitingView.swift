@@ -121,9 +121,12 @@ struct RegistrationWaitingView: View {
                 if appController.user!.requestedIn.contains(registrationEntity.address) {
                     waitingStepper += 2
                 } else {
-                    var isFinalized = false
-                    while !isFinalized {
-                        isFinalized = try appController.isUserFinalized()
+                    while true {
+                        let isFinalized = try appController.isUserFinalized()
+                        if isFinalized {
+                            break
+                        }
+                        
                         // sleep 10 second
                         try await Task.sleep(nanoseconds: 10_000_000_000)
                     }
@@ -160,11 +163,14 @@ struct RegistrationWaitingView: View {
                     try! appController.updateUser(updatedUser)
                 }
                 
-                var isReqistered = false
-                while !isReqistered {
-                    isReqistered = try await appController.isUserRegistered(
+                while true {
+                    let isReqistered = try await appController.isUserRegistered(
                         address: registrationEntity.address
                     )
+                    if isReqistered {
+                        break
+                    }
+                    
                     // sleep 10 second
                     try await Task.sleep(nanoseconds: 10_000_000_000)
                 }
@@ -173,6 +179,8 @@ struct RegistrationWaitingView: View {
                 self.isDone = true
             } catch let error {
                 print("Waiting error: \(error)")
+                
+                self.registerHandledError("ErrorServicesOutOfWork")
             }
         }
         

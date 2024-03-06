@@ -25,25 +25,27 @@ struct RegistrationListElemView: View {
                 .frame(height: 60)
                 HStack {
                     Text(registrationEntity.remark.excerpt)
-                        .font(.custom("RobotoMono-Regular", size: 12))
+                        .font(.custom("RobotoMono-Regular", size: 13))
                         .opacity(0.6)
                     Spacer()
                 }
                 .padding(.leading)
                 Spacer()
-                Divider()
-                    .frame(width: 320)
-                Spacer()
-                    .frame(height: 10)
-                HStack {
-                    Image("Calendar")
-                        .resizable()
-                        .frame(width: 20, height: 20)
-                    RegistrationStatusView(registrationEntity: registrationEntity)
+                if registrationEntity.remark.isActive ?? false {
+                    Divider()
+                        .frame(width: 320)
                     Spacer()
+                        .frame(height: 10)
+                    HStack {
+                        Image("Calendar")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                        RegistrationStatusView(registrationEntity: registrationEntity)
+                        Spacer()
+                    }
+                    .padding(.bottom)
+                    .padding(.horizontal)
                 }
-                .padding(.bottom)
-                .padding(.horizontal)
             }
         }
     }

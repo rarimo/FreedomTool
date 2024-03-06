@@ -17,13 +17,15 @@ struct RegistrationDetailsHeaderView: View {
                 .padding()
             Spacer()
         }
-        HStack {
-            Image("Calendar")
-                .resizable()
-                .frame(width: 15, height: 15)
-                .padding(.leading)
-            RegistrationStatusView(registrationEntity: registrationEntity)
-            Spacer()
+        if registrationEntity.remark.isActive ?? true {
+            HStack {
+                Image("Calendar")
+                    .resizable()
+                    .frame(width: 15, height: 15)
+                    .padding(.leading)
+                RegistrationStatusView(registrationEntity: registrationEntity)
+                Spacer()
+            }
         }
     }
 }

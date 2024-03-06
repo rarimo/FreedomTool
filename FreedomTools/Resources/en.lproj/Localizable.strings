@@ -41,7 +41,7 @@
 "NFCHint1" = "1. Place the phone as in the animation";
 "NFCHint2" = "2. Hold the phone on your passport until reading is completed";
 "MRZHint" = "Point the camera at your passport";
-"Country" = "РУС";
+"Country" = "ENG";
 "Active" = "Active";
 "Finished" = "Finished";
 "EndsIn" = "Ends in";
@@ -66,6 +66,7 @@
 "ErrorIdentityRevoked" = "You cannot be verified on multiple devices";
 "ErrorIssuingAuthority" = "Your issuing authority is not eligible for registration";
 "ErrorTooManyRequest" = "You cannot create a new identity, so try again later";
+"ErrorServicesOutOfWork" = "One of our services is down, please try again later";
 "Ended" = "Ended";
 "Heading" = "HEADING";
 "Description" = "DESCRIPTION";

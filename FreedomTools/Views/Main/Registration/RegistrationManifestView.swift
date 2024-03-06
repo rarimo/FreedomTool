@@ -71,24 +71,25 @@ struct RegistrationManifestView: View {
             .opacity(0.5)
             Spacer()
                 .frame(height: 15)
-            Button(action: onSign) {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 1_000)
-                        .foregroundStyle(.second)
-                    HStack {
-                        Image("person_add")
-                            .resizable()
-                            .frame(width: 17.6, height: 12.18)
-                        Spacer()
-                            .frame(width: 15)
-                        Text("Sign")
-                            .font(.custom("RobotoMono-Bold", size: 14))
+            if self.registrationEntity.remark.isActive ?? true {
+                Button(action: onSign) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 1_000)
+                            .foregroundStyle(.second)
+                        HStack {
+                            Image("person_add")
+                                .resizable()
+                                .frame(width: 17.6, height: 12.18)
+                            Spacer()
+                                .frame(width: 15)
+                            Text("Sign")
+                                .font(.custom("RobotoMono-Bold", size: 14))
+                        }
                     }
                 }
+                .buttonStyle(.plain)
+                .frame(width: 341, height: 48)
             }
-            .buttonStyle(.plain)
-            .disabled(!(self.registrationEntity.remark.isActive ?? true))
-            .frame(width: 341, height: 48)
         }
     }
 }
