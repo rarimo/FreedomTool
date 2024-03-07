@@ -49,8 +49,8 @@ class UserStorage {
         let id: String
         let issuingAuthority: String
         let isAdult: Bool
-        let claimId: String
-        let issuerDid: String
+        var claimId: String
+        var issuerDid: String
         let secretKeyHex: String
         let secretHex: String
         let nullifierHex: String

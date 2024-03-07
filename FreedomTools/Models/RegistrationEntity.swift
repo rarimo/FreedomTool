@@ -17,6 +17,10 @@ struct RegistrationEntity {
     let remark: RegistrationRemark
     let issuingAuthorityWhitelist: [BigUInt]
     
+    func isEnded() -> Bool {
+        return BigUInt(Date().timeIntervalSince1970) > info.values.commitmentEndTime
+    }
+    
     static func fromRegistryLast() async throws -> Self {
         let evmRPC = Bundle.main.object(forInfoDictionaryKey: "EVMRPC") as! String
         
@@ -184,7 +188,7 @@ struct RegistrationEntity {
     ) async throws -> EthereumAddress {
         let listPoolsByProposerAndTypeMethod = contract["listPoolsByProposerAndType"]!
         
-        let result = try listPoolsByProposerAndTypeMethod(proposer, type, poolCount-1, 1).call().wait()
+        let result = try listPoolsByProposerAndTypeMethod(proposer, type, poolCount-2, 1).call().wait()
         guard let resultValue = result["pools_"] else {
             throw "unable to get result value"
         }

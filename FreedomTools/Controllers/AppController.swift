@@ -88,6 +88,30 @@ class AppController: ObservableObject {
         }
     }
     
+    func updateUserIdentity(model: NFCPassportModel) async throws {
+        guard 
+            let identityManager = self.identityManager,
+            var updatedUser = self.user
+        else {
+            throw "identity manager/user is not initialized"
+        }
+        
+        let issueResponse = try await identityManager.issueIdentity(model)
+        
+        updatedUser.claimId = issueResponse.data.attributes.claimID
+        updatedUser.issuerDid = issueResponse.data.attributes.issuerDid
+        
+        UserStorage.setActiveUserId(id: updatedUser.id)
+        try UserStorage.setUser(user: updatedUser)
+        
+        let blockedUser = updatedUser
+        
+        await MainActor.run {
+            self.user = blockedUser
+            self.identityManager = identityManager
+        }
+    }
+    
     func updateUser(_ user: UserStorage.User) throws {
         try UserStorage.setUser(user: user)
         UserStorage.setActiveUserId(id: user.id)

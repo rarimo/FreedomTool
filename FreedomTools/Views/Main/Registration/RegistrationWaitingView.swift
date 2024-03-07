@@ -79,7 +79,11 @@ struct RegistrationWaitingView: View {
         .sheet(isPresented: $viewPetitionActive) {
             RegistrationSignedManifestView(registrationEntity: registrationEntity)
         }
-        .onAppear(perform: self.wait)
+        .onAppear {
+            if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] != "1" {
+                self.wait()
+            }
+        }
         .onDisappear {
             checkingTask.cancel()
         }
@@ -94,25 +98,9 @@ struct RegistrationWaitingView: View {
                     if try UserStorage.isUserExist(id: userID) {
                         try appController.loadUser(userId: userID)
                     } else {
-                        do {
-                           try validateModel()
-                        } catch let error {
-                            self.registerHandledError(error)
-                            
-                            return
-                        }
+                        try validateModel()
                         
-                        do {
-                            try await appController.newUser(model!)
-                        } catch let error {
-                            if "\(error)".contains("ErrorTooManyRequest") {
-                                self.registerHandledError("ErrorTooManyRequest")
-                                
-                                return
-                            }
-                            
-                            throw error
-                        }
+                        try await appController.newUser(model!)
                     }
                 }
                 
@@ -133,27 +121,9 @@ struct RegistrationWaitingView: View {
                     
                     waitingStepper += 1
                     
-                    do {
-                        let txHash = try await appController.register(address: registrationEntity.address)
-                        
-                        print("register tx hash: \(txHash)")
-                    } catch let error {
-                        if "\(error)".contains("no non-revoked credentials found") {
-                            try self.appController.eraceUser()
-                            
-                            self.registerHandledError("ErrorIdentityRevoked")
-                            
-                            return
-                        }
-                        
-                        if "\(error)".contains("user already registered") {
-                            self.registerHandledError("ErrorYouAlredySigned")
-                            
-                            return
-                        }
-                        
-                        throw error
-                    }
+                    let txHash = try await appController.register(address: registrationEntity.address)
+                    
+                    print("register tx hash: \(txHash)")
                     
                     var updatedUser = appController.user!
                     updatedUser.requestedIn.append(registrationEntity.address)
@@ -180,7 +150,7 @@ struct RegistrationWaitingView: View {
             } catch let error {
                 print("Waiting error: \(error)")
                 
-                self.registerHandledError("ErrorServicesOutOfWork")
+                self.registerHandledError(error)
             }
         }
         
@@ -188,15 +158,29 @@ struct RegistrationWaitingView: View {
     }
     
     func registerHandledError(_ error: Error) {
-        if !error.isCancelled {
-            errorMessage = "\(error)"
-            isErrorAlertPresent = true
-            
-            appController.identityManager = nil
-            appController.user = nil
-            
-            registrationController.currentStep = .sign
+        if error.isCancelled {
+            return
         }
+        
+        var newErrorMessage = "ErrorServicesOutOfWork"
+        
+        let errorStr = "\(error)"
+        if errorStr.starts(with: "Error") {
+            newErrorMessage = errorStr
+        }
+        
+        if errorStr.contains("user already registered") {
+            newErrorMessage = "ErrorYouAlredySigned"
+        }
+        
+        if errorStr.contains("no non-revoked credentials found") {
+            newErrorMessage = "ErrorIdentityRevoked"
+        }
+        
+        errorMessage = newErrorMessage
+        isErrorAlertPresent = true
+        
+        registrationController.currentStep = .sign
     }
     
     func validateModel() throws {

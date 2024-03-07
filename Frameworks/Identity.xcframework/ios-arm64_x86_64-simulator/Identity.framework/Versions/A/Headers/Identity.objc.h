@@ -592,6 +592,7 @@ JSON path
 - (NSString* _Nonnull)getSecretKeyHex;
 - (BOOL)initVerifiableCredentials:(NSData* _Nullable)offerData error:(NSError* _Nullable* _Nullable)error;
 - (BOOL)isFinalized:(NSString* _Nullable)rarimoCoreURL issuerDid:(NSString* _Nullable)issuerDid creationTimestamp:(int64_t)creationTimestamp ret0_:(BOOL* _Nullable)ret0_ error:(NSError* _Nullable* _Nullable)error;
+- (BOOL)isRevoced:(BOOL* _Nullable)ret0_ error:(NSError* _Nullable* _Nullable)error;
 // skipped method Identity.PrepareAuth2Inputs with unsupported parameter or return types
 
 - (NSData* _Nullable)register:(NSString* _Nullable)rarimoCoreURL issuerDid:(NSString* _Nullable)issuerDid votingAddress:(NSString* _Nullable)votingAddress schemaJsonLd:(NSData* _Nullable)schemaJsonLd issuingAuthorityCode:(NSString* _Nullable)issuingAuthorityCode error:(NSError* _Nullable* _Nullable)error;

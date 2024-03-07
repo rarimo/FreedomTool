@@ -63,7 +63,7 @@
 "ErrorIsNotAdult" = "You're not adult";
 "ErrorYourDocumentExpired" = "Your document has expired";
 "ErrorYouAlredySigned" = "You have already signed this manifest from another device";
-"ErrorIdentityRevoked" = "You cannot be verified on multiple devices";
+"ErrorIdentityRevoked" = "You cannot be verified on multiple devices or your identity was revoked";
 "ErrorIssuingAuthority" = "Your issuing authority is not eligible for registration";
 "ErrorTooManyRequest" = "You cannot create a new identity, so try again later";
 "ErrorServicesOutOfWork" = "One of our services is down, please try again later";

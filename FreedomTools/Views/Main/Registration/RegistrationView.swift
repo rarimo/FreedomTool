@@ -29,26 +29,26 @@ struct RegistrationView: View {
                 if isAlreadyRegistered {
                     RegistrationSignedManifestView(registrationEntity: registrationEntity)
                 } else {
-                    if appController.user == nil && self.registrationController.currentStep == .sign {
+                    if self.registrationController.currentStep == .sign {
                         RegistrationManifestView(registrationEntity: registrationEntity) {
                             self.registrationController.currentStep = .verification
                         }
                     }
-                    if appController.user == nil && self.registrationController.currentStep == .verification {
+                    if self.registrationController.currentStep == .verification {
                         RegistrationVerifyView(registrationEntity: registrationEntity) {
                             self.registrationController.currentStep = .mrz
                         }
                     }
-                    if appController.user == nil && self.registrationController.currentStep == .mrz {
+                    if self.registrationController.currentStep == .mrz {
                         OnboardMRZScannerView(mrzScannerController: registrationController.mrzScannerController)
                     }
-                    if appController.user == nil && self.registrationController.currentStep == .nfc {
+                    if self.registrationController.currentStep == .nfc {
                         OnboardNFCScannerView(
                             nfcScannerController: registrationController.nfcScannerController,
                             mrzKey: registrationController.mrzScannerController.mrzKey
                         )
                     }
-                    if appController.user == nil && self.registrationController.currentStep == .confirm {
+                    if self.registrationController.currentStep == .confirm {
                         RegistrationConfirmView(
                             passportModel: self.registrationController.nfcScannerController.nfcModel!
                         ) {

@@ -62,11 +62,7 @@ class IdentityManager {
             throw "IdentityProviderNodeURL is not URL"
         }
         
-        print(identityProviderNodeURL)
-        
         let payload = try preparePayloadForCreateIdentity(model)
-        
-        print(String(data: payload, encoding: .utf8)!)
         
         var request = URLRequest(url: identityProviderNodeURL)
         request.httpMethod = HTTPMethod.post.rawValue

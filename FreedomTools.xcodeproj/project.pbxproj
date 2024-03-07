@@ -12,7 +12,6 @@
 		CE004B4D2B9355D7006D0188 /* RegistrationWaitingCheckboxesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE004B4C2B9355D7006D0188 /* RegistrationWaitingCheckboxesView.swift */; };
 		CE3866412B7E5C85003BA2C5 /* NFCPassportReader in Frameworks */ = {isa = PBXBuildFile; productRef = CE3866402B7E5C85003BA2C5 /* NFCPassportReader */; };
 		CE4D931B2B51D38300E8AC67 /* KeychainUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4D931A2B51D38300E8AC67 /* KeychainUtils.swift */; };
-		CE4F26972B95FF3D000ABB0C /* Identity.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4F26962B95FF3D000ABB0C /* Identity.xcframework */; };
 		CE64068D2B8786250019BB81 /* libwitnesscalc_credentialAtomicQueryMTPV2OnChainVoting.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE64068C2B8786250019BB81 /* libwitnesscalc_credentialAtomicQueryMTPV2OnChainVoting.a */; };
 		CE70B3932B5689CC005F5868 /* StorageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70B3922B5689CC005F5868 /* StorageUtils.swift */; };
 		CE7908FB2B88C38B000FE927 /* Web3 in Frameworks */ = {isa = PBXBuildFile; productRef = CE7908FA2B88C38B000FE927 /* Web3 */; };
@@ -113,6 +112,7 @@
 		CEE51BEB2B8E05A700B5D1DE /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = CEE51BEA2B8E05A700B5D1DE /* loader.json */; };
 		CEECEEF12B8A0EF2005704E4 /* UserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEECEEF02B8A0EF2005704E4 /* UserStorage.swift */; };
 		CEECEEFD2B8A5058005704E4 /* RegistrationVerifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEECEEFC2B8A5058005704E4 /* RegistrationVerifyView.swift */; };
+		CEF27A722B9A041F008A01D0 /* Identity.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF27A712B9A041F008A01D0 /* Identity.xcframework */; };
 		CEF2C40A2B52B47600B44A7C /* EmptyPollsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF2C4092B52B47600B44A7C /* EmptyPollsView.swift */; };
 		CEF2C40E2B52D93700B44A7C /* GifimageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF2C40D2B52D93700B44A7C /* GifimageView.swift */; };
 		CEF2C4122B52E7E000B44A7C /* merged.gif in Resources */ = {isa = PBXBuildFile; fileRef = CEF2C4112B52E7E000B44A7C /* merged.gif */; };
@@ -123,7 +123,6 @@
 		CE004B4A2B934729006D0188 /* RegistrationWaitingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationWaitingView.swift; sourceTree = "<group>"; };
 		CE004B4C2B9355D7006D0188 /* RegistrationWaitingCheckboxesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationWaitingCheckboxesView.swift; sourceTree = "<group>"; };
 		CE4D931A2B51D38300E8AC67 /* KeychainUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainUtils.swift; sourceTree = "<group>"; };
-		CE4F26962B95FF3D000ABB0C /* Identity.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Identity.xcframework; sourceTree = "<group>"; };
 		CE64068C2B8786250019BB81 /* libwitnesscalc_credentialAtomicQueryMTPV2OnChainVoting.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwitnesscalc_credentialAtomicQueryMTPV2OnChainVoting.a; sourceTree = "<group>"; };
 		CE64068E2B8787B80019BB81 /* witnesscalc_credentialAtomicQueryMTPV2OnChainVoting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = witnesscalc_credentialAtomicQueryMTPV2OnChainVoting.h; sourceTree = "<group>"; };
 		CE70B3922B5689CC005F5868 /* StorageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageUtils.swift; sourceTree = "<group>"; };
@@ -228,6 +227,7 @@
 		CEE51BEA2B8E05A700B5D1DE /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
 		CEECEEF02B8A0EF2005704E4 /* UserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorage.swift; sourceTree = "<group>"; };
 		CEECEEFC2B8A5058005704E4 /* RegistrationVerifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVerifyView.swift; sourceTree = "<group>"; };
+		CEF27A712B9A041F008A01D0 /* Identity.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Identity.xcframework; sourceTree = "<group>"; };
 		CEF2C4092B52B47600B44A7C /* EmptyPollsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPollsView.swift; sourceTree = "<group>"; };
 		CEF2C40D2B52D93700B44A7C /* GifimageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifimageView.swift; sourceTree = "<group>"; };
 		CEF2C4112B52E7E000B44A7C /* merged.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = merged.gif; sourceTree = "<group>"; };
@@ -253,7 +253,7 @@
 				CEE51BE02B8DF85C00B5D1DE /* Alamofire in Frameworks */,
 				CE7908FD2B88C38B000FE927 /* Web3ContractABI in Frameworks */,
 				CE7908FB2B88C38B000FE927 /* Web3 in Frameworks */,
-				CE4F26972B95FF3D000ABB0C /* Identity.xcframework in Frameworks */,
+				CEF27A722B9A041F008A01D0 /* Identity.xcframework in Frameworks */,
 				CE3866412B7E5C85003BA2C5 /* NFCPassportReader in Frameworks */,
 				CEC6DCC02B7E301500E63213 /* libwitnesscalc_passportVerificationSHA1.a in Frameworks */,
 			);
@@ -453,7 +453,7 @@
 		CEDFC1E82B5ECFCA00E0691B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CE4F26962B95FF3D000ABB0C /* Identity.xcframework */,
+				CEF27A712B9A041F008A01D0 /* Identity.xcframework */,
 				CE7909082B88F295000FE927 /* witnesscalc_voteSMT.h */,
 				CE7909062B88F285000FE927 /* libwitnesscalc_voteSMT.a */,
 				CE64068E2B8787B80019BB81 /* witnesscalc_credentialAtomicQueryMTPV2OnChainVoting.h */,

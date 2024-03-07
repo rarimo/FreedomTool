@@ -71,7 +71,10 @@ struct RegistrationManifestView: View {
             .opacity(0.5)
             Spacer()
                 .frame(height: 15)
-            if self.registrationEntity.remark.isActive ?? true {
+            if
+                self.registrationEntity.remark.isActive ?? true
+                    && !self.registrationEntity.isEnded()
+            {
                 Button(action: onSign) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 1_000)
