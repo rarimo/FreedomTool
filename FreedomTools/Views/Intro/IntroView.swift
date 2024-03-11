@@ -10,8 +10,7 @@ struct IntroView: View {
                 IntroFirstView(appController: appController) {
                     introController.nextStep()
                 }
-            }
-            if !introController.isZero {
+            } else {
                 if introController.currentStepIndex != 4 {
                     IntroProgressView(introController: introController)
                 }

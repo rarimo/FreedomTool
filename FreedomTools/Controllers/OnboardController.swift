@@ -1,7 +1,7 @@
 import SwiftUI
 
 class OnboardController: ObservableObject {
-    @Published var currentStep: Step = KeychainUtils.getNfcModelData() != nil ? .off : .zero
+    @Published var currentStep: Step = .zero
     
     @Published var mrzScannerController = MRZScannerController()
     @Published var nfcScannerController = NFCScannerController()

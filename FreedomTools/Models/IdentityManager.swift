@@ -64,6 +64,8 @@ class IdentityManager {
         
         let payload = try preparePayloadForCreateIdentity(model)
         
+        print(String(data: payload, encoding: .utf8)!)
+        
         var request = URLRequest(url: identityProviderNodeURL)
         request.httpMethod = HTTPMethod.post.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -192,6 +194,9 @@ class IdentityManager {
         
         proofVerificationRelayerURL += "/integrations/proof-verification-relayer/v1/verify-proof"
         
+        print(proofVerificationRelayerURL)
+        print("\("0x" + calldata.toHexString()))")
+        
         let calldataRequest = SendCalldataRequest(data: SendCalldataRequestData(txData: "0x" + calldata.toHexString()))
         
         let relayerResponse = try await AF.request(
@@ -268,9 +273,14 @@ class StateProvider: NSObject, IdentityStateProviderProtocol {
             throw "inputs is not presented"
         }
         
+        print(String(data: inputs, encoding: .utf8)!)
+        
         let wtns = try ZKUtils.calcWtnscredentialAtomicQueryMTPV2OnChainVoting(inputsJson: inputs)
         
         let (proofRaw, pubSignalsRaw) = try ZKUtils.groth16credentialAtomicQueryMTPV2OnChainVoting(wtns: wtns)
+        
+        print(String(data: proofRaw, encoding: .utf8)!)
+        print(String(data: pubSignalsRaw, encoding: .utf8)!)
         
         let proof = try JSONDecoder().decode(Proof.self, from: proofRaw)
         let pubSignals = try JSONDecoder().decode([String].self, from: pubSignalsRaw)
@@ -297,6 +307,8 @@ class StateProvider: NSObject, IdentityStateProviderProtocol {
             throw "url/method/headerKey/headerValue is invalid"
         }
         
+        print(urlRaw)
+        
         guard let url = URL(string: urlRaw) else {
             throw "invalid url format"
         }
@@ -304,6 +316,8 @@ class StateProvider: NSObject, IdentityStateProviderProtocol {
         var request = URLRequest(url: url)
         request.httpMethod = method
         if let body = body {
+            print("body: \(String(data: body, encoding: .utf8)!)")
+            
             if !body.isEmpty {
                 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
                 request.httpBody = body
@@ -337,6 +351,8 @@ class StateProvider: NSObject, IdentityStateProviderProtocol {
             throw error
         }
         
+        print(String(data: lastRetrivedData, encoding: .utf8)!)
+        
         return lastRetrivedData
     }
     
@@ -355,6 +371,8 @@ class StateProvider: NSObject, IdentityStateProviderProtocol {
         
         identityProviderNodeURLRaw += "/integrations/identity-provider-service/v1/gist-data"
         identityProviderNodeURLRaw += "?user_did=\(userId)"
+        
+        print(identityProviderNodeURLRaw)
         
         guard let identityProviderNodeURL = URL(string: identityProviderNodeURLRaw) else {
             throw "IdentityProviderNodeURL is not URL"

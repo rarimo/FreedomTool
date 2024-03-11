@@ -7,6 +7,10 @@ class UserStorage {
     static let keychain = Keychain(service: "org.freedomtool.userstorage")
     static let activeUserIdKey = "org.freedomtool.userstorage.active_user_id_key"
     
+    static func eraceAll() throws {
+        try keychain.removeAll()
+    }
+    
     static func getActiveUserId() -> String? {        
         return UserDefaults.standard.string(forKey: activeUserIdKey)
     }

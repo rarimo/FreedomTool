@@ -36,20 +36,22 @@
 	<key>RegistryPollType</key>
 	<string>Simple Registration</string>
 	<key>IssuerNodeURL</key>
-	<string>https://issuer.polygon.robotornot.mainnet-beta.rarimo.com</string>
+	<string>https://issuerapi.freedomtool.org</string>
 	<key>IdentityProviderNodeURL</key>
-	<string>https://api.stage.freedomtool.org</string>
+	<string>https://kyc.freedomtool.org</string>
 	<key>VotingCredentialType</key>
 	<string>urn:uuid:f2c8db83-7e1b-493d-a65e-9939d643e79d</string>
 	<key>RarimoCoreURL</key>
-	<string>https://rpc-api.node1.mainnet-beta.rarimo.com</string>
+	<string>https://rpc-api.mainnet.rarimo.com</string>
 	<key>EVMRPC</key>
-	<string>https://rpc.qtestnet.org/</string>
+	<string>https://arbitrum.freedomtool.org</string>
 	<key>VotingRegistryAddress</key>
-	<string>0xECB5371C727a664160c4F4360af77F0Fe4aeb7F9</string>
+	<string>0x1d84cFd4839fE92dAe8E1F8F777010c08a60013C</string>
 	<key>VotingProposer</key>
-	<string>0xf41ceE234219D6cc3d90A6996dC3276aD378cfCF</string>
+	<string>0xF5Ca28acbBC7DFFfFFf714e1F306A803037Bdad2</string>
 	<key>ProofVerificationRelayerURL</key>
-	<string>https://api.stage.freedomtool.org</string>
+	<string>https://proofverification.freedomtool.org</string>
+	<key>ApiRarimoURL</key>
+	<string>https://api.robotornot.rarimo.com</string>
 </dict>
 </plist>

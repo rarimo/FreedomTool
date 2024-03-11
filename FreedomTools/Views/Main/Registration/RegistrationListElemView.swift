@@ -24,7 +24,11 @@ struct RegistrationListElemView: View {
                 .padding(.leading)
                 .frame(height: 60)
                 HStack {
-                    Text(registrationEntity.remark.excerpt)
+                    Text(
+                        registrationEntity.remark.excerpt != ""
+                        ? registrationEntity.remark.excerpt
+                        : registrationEntity.remark.description
+                    )
                         .font(.custom("RobotoMono-Regular", size: 13))
                         .opacity(0.6)
                     Spacer()

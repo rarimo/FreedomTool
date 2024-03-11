@@ -184,7 +184,10 @@ class AppController: ObservableObject {
             throw "user is not initialized"
         }
         
-        let claimOffer = try! await IssuerConnector.claimOffer(issuerDid: identityManager.identity.getDID())
+        let claimOffer = try! await IssuerConnector.claimOffer(
+            issuerDid: user.issuerDid,
+            claimId: user.claimId
+        )
         
         let claimOfferData = try! JSONEncoder().encode(claimOffer)
         

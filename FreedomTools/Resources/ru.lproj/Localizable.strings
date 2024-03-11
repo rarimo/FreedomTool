@@ -69,7 +69,7 @@
 "ErrorServicesOutOfWork" = "Одна из наших служб не работает. Повторите попытку позже";
 "Ended" = "Завершено";
 "Heading" = "ЗАГОЛОВОК";
-"Description" = "ОПИСАНИЕ";
+"Description" = "Обращение:";
 "PeopleAlreadySigned" = "людей уже подписалось";
 "Sign" = "Подписать";
 "Signed" = "Подписано";

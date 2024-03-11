@@ -4,27 +4,27 @@ import Identity
 import KeychainAccess
 import NFCPassportReader
 
-struct AppView: View {
+struct AppView: View {    
     @StateObject private var appController = AppController()
-    @StateObject var introController = IntroController()
-    @StateObject var mainController = MainController()
-    @StateObject private var registrationController: RegistrationController = RegistrationController()
+    @StateObject private var introController = IntroController()
+    @StateObject private var mainController = MainController()
+    @StateObject private var registrationController = RegistrationController()
     
     var body: some View {
         ZStack {
-            if !introController.isOff {
-                IntroView(
-                    appController: appController,
-                    introController: introController
-                )
-            }
             if introController.isOff {
                 MainView(
                     appController: appController,
                     mainController: mainController,
                     introController: introController
                 )
+            } else {
+                IntroView(
+                    appController: appController,
+                    introController: introController
+                )
             }
+            
         }
         .environment(\.locale, .init(identifier: appController.localization))
     }

@@ -26,18 +26,16 @@ struct Credential: Codable {
 }
 
 class IssuerConnector {
-    static func claimOffer(issuerDid: String) async throws -> ClaimOfferResponse {
-        guard let votingCredentialType = Bundle.main.object(forInfoDictionaryKey: "VotingCredentialType") as? String else {
-            throw "VotingCredentialType is not set"
-        }
-        
-        guard var issuerNodeURL = Bundle.main.object(forInfoDictionaryKey: "IssuerNodeURL") as? String else {
+    static func claimOffer(issuerDid: String, claimId: String) async throws -> ClaimOfferResponse {
+        guard var apiRarimoURL = Bundle.main.object(forInfoDictionaryKey: "ApiRarimoURL") as? String else {
             throw "IssuerNodeURL is not set"
         }
-                
-        issuerNodeURL += "/v1/credentials/\(issuerDid)/\(votingCredentialType)"
         
-        let response = await AF.request(issuerNodeURL, method: .get)
+        apiRarimoURL += "/v1/\(issuerDid)/claims/\(claimId)/offer"
+        
+        print(apiRarimoURL)
+        
+        let response = await AF.request(apiRarimoURL, method: .get)
             .serializingDecodable(ClaimOfferResponse.self)
             .result
         

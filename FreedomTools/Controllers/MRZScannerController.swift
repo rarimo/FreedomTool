@@ -27,8 +27,6 @@ class MRZScannerController: ObservableObject, QKMRZScannerViewDelegate {
         
         stopScanning()
         onScanned()
-        
-        KeychainUtils.saveBirthday(scanResult.birthdate!)
     }
     
     func setOnScanned(newOnScanned: @escaping () -> Void) {

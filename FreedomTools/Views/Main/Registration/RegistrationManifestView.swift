@@ -20,22 +20,24 @@ struct RegistrationManifestView: View {
             VStack(alignment: .trailing) {
                 Spacer()
                     .frame(height: 30)
-                HStack {
-                    Text("Heading")
-                        .font(.custom("RobotoSlab-Bold", size: 14))
-                        .opacity(0.5)
+                if registrationEntity.remark.excerpt != "" {
+                    HStack {
+                        Text("Heading")
+                            .font(.custom("RobotoSlab-Bold", size: 14))
+                            .opacity(0.5)
+                        Spacer()
+                    }
+                    .padding(.horizontal)
                     Spacer()
+                        .frame(height: 5)
+                    HStack {
+                        Text(registrationEntity.remark.excerpt)
+                            .font(.custom("RobotoMono-Regular", size: 14))
+                            .opacity(0.5)
+                        Spacer()
+                    }
+                    .padding(.horizontal)
                 }
-                .padding(.horizontal)
-                Spacer()
-                    .frame(height: 5)
-                HStack {
-                    Text(registrationEntity.remark.excerpt)
-                        .font(.custom("RobotoMono-Regular", size: 14))
-                        .opacity(0.5)
-                    Spacer()
-                }
-                .padding(.horizontal)
                 Spacer()
                     .frame(height: 30)
                 HStack {
@@ -58,22 +60,24 @@ struct RegistrationManifestView: View {
                 .padding(.horizontal)
             }
             Spacer()
-            Divider()
-            Spacer()
+            if self.registrationEntity.remark.isActive ?? true {
+                Divider()
+                Spacer()
                 .frame(height: 15)
-            (
-            Text("\(registrationEntity.info.counters.totalRegistrations.description) ")
-                .font(.custom("RobotoMono-SemiBold", size: 12))
-            +
-            Text("PeopleAlreadySigned")
-                .font(.custom("RobotoMono-Regular", size: 12))
-            )
-            .opacity(0.5)
-            Spacer()
+                (
+                    Text("\(registrationEntity.info.counters.totalRegistrations.description) ")
+                        .font(.custom("RobotoMono-SemiBold", size: 12))
+                    +
+                    Text("PeopleAlreadySigned")
+                        .font(.custom("RobotoMono-Regular", size: 12))
+                )
+                    .opacity(0.5)
+                Spacer()
                 .frame(height: 15)
+            }
             if
-                self.registrationEntity.remark.isActive ?? true
-                    && !self.registrationEntity.isEnded()
+//                self.registrationEntity.remark.isActive ?? true
+                !self.registrationEntity.isEnded()
             {
                 Button(action: onSign) {
                     ZStack {

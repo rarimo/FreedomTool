@@ -1,10 +1,3 @@
-//
-//  RegistrationEntity.swift
-//  FreedomTools
-//
-//  Created by Ivan Lele on 29.02.2024.
-//
-
 import Web3
 import Web3PromiseKit
 import Web3ContractABI

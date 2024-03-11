@@ -39,11 +39,6 @@ class NFCScannerController: ObservableObject {
                 
         nfcModel = try await PassportReader(masterListURL: masterListURL).readPassport(mrzKey: mrzKey, tags: [.DG1, .DG2, .SOD])
         
-        if nfcModel != nil {
-            KeychainUtils.saveNfcModelData(nfcModel!.getDataGroupsRead())
-            KeychainUtils.saveNationality(nfcModel!.issuingAuthority)
-        }
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             self.onScanned()
         }

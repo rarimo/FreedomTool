@@ -11,7 +11,6 @@
 		CE004B4B2B934729006D0188 /* RegistrationWaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE004B4A2B934729006D0188 /* RegistrationWaitingView.swift */; };
 		CE004B4D2B9355D7006D0188 /* RegistrationWaitingCheckboxesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE004B4C2B9355D7006D0188 /* RegistrationWaitingCheckboxesView.swift */; };
 		CE3866412B7E5C85003BA2C5 /* NFCPassportReader in Frameworks */ = {isa = PBXBuildFile; productRef = CE3866402B7E5C85003BA2C5 /* NFCPassportReader */; };
-		CE4D931B2B51D38300E8AC67 /* KeychainUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4D931A2B51D38300E8AC67 /* KeychainUtils.swift */; };
 		CE64068D2B8786250019BB81 /* libwitnesscalc_credentialAtomicQueryMTPV2OnChainVoting.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE64068C2B8786250019BB81 /* libwitnesscalc_credentialAtomicQueryMTPV2OnChainVoting.a */; };
 		CE70B3932B5689CC005F5868 /* StorageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70B3922B5689CC005F5868 /* StorageUtils.swift */; };
 		CE7908FB2B88C38B000FE927 /* Web3 in Frameworks */ = {isa = PBXBuildFile; productRef = CE7908FA2B88C38B000FE927 /* Web3 */; };
@@ -51,15 +50,11 @@
 		CEA152222B448487006616DD /* IntroProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA152212B448487006616DD /* IntroProgressView.swift */; };
 		CEA152242B4485AB006616DD /* IntroProgressItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA152232B4485AB006616DD /* IntroProgressItemView.swift */; };
 		CEA152282B448D26006616DD /* IntroStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA152272B448D26006616DD /* IntroStepView.swift */; };
-		CEA1522B2B449690006616DD /* OnboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1522A2B449690006616DD /* OnboardView.swift */; };
 		CEA1522D2B4498E2006616DD /* OnboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1522C2B4498E2006616DD /* OnboardController.swift */; };
-		CEA152312B449A4F006616DD /* OnboardParticipateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA152302B449A4F006616DD /* OnboardParticipateView.swift */; };
 		CEA152332B44A1F0006616DD /* WaitProcessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA152322B44A1F0006616DD /* WaitProcessView.swift */; };
-		CEA152352B44B442006616DD /* OnboardConfirmDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA152342B44B442006616DD /* OnboardConfirmDataView.swift */; };
 		CEA24C8B2B7CD48E009DF14F /* IdentityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA24C8A2B7CD48E009DF14F /* IdentityManager.swift */; };
 		CEA24C972B7CD8E4009DF14F /* QKMRZScanner in Frameworks */ = {isa = PBXBuildFile; productRef = CEA24C962B7CD8E4009DF14F /* QKMRZScanner */; };
 		CEB6E1352B7BBBD400043AB6 /* IntroFirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6E1342B7BBBD400043AB6 /* IntroFirstView.swift */; };
-		CEBC4E7A2B459DB4005D560A /* PollDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC4E792B459DB4005D560A /* PollDetailsView.swift */; };
 		CEBC4E8D2B45AF50005D560A /* RobotoSlab-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEBC4E842B45AF50005D560A /* RobotoSlab-Light.ttf */; };
 		CEBC4E8E2B45AF50005D560A /* RobotoSlab-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEBC4E852B45AF50005D560A /* RobotoSlab-Regular.ttf */; };
 		CEBC4E8F2B45AF50005D560A /* RobotoSlab-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEBC4E862B45AF50005D560A /* RobotoSlab-ExtraLight.ttf */; };
@@ -69,29 +64,21 @@
 		CEBC4E932B45AF50005D560A /* RobotoSlab-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEBC4E8A2B45AF50005D560A /* RobotoSlab-Medium.ttf */; };
 		CEBC4E942B45AF50005D560A /* RobotoSlab-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEBC4E8B2B45AF50005D560A /* RobotoSlab-Black.ttf */; };
 		CEBC4E952B45AF50005D560A /* RobotoSlab-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEBC4E8C2B45AF50005D560A /* RobotoSlab-Bold.ttf */; };
-		CEBC4E972B45B204005D560A /* PollDetailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC4E962B45B204005D560A /* PollDetailsHeaderView.swift */; };
-		CEBC4E992B45B25D005D560A /* PollDetailsPandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC4E982B45B25D005D560A /* PollDetailsPandingView.swift */; };
-		CEBC4E9B2B45B75E005D560A /* PollDetailsVotingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC4E9A2B45B75E005D560A /* PollDetailsVotingView.swift */; };
-		CEBC4E9D2B45C440005D560A /* PollDetailsEndedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC4E9C2B45C440005D560A /* PollDetailsEndedView.swift */; };
-		CEBC4E9F2B45C66E005D560A /* PollProcessVotingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC4E9E2B45C66E005D560A /* PollProcessVotingView.swift */; };
-		CEBC4EA12B45CAB9005D560A /* PollProcessPendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC4EA02B45CAB9005D560A /* PollProcessPendingView.swift */; };
 		CEC5A1212B76874D00DB7BB4 /* IssuerConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5A1202B76874D00DB7BB4 /* IssuerConnector.swift */; };
 		CEC6DCC02B7E301500E63213 /* libwitnesscalc_passportVerificationSHA1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC6DCBE2B7E301500E63213 /* libwitnesscalc_passportVerificationSHA1.a */; };
 		CEC6DCC12B7E301500E63213 /* libwitnesscalc_passportVerificationSHA256.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC6DCBF2B7E301500E63213 /* libwitnesscalc_passportVerificationSHA256.a */; };
 		CED5E9ED2B7E83D90097282B /* libwitnesscalc_authV2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CED5E9EB2B7E83D90097282B /* libwitnesscalc_authV2.a */; };
-		CED648812B44D8D1008488E0 /* OnboardFakeGenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED648802B44D8D1008488E0 /* OnboardFakeGenView.swift */; };
 		CED648872B44D9C2008488E0 /* MRZScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED648852B44D9C2008488E0 /* MRZScannerController.swift */; };
 		CED648882B44D9C2008488E0 /* NFCScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED648862B44D9C2008488E0 /* NFCScannerController.swift */; };
 		CED6488A2B44D9F0008488E0 /* PassportUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED648892B44D9F0008488E0 /* PassportUtils.swift */; };
 		CED6488C2B44DA65008488E0 /* NFCScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6488B2B44DA65008488E0 /* NFCScannerView.swift */; };
-		CED6488E2B44DE9B008488E0 /* OnboardStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6488D2B44DE9B008488E0 /* OnboardStepView.swift */; };
 		CED648902B44E253008488E0 /* OnboardMRZScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6488F2B44E253008488E0 /* OnboardMRZScannerView.swift */; };
 		CED648922B44E62B008488E0 /* OnboardNFCScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED648912B44E62B008488E0 /* OnboardNFCScannerView.swift */; };
 		CED648952B456E34008488E0 /* Poll.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED648942B456E34008488E0 /* Poll.swift */; };
 		CEDE211E2B4578E300406B1A /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDE211D2B4578E300406B1A /* MainController.swift */; };
 		CEDE21202B457A3700406B1A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDE211F2B457A3700406B1A /* MainView.swift */; };
 		CEDE21242B457E0800406B1A /* PollStatusSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDE21232B457E0800406B1A /* PollStatusSelectorView.swift */; };
-		CEDE21262B45810B00406B1A /* PollListElemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDE21252B45810B00406B1A /* PollListElemView.swift */; };
+		CEDFBFAA2B9B5C200051B190 /* Identity.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDFBFA92B9B5C200051B190 /* Identity.xcframework */; };
 		CEDFC1F42B5ECFCB00E0691B /* libgmp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDFC1EC2B5ECFCA00E0691B /* libgmp.a */; };
 		CEDFC1F52B5ECFCB00E0691B /* libfq.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDFC1EE2B5ECFCA00E0691B /* libfq.a */; };
 		CEDFC1F62B5ECFCB00E0691B /* librapidsnark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDFC1F02B5ECFCA00E0691B /* librapidsnark.a */; };
@@ -112,7 +99,6 @@
 		CEE51BEB2B8E05A700B5D1DE /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = CEE51BEA2B8E05A700B5D1DE /* loader.json */; };
 		CEECEEF12B8A0EF2005704E4 /* UserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEECEEF02B8A0EF2005704E4 /* UserStorage.swift */; };
 		CEECEEFD2B8A5058005704E4 /* RegistrationVerifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEECEEFC2B8A5058005704E4 /* RegistrationVerifyView.swift */; };
-		CEF27A722B9A041F008A01D0 /* Identity.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF27A712B9A041F008A01D0 /* Identity.xcframework */; };
 		CEF2C40A2B52B47600B44A7C /* EmptyPollsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF2C4092B52B47600B44A7C /* EmptyPollsView.swift */; };
 		CEF2C40E2B52D93700B44A7C /* GifimageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF2C40D2B52D93700B44A7C /* GifimageView.swift */; };
 		CEF2C4122B52E7E000B44A7C /* merged.gif in Resources */ = {isa = PBXBuildFile; fileRef = CEF2C4112B52E7E000B44A7C /* merged.gif */; };
@@ -122,7 +108,6 @@
 		CE004B482B9335CF006D0188 /* RegistrationConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmView.swift; sourceTree = "<group>"; };
 		CE004B4A2B934729006D0188 /* RegistrationWaitingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationWaitingView.swift; sourceTree = "<group>"; };
 		CE004B4C2B9355D7006D0188 /* RegistrationWaitingCheckboxesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationWaitingCheckboxesView.swift; sourceTree = "<group>"; };
-		CE4D931A2B51D38300E8AC67 /* KeychainUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainUtils.swift; sourceTree = "<group>"; };
 		CE64068C2B8786250019BB81 /* libwitnesscalc_credentialAtomicQueryMTPV2OnChainVoting.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwitnesscalc_credentialAtomicQueryMTPV2OnChainVoting.a; sourceTree = "<group>"; };
 		CE64068E2B8787B80019BB81 /* witnesscalc_credentialAtomicQueryMTPV2OnChainVoting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = witnesscalc_credentialAtomicQueryMTPV2OnChainVoting.h; sourceTree = "<group>"; };
 		CE70B3922B5689CC005F5868 /* StorageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageUtils.swift; sourceTree = "<group>"; };
@@ -164,16 +149,12 @@
 		CEA152212B448487006616DD /* IntroProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroProgressView.swift; sourceTree = "<group>"; };
 		CEA152232B4485AB006616DD /* IntroProgressItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroProgressItemView.swift; sourceTree = "<group>"; };
 		CEA152272B448D26006616DD /* IntroStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroStepView.swift; sourceTree = "<group>"; };
-		CEA1522A2B449690006616DD /* OnboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardView.swift; sourceTree = "<group>"; };
 		CEA1522C2B4498E2006616DD /* OnboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardController.swift; sourceTree = "<group>"; };
-		CEA152302B449A4F006616DD /* OnboardParticipateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardParticipateView.swift; sourceTree = "<group>"; };
 		CEA152322B44A1F0006616DD /* WaitProcessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitProcessView.swift; sourceTree = "<group>"; };
-		CEA152342B44B442006616DD /* OnboardConfirmDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardConfirmDataView.swift; sourceTree = "<group>"; };
 		CEA24C882B7CD247009DF14F /* witnesscalc_passportVerificationSHA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = witnesscalc_passportVerificationSHA1.h; sourceTree = "<group>"; };
 		CEA24C892B7CD247009DF14F /* witnesscalc_passportVerificationSHA256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = witnesscalc_passportVerificationSHA256.h; sourceTree = "<group>"; };
 		CEA24C8A2B7CD48E009DF14F /* IdentityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityManager.swift; sourceTree = "<group>"; };
 		CEB6E1342B7BBBD400043AB6 /* IntroFirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroFirstView.swift; sourceTree = "<group>"; };
-		CEBC4E792B459DB4005D560A /* PollDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollDetailsView.swift; sourceTree = "<group>"; };
 		CEBC4E842B45AF50005D560A /* RobotoSlab-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoSlab-Light.ttf"; sourceTree = "<group>"; };
 		CEBC4E852B45AF50005D560A /* RobotoSlab-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoSlab-Regular.ttf"; sourceTree = "<group>"; };
 		CEBC4E862B45AF50005D560A /* RobotoSlab-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoSlab-ExtraLight.ttf"; sourceTree = "<group>"; };
@@ -183,23 +164,15 @@
 		CEBC4E8A2B45AF50005D560A /* RobotoSlab-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoSlab-Medium.ttf"; sourceTree = "<group>"; };
 		CEBC4E8B2B45AF50005D560A /* RobotoSlab-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoSlab-Black.ttf"; sourceTree = "<group>"; };
 		CEBC4E8C2B45AF50005D560A /* RobotoSlab-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoSlab-Bold.ttf"; sourceTree = "<group>"; };
-		CEBC4E962B45B204005D560A /* PollDetailsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollDetailsHeaderView.swift; sourceTree = "<group>"; };
-		CEBC4E982B45B25D005D560A /* PollDetailsPandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollDetailsPandingView.swift; sourceTree = "<group>"; };
-		CEBC4E9A2B45B75E005D560A /* PollDetailsVotingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollDetailsVotingView.swift; sourceTree = "<group>"; };
-		CEBC4E9C2B45C440005D560A /* PollDetailsEndedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollDetailsEndedView.swift; sourceTree = "<group>"; };
-		CEBC4E9E2B45C66E005D560A /* PollProcessVotingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollProcessVotingView.swift; sourceTree = "<group>"; };
-		CEBC4EA02B45CAB9005D560A /* PollProcessPendingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollProcessPendingView.swift; sourceTree = "<group>"; };
 		CEC5A1202B76874D00DB7BB4 /* IssuerConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuerConnector.swift; sourceTree = "<group>"; };
 		CEC6DCBE2B7E301500E63213 /* libwitnesscalc_passportVerificationSHA1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwitnesscalc_passportVerificationSHA1.a; sourceTree = "<group>"; };
 		CEC6DCBF2B7E301500E63213 /* libwitnesscalc_passportVerificationSHA256.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwitnesscalc_passportVerificationSHA256.a; sourceTree = "<group>"; };
 		CED5E9EB2B7E83D90097282B /* libwitnesscalc_authV2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwitnesscalc_authV2.a; sourceTree = "<group>"; };
 		CED5E9EC2B7E83D90097282B /* witnesscalc_authV2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = witnesscalc_authV2.h; sourceTree = "<group>"; };
-		CED648802B44D8D1008488E0 /* OnboardFakeGenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardFakeGenView.swift; sourceTree = "<group>"; };
 		CED648852B44D9C2008488E0 /* MRZScannerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRZScannerController.swift; sourceTree = "<group>"; };
 		CED648862B44D9C2008488E0 /* NFCScannerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFCScannerController.swift; sourceTree = "<group>"; };
 		CED648892B44D9F0008488E0 /* PassportUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportUtils.swift; sourceTree = "<group>"; };
 		CED6488B2B44DA65008488E0 /* NFCScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCScannerView.swift; sourceTree = "<group>"; };
-		CED6488D2B44DE9B008488E0 /* OnboardStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardStepView.swift; sourceTree = "<group>"; };
 		CED6488F2B44E253008488E0 /* OnboardMRZScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardMRZScannerView.swift; sourceTree = "<group>"; };
 		CED648912B44E62B008488E0 /* OnboardNFCScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardNFCScannerView.swift; sourceTree = "<group>"; };
 		CED648932B456503008488E0 /* FreedomTools.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FreedomTools.entitlements; sourceTree = "<group>"; };
@@ -207,7 +180,7 @@
 		CEDE211D2B4578E300406B1A /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		CEDE211F2B457A3700406B1A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		CEDE21232B457E0800406B1A /* PollStatusSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollStatusSelectorView.swift; sourceTree = "<group>"; };
-		CEDE21252B45810B00406B1A /* PollListElemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollListElemView.swift; sourceTree = "<group>"; };
+		CEDFBFA92B9B5C200051B190 /* Identity.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Identity.xcframework; sourceTree = "<group>"; };
 		CEDFC1EA2B5ECFCA00E0691B /* bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bridge.h; sourceTree = "<group>"; };
 		CEDFC1EB2B5ECFCA00E0691B /* prover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prover.h; sourceTree = "<group>"; };
 		CEDFC1EC2B5ECFCA00E0691B /* libgmp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgmp.a; sourceTree = "<group>"; };
@@ -227,7 +200,6 @@
 		CEE51BEA2B8E05A700B5D1DE /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
 		CEECEEF02B8A0EF2005704E4 /* UserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorage.swift; sourceTree = "<group>"; };
 		CEECEEFC2B8A5058005704E4 /* RegistrationVerifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVerifyView.swift; sourceTree = "<group>"; };
-		CEF27A712B9A041F008A01D0 /* Identity.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Identity.xcframework; sourceTree = "<group>"; };
 		CEF2C4092B52B47600B44A7C /* EmptyPollsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPollsView.swift; sourceTree = "<group>"; };
 		CEF2C40D2B52D93700B44A7C /* GifimageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifimageView.swift; sourceTree = "<group>"; };
 		CEF2C4112B52E7E000B44A7C /* merged.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = merged.gif; sourceTree = "<group>"; };
@@ -253,7 +225,7 @@
 				CEE51BE02B8DF85C00B5D1DE /* Alamofire in Frameworks */,
 				CE7908FD2B88C38B000FE927 /* Web3ContractABI in Frameworks */,
 				CE7908FB2B88C38B000FE927 /* Web3 in Frameworks */,
-				CEF27A722B9A041F008A01D0 /* Identity.xcframework in Frameworks */,
+				CEDFBFAA2B9B5C200051B190 /* Identity.xcframework in Frameworks */,
 				CE3866412B7E5C85003BA2C5 /* NFCPassportReader in Frameworks */,
 				CEC6DCC02B7E301500E63213 /* libwitnesscalc_passportVerificationSHA1.a in Frameworks */,
 			);
@@ -324,7 +296,6 @@
 				CEDFC1F92B5ED25200E0691B /* ZKUtils.swift */,
 				CED648892B44D9F0008488E0 /* PassportUtils.swift */,
 				CED648942B456E34008488E0 /* Poll.swift */,
-				CE4D931A2B51D38300E8AC67 /* KeychainUtils.swift */,
 				CE70B3922B5689CC005F5868 /* StorageUtils.swift */,
 				CEC5A1202B76874D00DB7BB4 /* IssuerConnector.swift */,
 				CEA24C8A2B7CD48E009DF14F /* IdentityManager.swift */,
@@ -395,11 +366,6 @@
 		CEA152292B44967A006616DD /* Onboard */ = {
 			isa = PBXGroup;
 			children = (
-				CEA1522A2B449690006616DD /* OnboardView.swift */,
-				CEA152302B449A4F006616DD /* OnboardParticipateView.swift */,
-				CEA152342B44B442006616DD /* OnboardConfirmDataView.swift */,
-				CED648802B44D8D1008488E0 /* OnboardFakeGenView.swift */,
-				CED6488D2B44DE9B008488E0 /* OnboardStepView.swift */,
 				CED6488F2B44E253008488E0 /* OnboardMRZScannerView.swift */,
 				CED648912B44E62B008488E0 /* OnboardNFCScannerView.swift */,
 			);
@@ -423,14 +389,6 @@
 			isa = PBXGroup;
 			children = (
 				CEDE21232B457E0800406B1A /* PollStatusSelectorView.swift */,
-				CEDE21252B45810B00406B1A /* PollListElemView.swift */,
-				CEBC4E792B459DB4005D560A /* PollDetailsView.swift */,
-				CEBC4E962B45B204005D560A /* PollDetailsHeaderView.swift */,
-				CEBC4E982B45B25D005D560A /* PollDetailsPandingView.swift */,
-				CEBC4E9A2B45B75E005D560A /* PollDetailsVotingView.swift */,
-				CEBC4E9C2B45C440005D560A /* PollDetailsEndedView.swift */,
-				CEBC4E9E2B45C66E005D560A /* PollProcessVotingView.swift */,
-				CEBC4EA02B45CAB9005D560A /* PollProcessPendingView.swift */,
 				CEF2C4092B52B47600B44A7C /* EmptyPollsView.swift */,
 			);
 			path = Polls;
@@ -453,7 +411,7 @@
 		CEDFC1E82B5ECFCA00E0691B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CEF27A712B9A041F008A01D0 /* Identity.xcframework */,
+				CEDFBFA92B9B5C200051B190 /* Identity.xcframework */,
 				CE7909082B88F295000FE927 /* witnesscalc_voteSMT.h */,
 				CE7909062B88F285000FE927 /* libwitnesscalc_voteSMT.a */,
 				CE64068E2B8787B80019BB81 /* witnesscalc_credentialAtomicQueryMTPV2OnChainVoting.h */,
@@ -612,31 +570,24 @@
 				CE85D9DA2B91D6DD008F0E13 /* RegistrationDetailsHeaderView.swift in Sources */,
 				CEE169622B90FE2600BF2B84 /* RegistrationListElemView.swift in Sources */,
 				CEB6E1352B7BBBD400043AB6 /* IntroFirstView.swift in Sources */,
-				CEBC4E9D2B45C440005D560A /* PollDetailsEndedView.swift in Sources */,
 				CEA152202B448130006616DD /* SubmitButtonView.swift in Sources */,
-				CEBC4E9F2B45C66E005D560A /* PollProcessVotingView.swift in Sources */,
 				CEDE21202B457A3700406B1A /* MainView.swift in Sources */,
 				CEE169642B91030B00BF2B84 /* HoodView.swift in Sources */,
 				CE81E8DF2B7A8EDD00B7545C /* LocalizationSwitcherView.swift in Sources */,
-				CE4D931B2B51D38300E8AC67 /* KeychainUtils.swift in Sources */,
 				CE85D9EC2B925865008F0E13 /* RegistrationController.swift in Sources */,
 				CEE169682B91040400BF2B84 /* MainActiveView.swift in Sources */,
 				CED648872B44D9C2008488E0 /* MRZScannerController.swift in Sources */,
 				CED648922B44E62B008488E0 /* OnboardNFCScannerView.swift in Sources */,
 				CEA152242B4485AB006616DD /* IntroProgressItemView.swift in Sources */,
-				CEBC4E9B2B45B75E005D560A /* PollDetailsVotingView.swift in Sources */,
 				CED648952B456E34008488E0 /* Poll.swift in Sources */,
 				CEDE21242B457E0800406B1A /* PollStatusSelectorView.swift in Sources */,
 				CED6488C2B44DA65008488E0 /* NFCScannerView.swift in Sources */,
-				CEBC4E7A2B459DB4005D560A /* PollDetailsView.swift in Sources */,
-				CED6488E2B44DE9B008488E0 /* OnboardStepView.swift in Sources */,
 				CEECEEFD2B8A5058005704E4 /* RegistrationVerifyView.swift in Sources */,
 				CE85D9EA2B923B46008F0E13 /* RegistrationSignedManifestView.swift in Sources */,
 				CEC5A1212B76874D00DB7BB4 /* IssuerConnector.swift in Sources */,
 				CEA151F92B447BA0006616DD /* IntroController.swift in Sources */,
 				CEE1695F2B90D3EB00BF2B84 /* RegistrationEntity.swift in Sources */,
 				CEA151F72B447AB6006616DD /* AppView.swift in Sources */,
-				CED648812B44D8D1008488E0 /* OnboardFakeGenView.swift in Sources */,
 				CED648882B44D9C2008488E0 /* NFCScannerController.swift in Sources */,
 				CEF2C40A2B52B47600B44A7C /* EmptyPollsView.swift in Sources */,
 				CE70B3932B5689CC005F5868 /* StorageUtils.swift in Sources */,
@@ -644,27 +595,20 @@
 				CEA152222B448487006616DD /* IntroProgressView.swift in Sources */,
 				CEA152332B44A1F0006616DD /* WaitProcessView.swift in Sources */,
 				CED648902B44E253008488E0 /* OnboardMRZScannerView.swift in Sources */,
-				CEA152352B44B442006616DD /* OnboardConfirmDataView.swift in Sources */,
 				CED6488A2B44D9F0008488E0 /* PassportUtils.swift in Sources */,
 				CEA152282B448D26006616DD /* IntroStepView.swift in Sources */,
-				CEA152312B449A4F006616DD /* OnboardParticipateView.swift in Sources */,
-				CEBC4E972B45B204005D560A /* PollDetailsHeaderView.swift in Sources */,
 				CE004B4D2B9355D7006D0188 /* RegistrationWaitingCheckboxesView.swift in Sources */,
 				CEDE211E2B4578E300406B1A /* MainController.swift in Sources */,
-				CEA1522B2B449690006616DD /* OnboardView.swift in Sources */,
 				CE004B492B9335CF006D0188 /* RegistrationConfirmView.swift in Sources */,
 				CEE169662B91035300BF2B84 /* MainTopView.swift in Sources */,
-				CEBC4EA12B45CAB9005D560A /* PollProcessPendingView.swift in Sources */,
 				CE85D9EE2B925AC1008F0E13 /* RegistrationView.swift in Sources */,
 				CEE51BE72B8DFA8F00B5D1DE /* LottieView.swift in Sources */,
 				CEA1521E2B4480CF006616DD /* IntroView.swift in Sources */,
 				CE004B4B2B934729006D0188 /* RegistrationWaitingView.swift in Sources */,
 				CE85D9E82B922B87008F0E13 /* RegistrationManifestView.swift in Sources */,
-				CEBC4E992B45B25D005D560A /* PollDetailsPandingView.swift in Sources */,
 				CEF2C40E2B52D93700B44A7C /* GifimageView.swift in Sources */,
 				CEA151E52B447991006616DD /* FreedomToolsApp.swift in Sources */,
 				CEA151F42B447A42006616DD /* AppController.swift in Sources */,
-				CEDE21262B45810B00406B1A /* PollListElemView.swift in Sources */,
 				CEE1696A2B910A9300BF2B84 /* RegistrationStatusView.swift in Sources */,
 				CEECEEF12B8A0EF2005704E4 /* UserStorage.swift in Sources */,
 				CEA1522D2B4498E2006616DD /* OnboardController.swift in Sources */,
@@ -842,7 +786,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.7;
 				OTHER_LDFLAGS = "-lc++";
 				PRODUCT_BUNDLE_IDENTIFIER = FreedomTool.FreedomTool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -892,7 +836,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.7;
 				OTHER_LDFLAGS = "-lc++";
 				PRODUCT_BUNDLE_IDENTIFIER = FreedomTool.FreedomTool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
