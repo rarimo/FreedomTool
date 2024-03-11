@@ -181,7 +181,7 @@ struct RegistrationEntity {
     ) async throws -> EthereumAddress {
         let listPoolsByProposerAndTypeMethod = contract["listPoolsByProposerAndType"]!
         
-        let result = try listPoolsByProposerAndTypeMethod(proposer, type, poolCount-2, 1).call().wait()
+        let result = try listPoolsByProposerAndTypeMethod(proposer, type, poolCount-1, 1).call().wait()
         guard let resultValue = result["pools_"] else {
             throw "unable to get result value"
         }
