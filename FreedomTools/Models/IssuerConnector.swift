@@ -33,8 +33,6 @@ class IssuerConnector {
         
         apiRarimoURL += "/v1/\(issuerDid)/claims/\(claimId)/offer"
         
-        print(apiRarimoURL)
-        
         let response = await AF.request(apiRarimoURL, method: .get)
             .serializingDecodable(ClaimOfferResponse.self)
             .result
