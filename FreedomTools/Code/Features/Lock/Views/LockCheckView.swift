@@ -12,9 +12,7 @@ struct LockCheckView: View {
     
     let passcode: String
     
-    @State private var isInvalidPasscodeAlert = false
-    
-    @StateObject private var lockStatus = LockStatus.load()
+    @StateObject private var viewModel = ViewModel()
     
     init(_ passcode: String) {
         self.passcode = passcode
@@ -22,10 +20,10 @@ struct LockCheckView: View {
     
     var body: some View {
         VStack {
-            if lockStatus.isBlocked {
-                LockCheckBlockView(lockStatus: lockStatus)
+            if self.viewModel.lockStatus.isBlocked {
+                LockCheckBlockView()
             } else {
-                if !isInvalidPasscodeAlert {
+                if !self.viewModel.isInvalidPasscodeAlert {
                     Spacer()
                     LockCheckPasscodeHeaderView()
                     Spacer()
@@ -36,15 +34,30 @@ struct LockCheckView: View {
                             return
                         }
                         
-                        lockStatus.recordFailedAttempt()
+                        self.viewModel.lockStatus.recordFailedAttempt()
                         
-                        isInvalidPasscodeAlert = true
+                        self.viewModel.isInvalidPasscodeAlert = true
                     }
                 }
             }
         }
-        .alert("InvalidPasscode", isPresented: $isInvalidPasscodeAlert) {
+        .alert("InvalidPasscode", isPresented: $viewModel.isInvalidPasscodeAlert) {
             Button("Ok") {}
+        }
+        .onAppear {
+            if viewModel.faceIDChoise {
+                self.viewModel.setOnSeccessFaceID {
+                    appViewModel.isLocked = false
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    do {
+                        try viewModel.authByFaceID()
+                    } catch let error {
+                        print("Auth error: \(error)")
+                    }
+                }
+            }
         }
     }
 }

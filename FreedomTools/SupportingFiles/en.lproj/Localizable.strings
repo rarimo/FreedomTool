@@ -96,3 +96,8 @@
 "InvalidPasscode" = "Invalid passcode";
 "TooManyFailedPasscodes" = "You failed to enter the right passcode too many times";
 "NewVersion" = "The new version of the application is available in the App Store, it may contain critical improvements, so you have to download it";
+"EnableFaceID" = "Enable Face ID";
+"Enable" = "Enable";
+"MaybeLater" = "Maybe later";
+"SetUpPasscode" = "Set up a Passcode";
+"Enter" = "Enter";

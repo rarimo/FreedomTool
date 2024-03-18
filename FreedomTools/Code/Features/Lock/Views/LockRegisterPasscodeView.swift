@@ -12,34 +12,45 @@ struct LockRegisterPasscodeView: View {
     
     @StateObject private var viewModel = ViewModel()
     
-    @State var isInvalidPasscodeAlert = false
-    
     var body: some View {
         VStack {
-            Spacer()
-            if self.viewModel.passcode.isEmpty {
-                LockRegisterPasscodeRegisterFirstView()
-                Spacer()
-                LockPasscodePickerView { passcode in
-                    self.viewModel.passcode = passcode
+            if let faceIDChoice = self.viewModel.faceIDChoice {
+                if viewModel.isPasscodeEntering {
+                    Spacer()
+                    if self.viewModel.passcode.isEmpty {
+                        LockRegisterPasscodeRegisterFirstView()
+                        Spacer()
+                        LockPasscodePickerView { passcode in
+                            self.viewModel.passcode = passcode
+                        }
+                    } else {
+                        LockRegisterPasscodeRegisterSecondView()
+                        Spacer()
+                        LockPasscodePickerView { passcode in
+                            if self.viewModel.passcode != passcode {
+                                self.viewModel.isInvalidPasscodeAlert = true
+                                
+                                return
+                            }
+                            
+                            StorageUtils.setPasscode(passcode.concatenetedString)
+                            StorageUtils.setFaceIDChoice(faceIDChoice)
+                            
+                            self.appViewModel.isLocked = false
+                        }
+                    }
+                } else {
+                    LockRegisterPasscodeEnableView {
+                        self.viewModel.isPasscodeEntering = true
+                    }
                 }
             } else {
-                LockRegisterPasscodeRegisterSecondView()
-                Spacer()
-                LockPasscodePickerView { passcode in
-                    if self.viewModel.passcode != passcode {
-                        self.isInvalidPasscodeAlert = true
-                        
-                        return
-                    }
-                    
-                    StorageUtils.setPasscode(passcode.concatenetedString)
-                    
-                    self.appViewModel.isLocked = false
+                LockRegisterFaceIDChoiceView { choice in
+                    self.viewModel.faceIDChoice = choice
                 }
             }
         }
-        .alert("PasscodesDoNotMatch", isPresented: $isInvalidPasscodeAlert) {
+        .alert("PasscodesDoNotMatch", isPresented: $viewModel.isInvalidPasscodeAlert) {
             Button("Ok") {
                 self.viewModel.passcode = []
             }

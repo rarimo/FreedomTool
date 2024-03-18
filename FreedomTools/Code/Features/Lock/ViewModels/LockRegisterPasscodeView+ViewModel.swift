@@ -10,5 +10,11 @@ import Foundation
 extension LockRegisterPasscodeView {
     class ViewModel: ObservableObject {
         @Published var passcode: [Int] = []
+        
+        @Published var faceIDChoice: Optional<Bool> = nil
+        
+        @Published var isPasscodeEntering = false
+        
+        @Published var isInvalidPasscodeAlert = false
     }
 }

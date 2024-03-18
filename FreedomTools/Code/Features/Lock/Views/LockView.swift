@@ -20,19 +20,6 @@ struct LockView: View {
                 LockRegisterPasscodeView()
             }
         }
-//            .onAppear {
-//                viewModel.setOnSeccess {
-//                    appViewModel.isLocked = false
-//                }
-//                
-//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-//                    do {
-//                        try viewModel.authByFaceID()
-//                    } catch let error {
-//                        print("Auth error: \(error)")
-//                    }
-//                }
-//            }
     }
 }
 

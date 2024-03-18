@@ -297,6 +297,8 @@ class StateProvider: NSObject, IdentityStateProviderProtocol {
             throw "url/method/headerKey/headerValue is invalid"
         }
         
+        print(urlRaw)
+        
         guard let url = URL(string: urlRaw) else {
             throw "invalid url format"
         }

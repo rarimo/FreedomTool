@@ -3,6 +3,7 @@ import Foundation
 class StorageUtils {
     static let introFinishedKey = "org.freedomtool.isIntroFinished"
     static let passcodeKey = "org.freedomtool.passcodeKey"
+    static let faceIDChoiceKey = "org.freedomtool.faceIDChoice"
     
     static func setIsIntroFinished(_ value: Bool) {
         UserDefaults.standard.set(value, forKey: Self.introFinishedKey)
@@ -18,5 +19,13 @@ class StorageUtils {
     
     static func getPasscode() -> String? {
         UserDefaults.standard.string(forKey: Self.passcodeKey)
+    }
+    
+    static func setFaceIDChoice(_ value: Bool) {
+        UserDefaults.standard.set(value, forKey: Self.faceIDChoiceKey)
+    }
+    
+    static func getFaceIDChoice() -> Bool {
+        UserDefaults.standard.bool(forKey: Self.faceIDChoiceKey)
     }
 }

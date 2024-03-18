@@ -22,6 +22,10 @@
 		CE24EBF32BA2017A00094AAA /* LockHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE24EBF22BA2017A00094AAA /* LockHeaderView.swift */; };
 		CE24EBF52BA204DF00094AAA /* LockRegisterPasscodeView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE24EBF42BA204DF00094AAA /* LockRegisterPasscodeView+ViewModel.swift */; };
 		CE3866412B7E5C85003BA2C5 /* NFCPassportReader in Frameworks */ = {isa = PBXBuildFile; productRef = CE3866402B7E5C85003BA2C5 /* NFCPassportReader */; };
+		CE61A9BE2BA83D2B00BABAB2 /* LockCheckView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE61A9BD2BA83D2B00BABAB2 /* LockCheckView+ViewModel.swift */; };
+		CE61A9C02BA8475700BABAB2 /* LockRegisterHintTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE61A9BF2BA8475700BABAB2 /* LockRegisterHintTemplateView.swift */; };
+		CE61A9C22BA8508E00BABAB2 /* LockRegisterFaceIDChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE61A9C12BA8508E00BABAB2 /* LockRegisterFaceIDChoiceView.swift */; };
+		CE61A9C42BA853A400BABAB2 /* LockRegisterPasscodeEnableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE61A9C32BA853A400BABAB2 /* LockRegisterPasscodeEnableView.swift */; };
 		CE64068D2B8786250019BB81 /* libwitnesscalc_credentialAtomicQueryMTPV2OnChainVoting.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE64068C2B8786250019BB81 /* libwitnesscalc_credentialAtomicQueryMTPV2OnChainVoting.a */; };
 		CE70B3932B5689CC005F5868 /* StorageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70B3922B5689CC005F5868 /* StorageUtils.swift */; };
 		CE7908FB2B88C38B000FE927 /* Web3 in Frameworks */ = {isa = PBXBuildFile; productRef = CE7908FA2B88C38B000FE927 /* Web3 */; };
@@ -132,6 +136,10 @@
 		CE24EBF02BA1FD3A00094AAA /* LockRegisterPasscodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockRegisterPasscodeView.swift; sourceTree = "<group>"; };
 		CE24EBF22BA2017A00094AAA /* LockHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockHeaderView.swift; sourceTree = "<group>"; };
 		CE24EBF42BA204DF00094AAA /* LockRegisterPasscodeView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LockRegisterPasscodeView+ViewModel.swift"; sourceTree = "<group>"; };
+		CE61A9BD2BA83D2B00BABAB2 /* LockCheckView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LockCheckView+ViewModel.swift"; sourceTree = "<group>"; };
+		CE61A9BF2BA8475700BABAB2 /* LockRegisterHintTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockRegisterHintTemplateView.swift; sourceTree = "<group>"; };
+		CE61A9C12BA8508E00BABAB2 /* LockRegisterFaceIDChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockRegisterFaceIDChoiceView.swift; sourceTree = "<group>"; };
+		CE61A9C32BA853A400BABAB2 /* LockRegisterPasscodeEnableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockRegisterPasscodeEnableView.swift; sourceTree = "<group>"; };
 		CE64068C2B8786250019BB81 /* libwitnesscalc_credentialAtomicQueryMTPV2OnChainVoting.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwitnesscalc_credentialAtomicQueryMTPV2OnChainVoting.a; sourceTree = "<group>"; };
 		CE64068E2B8787B80019BB81 /* witnesscalc_credentialAtomicQueryMTPV2OnChainVoting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = witnesscalc_credentialAtomicQueryMTPV2OnChainVoting.h; sourceTree = "<group>"; };
 		CE70B3922B5689CC005F5868 /* StorageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageUtils.swift; sourceTree = "<group>"; };
@@ -291,6 +299,9 @@
 				CE24EBF02BA1FD3A00094AAA /* LockRegisterPasscodeView.swift */,
 				CE24EBF22BA2017A00094AAA /* LockHeaderView.swift */,
 				CE98D6322BA31AAC00D8F516 /* LockCheckBlockView.swift */,
+				CE61A9BF2BA8475700BABAB2 /* LockRegisterHintTemplateView.swift */,
+				CE61A9C12BA8508E00BABAB2 /* LockRegisterFaceIDChoiceView.swift */,
+				CE61A9C32BA853A400BABAB2 /* LockRegisterPasscodeEnableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -301,6 +312,7 @@
 				CE24EBE32BA1CACD00094AAA /* LockView+ViewModel.swift */,
 				CE24EBEE2BA1EF7B00094AAA /* LockPasscodePickerView+ViewModel.swift */,
 				CE24EBF42BA204DF00094AAA /* LockRegisterPasscodeView+ViewModel.swift */,
+				CE61A9BD2BA83D2B00BABAB2 /* LockCheckView+ViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -741,6 +753,7 @@
 				CE24EBF32BA2017A00094AAA /* LockHeaderView.swift in Sources */,
 				CE85D9DA2B91D6DD008F0E13 /* RegistrationDetailsHeaderView.swift in Sources */,
 				CE24EBE12BA1CA7A00094AAA /* LockView.swift in Sources */,
+				CE61A9C22BA8508E00BABAB2 /* LockRegisterFaceIDChoiceView.swift in Sources */,
 				CE24EBE72BA1CFEA00094AAA /* String.swift in Sources */,
 				CEE169622B90FE2600BF2B84 /* RegistrationListElemView.swift in Sources */,
 				CEB6E1352B7BBBD400043AB6 /* IntroFirstView.swift in Sources */,
@@ -778,7 +791,9 @@
 				CED648902B44E253008488E0 /* RegisterMRZScannerView.swift in Sources */,
 				CED6488A2B44D9F0008488E0 /* PassportUtils.swift in Sources */,
 				CEA152282B448D26006616DD /* IntroStepView.swift in Sources */,
+				CE61A9C42BA853A400BABAB2 /* LockRegisterPasscodeEnableView.swift in Sources */,
 				CE004B4D2B9355D7006D0188 /* RegistrationWaitingCheckboxesView.swift in Sources */,
+				CE61A9BE2BA83D2B00BABAB2 /* LockCheckView+ViewModel.swift in Sources */,
 				CE98D6352BA332E200D8F516 /* CircularProgressView.swift in Sources */,
 				CE004B492B9335CF006D0188 /* RegistrationConfirmView.swift in Sources */,
 				CEE169662B91035300BF2B84 /* MainTopView.swift in Sources */,
@@ -789,6 +804,7 @@
 				CE004B4B2B934729006D0188 /* RegistrationWaitingView.swift in Sources */,
 				CE85D9E82B922B87008F0E13 /* RegistrationManifestView.swift in Sources */,
 				CE24EBEF2BA1EF7B00094AAA /* LockPasscodePickerView+ViewModel.swift in Sources */,
+				CE61A9C02BA8475700BABAB2 /* LockRegisterHintTemplateView.swift in Sources */,
 				CEF2C40E2B52D93700B44A7C /* GifimageView.swift in Sources */,
 				CEA151E52B447991006616DD /* FreedomToolsApp.swift in Sources */,
 				CE24EBED2BA1EB0C00094AAA /* LockPasscodePickerBoardView.swift in Sources */,

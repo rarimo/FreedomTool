@@ -9,7 +9,7 @@ struct AppView: View {
                 VersionUpdateView()
             } else {
                 if viewModel.isIntroFinished {
-                    if viewModel.isLocked { 
+                    if viewModel.isLocked {
                         LockView()
                     } else {
                         MainView()

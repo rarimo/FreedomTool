@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LockCheckBlockView: View {
-    @ObservedObject var lockStatus: LockStatus
+    @EnvironmentObject var lockCheckViewModel: LockCheckView.ViewModel
     
     @State private var remaining = LockStatus.BLOCK_TIME
     
@@ -34,14 +34,15 @@ struct LockCheckBlockView: View {
                 .padding(.bottom)
         }
         .onReceive(timer) { time in
-            self.remaining = self.lockStatus.blockTo - Int(time.timeIntervalSince1970)
+            self.remaining = self.lockCheckViewModel.lockStatus.blockTo - Int(time.timeIntervalSince1970)
             if self.remaining == 0 {
-                lockStatus.unblock()
+                self.lockCheckViewModel.lockStatus.unblock()
             }
         }
     }
 }
 
 #Preview {
-    LockCheckBlockView(lockStatus: LockStatus.sample)
+    LockCheckBlockView()
+        .environmentObject(LockCheckView.ViewModel())
 }

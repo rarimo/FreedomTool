@@ -38,14 +38,14 @@ class NFCScannerController: ObservableObject {
         let masterListURL = Bundle.main.url(forResource: "masterList", withExtension: ".pem")!
                 
         nfcModel = try await PassportReader(masterListURL: masterListURL)
-                .readPassport(
-                    mrzKey: mrzKey,
-                    tags: [
-                        .DG1,
-                        .DG2,
-                        .SOD,
-                    ]
-                )
+            .readPassport(
+                mrzKey: mrzKey,
+                tags: [
+                    .DG1,
+                    .DG2,
+                    .SOD,
+                ]
+            )
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             self.onScanned()
