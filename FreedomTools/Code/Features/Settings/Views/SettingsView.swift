@@ -28,7 +28,7 @@ struct SettingsView: View {
                 .frame(width: 380)
             SettingsFaceIDView()
                 .padding()
-            if appViewModel.user == nil {
+            if appViewModel.user != nil {
                 Divider()
                     .frame(width: 380)
                 Button(action: {
