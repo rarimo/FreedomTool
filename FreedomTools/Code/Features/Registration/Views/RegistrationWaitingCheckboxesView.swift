@@ -14,7 +14,7 @@ struct RegistrationWaitingCheckboxesView: View {
         VStack {
             HStack {
                 Text("FormationOfTheSignature")
-                    .font(.custom("RobotoSlab-Regular", size: 14))
+                    .font(.custom("Inter-Regular", size: 14))
                 Spacer()
                 if stepper >= 1 {
                     ZStack {
@@ -25,13 +25,13 @@ struct RegistrationWaitingCheckboxesView: View {
                                 .resizable()
                                 .frame(width: 13.58, height: 10.02)
                             Text("Done")
-                                .font(.custom("RobotoSlab-SemiBold", size: 12))
+                                .font(.custom("Inter-SemiBold", size: 12))
                         }
                     }
                     .frame(width: 100, height: 30)
                 } else {
                     Text("Loading")
-                        .font(.custom("RobotoSlab-Regular", size: 14))
+                        .font(.custom("Inter-Regular", size: 14))
                         .opacity(0.5)
                 }
             }
@@ -39,7 +39,7 @@ struct RegistrationWaitingCheckboxesView: View {
             .padding(.top)
             HStack {
                 Text("Anonymization")
-                    .font(.custom("RobotoMono-Regular", size: 14))
+                    .font(.custom("Inter-Regular", size: 14))
                 Spacer()
                 if stepper >= 2 {
                     ZStack {
@@ -50,13 +50,13 @@ struct RegistrationWaitingCheckboxesView: View {
                                 .resizable()
                                 .frame(width: 13.58, height: 10.02)
                             Text("Done")
-                                .font(.custom("RobotoSlab-SemiBold", size: 12))
+                                .font(.custom("Inter-SemiBold", size: 12))
                         }
                     }
                     .frame(width: 100, height: 30)
                 } else {
                     Text("Loading")
-                        .font(.custom("RobotoSlab-Regular", size: 14))
+                        .font(.custom("Inter-Regular", size: 14))
                         .opacity(0.5)
                 }
             }
@@ -64,7 +64,7 @@ struct RegistrationWaitingCheckboxesView: View {
             .padding(.top)
             HStack {
                 Text("SendingSignature")
-                    .font(.custom("RobotoMono-Regular", size: 14))
+                    .font(.custom("Inter-Regular", size: 14))
                 Spacer()
                 if stepper >= 3 {
                     ZStack {
@@ -75,13 +75,13 @@ struct RegistrationWaitingCheckboxesView: View {
                                 .resizable()
                                 .frame(width: 13.58, height: 10.02)
                             Text("Done")
-                                .font(.custom("RobotoSlab-SemiBold", size: 12))
+                                .font(.custom("Inter-SemiBold", size: 12))
                         }
                     }
                     .frame(width: 100, height: 30)
                 } else {
                     Text("Loading")
-                        .font(.custom("RobotoSlab-Regular", size: 14))
+                        .font(.custom("Inter-Regular", size: 14))
                         .opacity(0.5)
                 }
             }
@@ -89,7 +89,7 @@ struct RegistrationWaitingCheckboxesView: View {
             .padding(.top)
             HStack {
                 Text("Finalizing")
-                    .font(.custom("RobotoMono-Regular", size: 14))
+                    .font(.custom("Inter-Regular", size: 14))
                 Spacer()
                 if stepper >= 4 {
                     ZStack {
@@ -100,13 +100,13 @@ struct RegistrationWaitingCheckboxesView: View {
                                 .resizable()
                                 .frame(width: 13.58, height: 10.02)
                             Text("Done")
-                                .font(.custom("RobotoSlab-SemiBold", size: 12))
+                                .font(.custom("Inter-SemiBold", size: 12))
                         }
                     }
                     .frame(width: 100, height: 30)
                 } else {
                     Text("Loading")
-                        .font(.custom("RobotoSlab-Regular", size: 14))
+                        .font(.custom("Inter-Regular", size: 14))
                         .opacity(0.5)
                 }
             }

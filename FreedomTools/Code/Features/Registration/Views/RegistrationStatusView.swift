@@ -13,11 +13,11 @@ struct RegistrationStatusView: View {
         HStack {
             if Date() < till {
                 (Text("EndsIn") + Text(" \(till.timeUntil())"))
-                    .font(.custom("RobotoMono-Regular", size: 12))
+                    .font(.custom("Inter-Regular", size: 12))
                     .opacity(0.6)
             } else {
                 Text("Ended")
-                    .font(.custom("RobotoMono-Regular", size: 12))
+                    .font(.custom("Inter-Regular", size: 12))
                     .opacity(0.6)
             }
         }

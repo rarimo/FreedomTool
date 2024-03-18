@@ -8,13 +8,13 @@ struct RegisterNFCScannerView: View {
         VStack {
             HStack {
                 Text("ScanNFC")
-                    .font(.custom("RobotoMono-Bold", size: 20))
+                    .font(.custom("Inter-Bold", size: 20))
                 Spacer()
             }
             .padding(.horizontal)
             HStack {
                 Text("ScanNFCSub")
-                    .font(.custom("RobotoMono-Regular", size: 14))
+                    .font(.custom("Inter-Regular", size: 14))
                     .opacity(0.5)
                 Spacer()
             }
@@ -28,14 +28,14 @@ struct RegisterNFCScannerView: View {
             VStack {
                 HStack {
                     Text("NFCHint1")
-                        .font(.custom("RobotoMono-Regular", size: 15))
+                        .font(.custom("Inter-Regular", size: 15))
                         .opacity(0.5)
                     Spacer()
                 }
                 .padding(.bottom)
                 HStack {
                     Text("NFCHint2")
-                        .font(.custom("RobotoMono-Regular", size: 15))
+                        .font(.custom("Inter-Regular", size: 15))
                         .opacity(0.5)
                         
                     Spacer()
@@ -52,7 +52,7 @@ struct RegisterNFCScannerView: View {
                     RoundedRectangle(cornerRadius: 30)
                         .foregroundStyle(.second)
                     Text("Scan")
-                        .font(.custom("RobotoMono-Semibold", size: 15))
+                        .font(.custom("Inter-Semibold", size: 15))
                 }
                 .frame(width: 325, height: 55)
             }

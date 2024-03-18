@@ -10,14 +10,14 @@ struct RegistrationConfirmView: View {
         VStack {
             HStack {
                 Text("AnonData")
-                    .font(.custom("RobotoMono-Bold", size: 20))
+                    .font(.custom("Inter-Bold", size: 20))
                 Spacer()
             }
             .padding(.horizontal)
             .padding(.horizontal)
             HStack {
                 Text("AnonDataSub")
-                    .font(.custom("RobotoMono-Regular", size: 14))
+                    .font(.custom("Inter-Regular", size: 14))
                     .opacity(0.5)
                 Spacer()
             }
@@ -33,12 +33,12 @@ struct RegistrationConfirmView: View {
                     VStack {
                         HStack {
                             Text("\(passportModel?.firstName ?? "John") \(passportModel?.lastName ?? "Smith")")
-                                .font(.custom("RobotoMono-Medium", size: 17))
+                                .font(.custom("Inter-Medium", size: 17))
                             Spacer()
                         }
                         HStack {
                             Text("\(passportModel?.gender == "M" ? "Male" : "Female")")
-                                .font(.custom("RobotoMono-Regular", size: 15))
+                                .font(.custom("Inter-Regular", size: 15))
                                 .opacity(0.5)
                             Spacer()
                         }
@@ -56,38 +56,38 @@ struct RegistrationConfirmView: View {
             VStack {
                 HStack {
                     Text("Nationality")
-                        .font(.custom("RobotoMono-Regular", size: 15))
+                        .font(.custom("Inter-Regular", size: 15))
                         .opacity(0.5)
                     Spacer()
                     Text(passportModel?.issuingAuthority ?? "USA")
-                        .font(.custom("RobotoMono-Medium", size: 15))
+                        .font(.custom("Inter-Medium", size: 15))
                 }
                 .padding(.bottom)
                 HStack {
                     Text("DocumentnNumber")
-                        .font(.custom("RobotoMono-Regular", size: 15))
+                        .font(.custom("Inter-Regular", size: 15))
                         .opacity(0.5)
                     Spacer()
                     Text(passportModel?.documentNumber ?? "9324531")
-                        .font(.custom("RobotoMono-Medium", size: 15))
+                        .font(.custom("Inter-Medium", size: 15))
                 }
                 .padding(.bottom)
                 HStack {
                     Text("DateOfExpiry")
-                        .font(.custom("RobotoMono-Regular", size: 15))
+                        .font(.custom("Inter-Regular", size: 15))
                         .opacity(0.5)
                     Spacer()
                     Text(passportModel?.documentExpiryDate.parsableDateToPretty() ?? "2030.10.10")
-                        .font(.custom("RobotoMono-Medium", size: 15))
+                        .font(.custom("Inter-Medium", size: 15))
                 }
                 .padding(.bottom)
                 HStack {
                     Text("DateOfBirth")
-                        .font(.custom("RobotoMono-Regular", size: 15))
+                        .font(.custom("Inter-Regular", size: 15))
                         .opacity(0.5)
                     Spacer()
                     Text(passportModel?.dateOfBirth.parsableDateToPretty() ?? "2000.10.10")
-                        .font(.custom("RobotoMono-Medium", size: 15))
+                        .font(.custom("Inter-Medium", size: 15))
                 }
                 .padding(.bottom)
             }

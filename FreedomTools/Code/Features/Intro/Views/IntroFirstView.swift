@@ -13,7 +13,7 @@ struct IntroFirstView: View {
         VStack() {
             HStack {
                 Text("Freedom Tool")
-                    .font(.custom("RobotoMono-Regular", size: 20))
+                    .font(.custom("Inter-Regular", size: 20))
                     .bold()
                 Spacer()
                 LocalizationSwitcherView()
@@ -24,7 +24,7 @@ struct IntroFirstView: View {
             .padding(.top)
             HStack {
                 Text("IntroZeroDescription")
-                    .font(.custom("RobotoMono-Regular", size: 14))
+                    .font(.custom("Inter-Regular", size: 14))
                     .opacity(0.5)
                 Spacer()
             }
@@ -39,7 +39,7 @@ struct IntroFirstView: View {
                     RoundedRectangle(cornerRadius: 1000)
                         .foregroundStyle(.second)
                     Text("Start")
-                        .font(.custom("RobotoMono-Bold", size: 14))
+                        .font(.custom("Inter-Bold", size: 14))
                 }
             }
             .buttonStyle(.plain)
@@ -49,7 +49,7 @@ struct IntroFirstView: View {
                     .resizable()
                     .frame(width: 15, height: 15)
                 Text("SafeAndDecentralized")
-                    .font(.custom("RobotoMono-Regular", size: 13))
+                    .font(.custom("Inter-Regular", size: 13))
                     .opacity(0.5)
             }
             .frame(height: 30)

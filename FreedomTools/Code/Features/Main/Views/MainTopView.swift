@@ -15,7 +15,7 @@ struct MainTopView: View {
     var body: some View {
         HStack {
             Text("Polls")
-                .font(.custom("RobotoMono-Bold", size: 25))
+                .font(.custom("Inter-Bold", size: 25))
                 .padding(.leading)
             Spacer()
             LocalizationSwitcherView()

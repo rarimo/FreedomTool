@@ -12,7 +12,7 @@ struct RegistrationVerifyView: View {
                 .frame(height: 30)
             HStack {
                 Text("VotingCriteria")
-                    .font(.custom("RobotoSlab-Bold", size: 14))
+                    .font(.custom("Inter-Bold", size: 14))
                     .opacity(0.5)
                 Spacer()
             }
@@ -22,7 +22,7 @@ struct RegistrationVerifyView: View {
                     .opacity(0.05)
                 HStack {
                     Text("Status")
-                        .font(.custom("RobotoMono-Regular", size: 16))
+                        .font(.custom("Inter-Regular", size: 16))
                         .padding(.horizontal)
                     Spacer()
                     ZStack {
@@ -30,7 +30,7 @@ struct RegistrationVerifyView: View {
                             .foregroundStyle(.betterYellow)
                         HStack {
                             Text("VerificationRequired")
-                                .font(.custom("RobotoMono-Medium", size: 14))
+                                .font(.custom("Inter-Medium", size: 14))
                                 .foregroundStyle(.black)
                         }
                     }
@@ -48,7 +48,7 @@ struct RegistrationVerifyView: View {
                 Spacer()
                     .frame(width: 15)
                 Text("Are18YearsOld")
-                    .font(.custom("RobotoSlab-Regular", size: 14))
+                    .font(.custom("Inter-Regular", size: 14))
                 Spacer()
             }
             .padding(.horizontal)
@@ -60,10 +60,10 @@ struct RegistrationVerifyView: View {
                     Spacer()
                         .frame(width: 15)
                     Text("CitizenOf")
-                        .font(.custom("RobotoSlab-Regular", size: 14))
+                        .font(.custom("Inter-Regular", size: 14))
                     ForEach(registrationEntity.issuingAuthorityWhitelist, id: \.self) { issuingAuthority in
                         Text(issuingAuthority.description.reversedIntPreImage())
-                            .font(.custom("RobotoSlab-Regular", size: 14))
+                            .font(.custom("Inter-Regular", size: 14))
                     }
                     Spacer()
                 }
@@ -72,7 +72,7 @@ struct RegistrationVerifyView: View {
             Spacer()
                 .frame(height: 40)
             Text("VerifyTip")
-                .font(.custom("RobotoMono-Regular", size: 14))
+                .font(.custom("Inter-Regular", size: 14))
                 .opacity(0.5)
                 .padding(.horizontal)
             Spacer()
@@ -85,7 +85,7 @@ struct RegistrationVerifyView: View {
                             .resizable()
                             .frame(width: 20, height: 20)
                         Text("Authorize")
-                            .font(.custom("RobotoMono-Semibold", size: 15))
+                            .font(.custom("Inter-Semibold", size: 15))
                             .foregroundStyle(.white)
                     }
                 }

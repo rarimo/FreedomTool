@@ -18,7 +18,7 @@ struct RegistrationListElemView: View {
             VStack {
                 HStack {
                     Text(registrationEntity.remark.name)
-                        .font(.custom("RobotoMono-Medium", size: 15))
+                        .font(.custom("Inter-Medium", size: 15))
                     Spacer()
                 }
                 .padding(.leading)
@@ -29,7 +29,7 @@ struct RegistrationListElemView: View {
                         ? registrationEntity.remark.excerpt
                         : registrationEntity.remark.description
                     )
-                        .font(.custom("RobotoMono-Regular", size: 13))
+                        .font(.custom("Inter-Regular", size: 13))
                         .opacity(0.6)
                     Spacer()
                 }

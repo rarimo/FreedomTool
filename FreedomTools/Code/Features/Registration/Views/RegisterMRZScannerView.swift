@@ -7,13 +7,13 @@ struct RegisterMRZScannerView: View {
         VStack {
             HStack {
                 Text("ScanDoc")
-                    .font(.custom("RobotoMono-Bold", size: 20))
+                    .font(.custom("Inter-Bold", size: 20))
                 Spacer()
             }
             .padding(.horizontal)
             HStack {
                 Text("ScanDocSub")
-                    .font(.custom("RobotoMono-Regular", size: 14))
+                    .font(.custom("Inter-Regular", size: 14))
                     .opacity(0.5)
                 Spacer()
             }
@@ -31,7 +31,7 @@ struct RegisterMRZScannerView: View {
             }
             .frame(height: 320)
             Text("MRZHint")
-                .font(.custom("RobotoMono-Regular", size: 15))
+                .font(.custom("Inter-Regular", size: 15))
                 .multilineTextAlignment(.center)
                 .frame(width: 300)
                 .opacity(0.5)

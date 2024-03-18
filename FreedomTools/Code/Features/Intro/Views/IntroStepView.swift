@@ -10,17 +10,17 @@ struct IntroStepView: View {
             VStack {
                 if step != .zero {
                     Text(LocalizedStringKey(step.title))
-                        .font(.custom("RobotoMono-Bold", size: 22))
+                        .font(.custom("Inter-Bold", size: 22))
                         .frame(height: 30)
                     Text(LocalizedStringKey(step.description))
                         .multilineTextAlignment(.center)
-                        .font(.custom("RobotoMono-Regular", size: 15))
+                        .font(.custom("Inter-Regular", size: 15))
                         .opacity(0.5)
                 }
                 if step == .zero {
                     HStack {
                         Text(LocalizedStringKey(step.title))
-                            .font(.custom("RobotoMono-Bold", size: 22))
+                            .font(.custom("Inter-Bold", size: 22))
                             .frame(height: 30)
                             .padding(.leading)
                             .padding(.leading)
@@ -29,7 +29,7 @@ struct IntroStepView: View {
                     }
                     HStack {
                         Text(LocalizedStringKey(step.description))
-                            .font(.custom("RobotoMono-Regular", size: 15))
+                            .font(.custom("Inter-Regular", size: 15))
                             .opacity(0.5)
                             .frame(width: 300)
                         Spacer()
@@ -48,7 +48,7 @@ struct IntroStepView: View {
                     height: step.imageResolution.height
                 )
             Text(LocalizedStringKey(step.subDescription))
-                .font(.custom("RobotoMono-Regular", size: 15))
+                .font(.custom("Inter-Regular", size: 15))
                 .padding(.top)
                 .opacity(0.5)
             Spacer()

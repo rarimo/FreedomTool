@@ -20,7 +20,7 @@ struct SubmitButtonView: View {
                 RoundedRectangle(cornerRadius: 30)
                     .foregroundStyle(.second)
                 Text(LocalizedStringKey(text))
-                    .font(.custom("RobotoMono-Semibold", size: 15))
+                    .font(.custom("Inter-Semibold", size: 15))
             }
             .frame(width: 325, height: 55)
         }

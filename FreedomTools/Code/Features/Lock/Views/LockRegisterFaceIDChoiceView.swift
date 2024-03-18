@@ -25,7 +25,7 @@ struct LockRegisterFaceIDChoiceView: View {
                     RoundedRectangle(cornerRadius: 1_000)
                         .foregroundStyle(.second)
                     Text("Enable")
-                        .font(.custom("RobotoMono-Semibold", size: 14))
+                        .font(.custom("Inter-Semibold", size: 14))
                 }
             }
             .buttonStyle(.plain)
@@ -37,7 +37,7 @@ struct LockRegisterFaceIDChoiceView: View {
                     RoundedRectangle(cornerRadius: 1_000)
                         .foregroundStyle(.white)
                     Text("MaybeLater")
-                        .font(.custom("RobotoMono-Semibold", size: 14))
+                        .font(.custom("Inter-Semibold", size: 14))
                 }
             }
             .buttonStyle(.plain)

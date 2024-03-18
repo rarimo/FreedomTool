@@ -47,7 +47,7 @@ struct IntroView: View {
                             .resizable()
                             .frame(width: 15, height: 15)
                         Text("SafeAndDecentralized")
-                            .font(.custom("RobotoMono-Regular", size: 13))
+                            .font(.custom("Inter-Regular", size: 13))
                             .opacity(0.5)
                     }
                     .frame(height: 30)

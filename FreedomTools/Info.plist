@@ -32,6 +32,10 @@
 		<string>RobotoSlab-Regular.ttf</string>
 		<string>RobotoSlab-Bold.ttf</string>
 		<string>RobotoSlab-SemiBold.ttf</string>
+		<string>Inter-Regular.ttf</string>
+		<string>Inter-Medium.ttf</string>
+		<string>Inter-SemiBold.ttf</string>
+		<string>Inter-Bold</string>
 	</array>
 	<key>RegistryPollType</key>
 	<string>Simple Registration</string>

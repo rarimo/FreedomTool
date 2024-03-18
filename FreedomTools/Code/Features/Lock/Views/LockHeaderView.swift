@@ -14,7 +14,7 @@ struct LockHeaderView: View {
     var body: some View {
         VStack {
             Text(LocalizedStringKey(title))
-                .font(.custom("RobotoMono-Bold", size: 32))
+                .font(.custom("Inter-Bold", size: 32))
                 .bold()
             Spacer()
                 .frame(height: 15)

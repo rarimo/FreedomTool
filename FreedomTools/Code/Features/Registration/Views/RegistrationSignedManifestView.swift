@@ -29,7 +29,7 @@ struct RegistrationSignedManifestView: View {
                                         .resizable()
                                         .frame(width: 13.58, height: 10.02)
                                     Text("Signed")
-                                        .font(.custom("RobotoSlab-Semibold", size: 12))
+                                        .font(.custom("Inter-Semibold", size: 12))
                                 }
                             }
                             .frame(width: 100, height: 28)
@@ -40,13 +40,13 @@ struct RegistrationSignedManifestView: View {
                         HStack {
                             (
                                 Text("YouAnd")
-                                    .font(.custom("RobotoMono-Semibold", size: 14))
+                                    .font(.custom("Inter-Semibold", size: 14))
                                 +
                                 Text(" \((registrationEntity.info.counters.totalRegistrations > 0 ? registrationEntity.info.counters.totalRegistrations-1 : 0).description) ")
-                                    .font(.custom("RobotoMono-Semibold", size: 14))
+                                    .font(.custom("Inter-Semibold", size: 14))
                                 +
                                 Text("OtherPeopleAlreadySigned")
-                                    .font(.custom("RobotoMono-Regular", size: 14))
+                                    .font(.custom("Inter-Regular", size: 14))
                             )
                             Spacer()
                         }
@@ -64,7 +64,7 @@ struct RegistrationSignedManifestView: View {
                     .frame(height: 30)
                 HStack {
                     Text("Heading")
-                        .font(.custom("RobotoSlab-Bold", size: 14))
+                        .font(.custom("Inter-Bold", size: 14))
                         .opacity(0.5)
                     Spacer()
                 }
@@ -73,7 +73,7 @@ struct RegistrationSignedManifestView: View {
                     .frame(height: 5)
                 HStack {
                     Text(registrationEntity.remark.excerpt)
-                        .font(.custom("RobotoMono-Regular", size: 14))
+                        .font(.custom("Inter-Regular", size: 14))
                         .opacity(0.5)
                     Spacer()
                 }
@@ -82,7 +82,7 @@ struct RegistrationSignedManifestView: View {
                     .frame(height: 30)
                 HStack {
                     Text("Description")
-                        .font(.custom("RobotoSlab-Bold", size: 14))
+                        .font(.custom("Inter-Bold", size: 14))
                         .opacity(0.5)
                     Spacer()
                 }
@@ -92,7 +92,7 @@ struct RegistrationSignedManifestView: View {
                 ScrollView {
                     HStack {
                         Text(registrationEntity.remark.description)
-                            .font(.custom("RobotoMono-Regular", size: 14))
+                            .font(.custom("Inter-Regular", size: 14))
                             .opacity(0.5)
                         Spacer()
                     }

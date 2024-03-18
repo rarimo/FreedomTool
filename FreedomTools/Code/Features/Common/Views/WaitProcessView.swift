@@ -38,10 +38,10 @@ struct WaitProcessView: View {
                     .frame(width: 125,  height: 125)
             }
             Text(LocalizedStringKey(isDone ? doneTitle : waitTitle))
-                .font(.custom("RobotoMono-Semibold", size: 20))
+                .font(.custom("Inter-Semibold", size: 20))
                 .frame(height: 30)
             Text(LocalizedStringKey(isDone ? doneDesc : waitDesc))
-                .font(.custom("RobotoMono-Regular", size: 15))
+                .font(.custom("Inter-Regular", size: 15))
                 .multilineTextAlignment(.center)
                 .opacity(0.5)
                 .frame(width: 250)

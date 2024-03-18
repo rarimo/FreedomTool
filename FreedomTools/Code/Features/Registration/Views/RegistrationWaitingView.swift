@@ -37,12 +37,12 @@ struct RegistrationWaitingView: View {
                     .frame(width: 125,  height: 125)
             }
             Text(LocalizedStringKey(isDone ? "AllDone" : "PleaseWait"))
-                .font(.custom("RobotoMono-Semibold", size: 20))
+                .font(.custom("Inter-Semibold", size: 20))
                 .multilineTextAlignment(.center)
                 .frame(width: 300, height: 60)
             if !isDone {
                 Text("PleaseWaitSub")
-                    .font(.custom("RobotoMono-Regular", size: 15))
+                    .font(.custom("Inter-Regular", size: 15))
                     .multilineTextAlignment(.center)
                     .opacity(0.5)
                     .frame(width: 250)
@@ -58,7 +58,7 @@ struct RegistrationWaitingView: View {
                     viewPetitionActive = true
                 }) {
                     Text("ViewManifest")
-                        .font(.custom("RobotoMono-Bold", size: 14))
+                        .font(.custom("Inter-Bold", size: 14))
                 }
                 .buttonStyle(.plain)
             } else {
@@ -66,9 +66,9 @@ struct RegistrationWaitingView: View {
                     Divider()
                     (
                         Text("Remember")
-                            .font(.custom("RobotoMono-Medium", size: 11)) +
+                            .font(.custom("Inter-Medium", size: 11)) +
                         Text("RememberHint")
-                            .font(.custom("RobotoMono-Regular", size: 11))
+                            .font(.custom("Inter-Regular", size: 11))
                     )
                     .multilineTextAlignment(.center)
                     .opacity(0.5)

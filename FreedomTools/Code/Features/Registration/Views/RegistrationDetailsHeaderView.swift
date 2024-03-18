@@ -13,7 +13,7 @@ struct RegistrationDetailsHeaderView: View {
     var body: some View {
         HStack {
             Text(registrationEntity.remark.name)
-                .font(.custom("RobotoMono-Bold", size: 20))
+                .font(.custom("Inter-Bold", size: 20))
                 .padding()
             Spacer()
         }

@@ -16,7 +16,7 @@ struct StatusSelectorView: View {
                             .shadow(radius: 1, x: 0, y: 1)
                             .foregroundStyle(isActive ? .white : .clear)
                         Text("Active")
-                            .font(.custom("RobotoMono-Medium", size: 14))
+                            .font(.custom("Inter-Medium", size: 14))
                             .opacity(isActive ? 1 : 0.5)
                     }
                 }
@@ -30,7 +30,7 @@ struct StatusSelectorView: View {
                             .shadow(radius: 1, x: 0, y: 1)
                             .foregroundStyle(!isActive ? .white : .clear)
                         Text("Finished")
-                            .font(.custom("RobotoMono-Medium", size: 14))
+                            .font(.custom("Inter-Medium", size: 14))
                             .opacity(!isActive ? 1 : 0.5)
                     }
                     
