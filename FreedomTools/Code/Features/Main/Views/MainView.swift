@@ -8,13 +8,14 @@ struct MainView: View {
     @State var registrationEntity: RegistrationEntity? = nil
     @State var isStatusActive = true
     @State var isExiting = false
+    @State var isSettingsActive = false
     
     var body: some View {
         NavigationStack {
             ZStack {
                 HoodView()
                 VStack {
-                    MainTopView(isExiting: $isExiting)
+                    MainTopView(isSettingsActive: $isSettingsActive)
                         .padding()
                     StatusSelectorView(isActive: $isStatusActive)
                     if isStatusActive {
@@ -54,6 +55,10 @@ struct MainView: View {
                         self.registrationEntity = entity
                     }
                 }
+            }
+            .sheet(isPresented: $isSettingsActive) {
+                SettingsView(isActive: $isSettingsActive, isLoggingOut: $isExiting)
+                    .presentationDetents([.medium])
             }
         }
     }

@@ -36,6 +36,9 @@
 		CE61A9D82BA85FAF00BABAB2 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE61A9CF2BA85FAF00BABAB2 /* Inter-SemiBold.ttf */; };
 		CE61A9D92BA85FAF00BABAB2 /* Inter-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE61A9D02BA85FAF00BABAB2 /* Inter-ExtraBold.ttf */; };
 		CE61A9DD2BA8622900BABAB2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE61A9DC2BA8622900BABAB2 /* SettingsView.swift */; };
+		CE61A9DF2BA863E900BABAB2 /* SettingsLanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE61A9DE2BA863E900BABAB2 /* SettingsLanguageView.swift */; };
+		CE61A9E12BA86BDC00BABAB2 /* SettingsFaceIDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE61A9E02BA86BDC00BABAB2 /* SettingsFaceIDView.swift */; };
+		CE61A9E32BA8774F00BABAB2 /* SettingsLogOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE61A9E22BA8774F00BABAB2 /* SettingsLogOutView.swift */; };
 		CE64068D2B8786250019BB81 /* libwitnesscalc_credentialAtomicQueryMTPV2OnChainVoting.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE64068C2B8786250019BB81 /* libwitnesscalc_credentialAtomicQueryMTPV2OnChainVoting.a */; };
 		CE70B3932B5689CC005F5868 /* StorageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70B3922B5689CC005F5868 /* StorageUtils.swift */; };
 		CE7908FB2B88C38B000FE927 /* Web3 in Frameworks */ = {isa = PBXBuildFile; productRef = CE7908FA2B88C38B000FE927 /* Web3 */; };
@@ -160,6 +163,9 @@
 		CE61A9CF2BA85FAF00BABAB2 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
 		CE61A9D02BA85FAF00BABAB2 /* Inter-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBold.ttf"; sourceTree = "<group>"; };
 		CE61A9DC2BA8622900BABAB2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		CE61A9DE2BA863E900BABAB2 /* SettingsLanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLanguageView.swift; sourceTree = "<group>"; };
+		CE61A9E02BA86BDC00BABAB2 /* SettingsFaceIDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFaceIDView.swift; sourceTree = "<group>"; };
+		CE61A9E22BA8774F00BABAB2 /* SettingsLogOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLogOutView.swift; sourceTree = "<group>"; };
 		CE64068C2B8786250019BB81 /* libwitnesscalc_credentialAtomicQueryMTPV2OnChainVoting.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwitnesscalc_credentialAtomicQueryMTPV2OnChainVoting.a; sourceTree = "<group>"; };
 		CE64068E2B8787B80019BB81 /* witnesscalc_credentialAtomicQueryMTPV2OnChainVoting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = witnesscalc_credentialAtomicQueryMTPV2OnChainVoting.h; sourceTree = "<group>"; };
 		CE70B3922B5689CC005F5868 /* StorageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageUtils.swift; sourceTree = "<group>"; };
@@ -410,6 +416,9 @@
 			isa = PBXGroup;
 			children = (
 				CE61A9DC2BA8622900BABAB2 /* SettingsView.swift */,
+				CE61A9DE2BA863E900BABAB2 /* SettingsLanguageView.swift */,
+				CE61A9E02BA86BDC00BABAB2 /* SettingsFaceIDView.swift */,
+				CE61A9E22BA8774F00BABAB2 /* SettingsLogOutView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -838,6 +847,7 @@
 				CEB6E1352B7BBBD400043AB6 /* IntroFirstView.swift in Sources */,
 				CEA152202B448130006616DD /* SubmitButtonView.swift in Sources */,
 				CEDE21202B457A3700406B1A /* MainView.swift in Sources */,
+				CE61A9E12BA86BDC00BABAB2 /* SettingsFaceIDView.swift in Sources */,
 				CE98D6332BA31AAC00D8F516 /* LockCheckBlockView.swift in Sources */,
 				CEE169642B91030B00BF2B84 /* HoodView.swift in Sources */,
 				CE24EBE92BA1E7C600094AAA /* LockPasscodePickerView.swift in Sources */,
@@ -859,6 +869,7 @@
 				CEC5A1212B76874D00DB7BB4 /* IssuerConnector.swift in Sources */,
 				CEA151F92B447BA0006616DD /* IntroController.swift in Sources */,
 				CE24EBF12BA1FD3A00094AAA /* LockRegisterPasscodeView.swift in Sources */,
+				CE61A9DF2BA863E900BABAB2 /* SettingsLanguageView.swift in Sources */,
 				CEE1695F2B90D3EB00BF2B84 /* RegistrationEntity.swift in Sources */,
 				CEA151F72B447AB6006616DD /* AppView.swift in Sources */,
 				CED648882B44D9C2008488E0 /* NFCScannerController.swift in Sources */,
@@ -892,6 +903,7 @@
 				CEE1696A2B910A9300BF2B84 /* RegistrationStatusView.swift in Sources */,
 				CEECEEF12B8A0EF2005704E4 /* UserStorage.swift in Sources */,
 				CE98D6392BA3606300D8F516 /* VersionUpdateView.swift in Sources */,
+				CE61A9E32BA8774F00BABAB2 /* SettingsLogOutView.swift in Sources */,
 				CEDFC1FA2B5ED25200E0691B /* ZKUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

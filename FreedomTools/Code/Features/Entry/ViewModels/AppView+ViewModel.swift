@@ -56,6 +56,14 @@ extension AppView {
             self.identityManager = identityManager
         }
         
+        var isRusLocalication: Bool {
+            return localization == "ru"
+        }
+        
+        var isEngLocalication: Bool {
+            return localization == "en"
+        }
+        
         func isUpdateAvailable() async throws -> Bool {
             guard
                 let info = Bundle.main.infoDictionary,

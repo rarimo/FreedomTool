@@ -10,7 +10,7 @@ import SwiftUI
 struct MainTopView: View {
     @EnvironmentObject var appViewModel: AppView.ViewModel
     
-    @Binding var isExiting: Bool
+    @Binding var isSettingsActive: Bool
     
     var body: some View {
         HStack {
@@ -18,29 +18,22 @@ struct MainTopView: View {
                 .font(.custom("Inter-Bold", size: 25))
                 .padding(.leading)
             Spacer()
-            LocalizationSwitcherView()
-            if appViewModel.identityManager != nil {
-                Rectangle()
-                    .frame(width: 1, height: 25)
-                    .opacity(0.05)
-                Button(action: {
-                    isExiting = true
-                }) {
-                    ZStack {
-                        Circle()
-                            .foregroundStyle(.clear)
-                        Image("Exit")
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                    }
+            Button(action: {
+                isSettingsActive = true
+            }) {
+                ZStack {
+                    Circle()
+                        .foregroundStyle(.second)
+                    Image(systemName: "gearshape")
                 }
-                .frame(width: 40, height: 40)
             }
+            .frame(width: 50, height: 50)
+            .buttonStyle(.plain)
         }
     }
 }
 
 #Preview {
-    MainTopView(isExiting: .constant(false))
+    MainTopView(isSettingsActive: .constant(false))
         .environmentObject(AppView.ViewModel())
 }
