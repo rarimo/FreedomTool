@@ -14,23 +14,12 @@ extension AppView {
         
         @Published var isLocked = true
         
-#if DEBUG
-        @Published var isDepraceted = false
-#else
-        @Published var isDepraceted = true
-#endif
-        
         @Published var localization: String
         
         init() {
             self.user = nil
             self.identityManager = nil
             self.localization = Locale.current.identifier == "ru_US" ? "ru" : "en"
-            
-#if !DEBUG
-            let isTestFlight = Bundle.main.appStoreReceiptURL?.lastPathComponent == "sandboxReceipt"
-            self.isDepraceted = !isTestFlight
-#endif
             
             guard let activeUserId = UserStorage.getActiveUserId() else {
                 return
@@ -65,6 +54,10 @@ extension AppView {
         }
         
         func isUpdateAvailable() async throws -> Bool {
+            if Bundle.main.appStoreReceiptURL?.lastPathComponent == "sandboxReceipt" {
+                return false
+            }
+            
             guard
                 let info = Bundle.main.infoDictionary,
                 let currentVersion = info["CFBundleShortVersionString"] as? String,

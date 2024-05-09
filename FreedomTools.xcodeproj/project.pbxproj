@@ -1060,7 +1060,7 @@
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FreedomTools/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = FreedomTool;
+				INFOPLIST_KEY_CFBundleDisplayName = "Freedom Tool";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NFCReaderUsageDescription = "You need to authenticate on your phone to unlock the app";
 				INFOPLIST_KEY_NSCameraUsageDescription = "In order to enhance the user experience and efficiently read the Machine Readable Zone of your document, our iOS app requests camera permission, ensuring seamless and secure verification processes";
@@ -1079,7 +1079,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8;
 				OTHER_LDFLAGS = "-lc++";
 				PRODUCT_BUNDLE_IDENTIFIER = FreedomTool.FreedomTool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1111,7 +1111,7 @@
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FreedomTools/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = FreedomTool;
+				INFOPLIST_KEY_CFBundleDisplayName = "Freedom Tool";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NFCReaderUsageDescription = "You need to authenticate on your phone to unlock the app";
 				INFOPLIST_KEY_NSCameraUsageDescription = "In order to enhance the user experience and efficiently read the Machine Readable Zone of your document, our iOS app requests camera permission, ensuring seamless and secure verification processes";
@@ -1130,7 +1130,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8;
 				OTHER_LDFLAGS = "-lc++";
 				PRODUCT_BUNDLE_IDENTIFIER = FreedomTool.FreedomTool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
