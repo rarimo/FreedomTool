@@ -165,7 +165,7 @@ extension AppView {
             self.user = user
         }
         
-        func isUserFinalized() throws -> Bool {
+        func isUserFinalized(_ stateInfo: StateInfo? = nil) throws -> FinalizedResponse {
             guard let user = self.user else {
                 throw "user does not exist"
             }
@@ -174,17 +174,23 @@ extension AppView {
                 throw "user does not have identity"
             }
             
+            
             let rarimoCoreURL = try IdentityManager.getRarimoCoreURL()
             
-            var isFinalized: ObjCBool = false
-            try identityManager.identity.isFinalized(
+            var stateInfoJson = Data()
+            if let stateInfo = stateInfo {
+                stateInfoJson = try JSONEncoder().encode(stateInfo)
+            }
+            
+            var response = Data()
+            response = try identityManager.identity.isFinalized(
                 rarimoCoreURL,
                 issuerDid: user.issuerDid,
                 creationTimestamp: user.creationTimestamp,
-                ret0_: &isFinalized
+                stateInfoJSON: stateInfoJson
             )
             
-            return isFinalized.boolValue
+            return try JSONDecoder().decode(FinalizedResponse.self, from: response)
         }
         
         func isUserRegistered(address: String) async throws -> Bool {
@@ -221,7 +227,7 @@ extension AppView {
             return isRegistered
         }
         
-        func register(address: String) async throws -> String {
+        func register(address: String, stateInfo: StateInfo) async throws -> String {
             guard let identityManager = identityManager else {
                 throw "identity manager is not initialized"
             }
@@ -230,7 +236,7 @@ extension AppView {
                 throw "user is not initialized"
             }
             
-            let claimOffer = try! await IssuerConnector.claimOffer(
+            let claimOffer = try await IssuerConnector.claimOffer(
                 issuerDid: user.issuerDid,
                 claimId: user.claimId
             )
@@ -239,13 +245,16 @@ extension AppView {
             
             try identityManager.identity.initVerifiableCredentials(claimOfferData)
             
-            let calldata = try await identityManager.register(
+            print("Starting building")
+            
+            let response = try await identityManager.register(
                 issuerDid: user.issuerDid,
                 votingAddress: address,
-                issuingAuthorityCode: user.getIssuingAuthorityCode()
+                issuingAuthorityCode: user.getIssuingAuthorityCode(),
+                stateInfo: stateInfo
             )
             
-            return calldata
+            return response
         }
         
         func switchLocalization() {

@@ -27,13 +27,13 @@ struct Credential: Codable {
 
 class IssuerConnector {
     static func claimOffer(issuerDid: String, claimId: String) async throws -> ClaimOfferResponse {
-        guard var apiRarimoURL = Bundle.main.object(forInfoDictionaryKey: "ApiRarimoURL") as? String else {
+        guard var apiRarimoURL = Bundle.main.object(forInfoDictionaryKey: "IssuerNodeURL") as? String else {
             throw "IssuerNodeURL is not set"
         }
         
-        apiRarimoURL += "/v1/\(issuerDid)/claims/\(claimId)/offer"
+        apiRarimoURL += "/v1/offer/\(claimId)"
         
-        print()
+        print("apiRarimoURL: \(apiRarimoURL)")
         
         let response = await AF.request(apiRarimoURL, method: .get)
             .serializingDecodable(ClaimOfferResponse.self)

@@ -10,6 +10,7 @@
 		CE004B492B9335CF006D0188 /* RegistrationConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE004B482B9335CF006D0188 /* RegistrationConfirmView.swift */; };
 		CE004B4B2B934729006D0188 /* RegistrationWaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE004B4A2B934729006D0188 /* RegistrationWaitingView.swift */; };
 		CE004B4D2B9355D7006D0188 /* RegistrationWaitingCheckboxesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE004B4C2B9355D7006D0188 /* RegistrationWaitingCheckboxesView.swift */; };
+		CE21DFA82BECE54A001AA77B /* Identity.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE21DFA72BECE54A001AA77B /* Identity.xcframework */; };
 		CE24EBDD2BA1C2C100094AAA /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = CE24EBDC2BA1C2C100094AAA /* MarkdownUI */; };
 		CE24EBE12BA1CA7A00094AAA /* LockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE24EBE02BA1CA7A00094AAA /* LockView.swift */; };
 		CE24EBE42BA1CACD00094AAA /* LockView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE24EBE32BA1CACD00094AAA /* LockView+ViewModel.swift */; };
@@ -109,7 +110,6 @@
 		CED648922B44E62B008488E0 /* RegisterNFCScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED648912B44E62B008488E0 /* RegisterNFCScannerView.swift */; };
 		CEDE21202B457A3700406B1A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDE211F2B457A3700406B1A /* MainView.swift */; };
 		CEDE21242B457E0800406B1A /* StatusSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDE21232B457E0800406B1A /* StatusSelectorView.swift */; };
-		CEDFBFAA2B9B5C200051B190 /* Identity.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDFBFA92B9B5C200051B190 /* Identity.xcframework */; };
 		CEDFC1F42B5ECFCB00E0691B /* libgmp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDFC1EC2B5ECFCA00E0691B /* libgmp.a */; };
 		CEDFC1F52B5ECFCB00E0691B /* libfq.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDFC1EE2B5ECFCA00E0691B /* libfq.a */; };
 		CEDFC1F62B5ECFCB00E0691B /* librapidsnark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDFC1F02B5ECFCA00E0691B /* librapidsnark.a */; };
@@ -139,6 +139,7 @@
 		CE004B482B9335CF006D0188 /* RegistrationConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmView.swift; sourceTree = "<group>"; };
 		CE004B4A2B934729006D0188 /* RegistrationWaitingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationWaitingView.swift; sourceTree = "<group>"; };
 		CE004B4C2B9355D7006D0188 /* RegistrationWaitingCheckboxesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationWaitingCheckboxesView.swift; sourceTree = "<group>"; };
+		CE21DFA72BECE54A001AA77B /* Identity.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Identity.xcframework; sourceTree = "<group>"; };
 		CE24EBE02BA1CA7A00094AAA /* LockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockView.swift; sourceTree = "<group>"; };
 		CE24EBE32BA1CACD00094AAA /* LockView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LockView+ViewModel.swift"; sourceTree = "<group>"; };
 		CE24EBE62BA1CFEA00094AAA /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -241,7 +242,6 @@
 		CED648932B456503008488E0 /* FreedomTools.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FreedomTools.entitlements; sourceTree = "<group>"; };
 		CEDE211F2B457A3700406B1A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		CEDE21232B457E0800406B1A /* StatusSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusSelectorView.swift; sourceTree = "<group>"; };
-		CEDFBFA92B9B5C200051B190 /* Identity.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Identity.xcframework; sourceTree = "<group>"; };
 		CEDFC1EA2B5ECFCA00E0691B /* bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bridge.h; sourceTree = "<group>"; };
 		CEDFC1EB2B5ECFCA00E0691B /* prover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prover.h; sourceTree = "<group>"; };
 		CEDFC1EC2B5ECFCA00E0691B /* libgmp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgmp.a; sourceTree = "<group>"; };
@@ -276,6 +276,7 @@
 				CEE51BE32B8DF8AE00B5D1DE /* KeychainAccess in Frameworks */,
 				CEDFC1F42B5ECFCB00E0691B /* libgmp.a in Frameworks */,
 				CEA24C972B7CD8E4009DF14F /* QKMRZScanner in Frameworks */,
+				CE21DFA82BECE54A001AA77B /* Identity.xcframework in Frameworks */,
 				CEDFC1F62B5ECFCB00E0691B /* librapidsnark.a in Frameworks */,
 				CE7909072B88F285000FE927 /* libwitnesscalc_voteSMT.a in Frameworks */,
 				CE24EBDD2BA1C2C100094AAA /* MarkdownUI in Frameworks */,
@@ -287,7 +288,6 @@
 				CEE51BE02B8DF85C00B5D1DE /* Alamofire in Frameworks */,
 				CE7908FD2B88C38B000FE927 /* Web3ContractABI in Frameworks */,
 				CE7908FB2B88C38B000FE927 /* Web3 in Frameworks */,
-				CEDFBFAA2B9B5C200051B190 /* Identity.xcframework in Frameworks */,
 				CE3866412B7E5C85003BA2C5 /* NFCPassportReader in Frameworks */,
 				CEC6DCC02B7E301500E63213 /* libwitnesscalc_passportVerificationSHA1.a in Frameworks */,
 			);
@@ -679,8 +679,8 @@
 		CEDFC1E82B5ECFCA00E0691B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CEDFBFA92B9B5C200051B190 /* Identity.xcframework */,
 				CE7909082B88F295000FE927 /* witnesscalc_voteSMT.h */,
+				CE21DFA72BECE54A001AA77B /* Identity.xcframework */,
 				CE7909062B88F285000FE927 /* libwitnesscalc_voteSMT.a */,
 				CE64068E2B8787B80019BB81 /* witnesscalc_credentialAtomicQueryMTPV2OnChainVoting.h */,
 				CE64068C2B8786250019BB81 /* libwitnesscalc_credentialAtomicQueryMTPV2OnChainVoting.a */,

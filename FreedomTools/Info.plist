@@ -48,9 +48,9 @@
 	<key>RarimoCoreURL</key>
 	<string>https://rpc-api.mainnet.rarimo.com</string>
 	<key>EVMRPC</key>
-	<string>https://celo-mainnet.infura.io/v3/0966d0ed196f4042854197ddf983d8cf</string>
+	<string>https://arbitrum.freedomtool.org</string>
 	<key>VotingRegistryAddress</key>
-	<string>0x91E6299a9F7aa700a89001e8A0510b3F84205935</string>
+	<string>0x1d84cFd4839fE92dAe8E1F8F777010c08a60013C</string>
 	<key>VotingProposer</key>
 	<string>0xF5Ca28acbBC7DFFfFFf714e1F306A803037Bdad2</string>
 	<key>ProofVerificationRelayerURL</key>

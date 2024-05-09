@@ -40,6 +40,10 @@ struct MainView: View {
                 Button("Yes") {
                     UserStorage.eraceActiveUserId()
                     
+                    if let user = appViewModel.user {
+                        try? UserStorage.eraceUser(id: user.id)
+                    }
+                    
                     appViewModel.identityManager = nil
                     appViewModel.user = nil
                 }

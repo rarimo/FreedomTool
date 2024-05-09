@@ -62,22 +62,24 @@ struct RegistrationSignedManifestView: View {
             VStack(alignment: .trailing) {
                 Spacer()
                     .frame(height: 30)
-                HStack {
-                    Text("Heading")
-                        .font(.custom("Inter-Bold", size: 14))
-                        .opacity(0.5)
+                if registrationEntity.remark.excerpt != "" {
+                    HStack {
+                        Text("Heading")
+                            .font(.custom("Inter-Bold", size: 14))
+                            .opacity(0.5)
+                        Spacer()
+                    }
+                    .padding(.horizontal)
                     Spacer()
+                        .frame(height: 5)
+                    HStack {
+                        Text(registrationEntity.remark.excerpt)
+                            .font(.custom("Inter-Regular", size: 14))
+                            .opacity(0.5)
+                        Spacer()
+                    }
+                    .padding(.horizontal)
                 }
-                .padding(.horizontal)
-                Spacer()
-                    .frame(height: 5)
-                HStack {
-                    Text(registrationEntity.remark.excerpt)
-                        .font(.custom("Inter-Regular", size: 14))
-                        .opacity(0.5)
-                    Spacer()
-                }
-                .padding(.horizontal)
                 Spacer()
                     .frame(height: 30)
                 HStack {

@@ -173,13 +173,19 @@ class IdentityManager {
         throw "Unsupported digest algorithm"
     }
     
-    func register(issuerDid: String, votingAddress: String, issuingAuthorityCode: String) async throws -> String {
+    func register(
+        issuerDid: String,
+        votingAddress: String,
+        issuingAuthorityCode: String,
+        stateInfo: StateInfo
+    ) async throws -> String {
         let calldata = try identity.register(
             Self.getRarimoCoreURL(),
             issuerDid: issuerDid,
             votingAddress: votingAddress,
             schemaJsonLd: NSDataAsset(name: "VotingCredential.jsonld")!.data,
-            issuingAuthorityCode: issuingAuthorityCode
+            issuingAuthorityCode: issuingAuthorityCode,
+            stateInfoJSON: try JSONEncoder().encode(stateInfo)
         )
         
         return try await sendCalldata(calldata)
@@ -190,7 +196,7 @@ class IdentityManager {
             throw "ProofVerificationRelayerURL is not defined"
         }
         
-        proofVerificationRelayerURL += "/integrations/proof-verification-relayer/v1/verify-proof"
+        proofVerificationRelayerURL += "/integrations/proof-verification-relayer/v1/register"
         
         let calldataRequest = SendCalldataRequest(data: SendCalldataRequestData(txData: "0x" + calldata.toHexString()))
         
@@ -671,3 +677,7 @@ struct RelayerResponseAttributes: Codable {
     }
 }
 
+struct FinalizedResponse: Codable {
+    let isFinalized: Bool
+    let stateInfo: StateInfo
+}

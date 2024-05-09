@@ -110,9 +110,15 @@ struct RegistrationWaitingView: View {
                 if appViewModel.user!.requestedIn.contains(registrationEntity.address) {
                     waitingStepper += 2
                 } else {
+                    var stateInfo: StateInfo? = nil
                     while true {
-                        let isFinalized = try appViewModel.isUserFinalized()
-                        if isFinalized {
+                        let finalizedResponse = try appViewModel.isUserFinalized(stateInfo)
+                        
+                        if !finalizedResponse.stateInfo.hash.isEmpty {
+                            stateInfo = finalizedResponse.stateInfo
+                        }
+                        
+                        if finalizedResponse.isFinalized {
                             break
                         }
                         
@@ -122,7 +128,14 @@ struct RegistrationWaitingView: View {
                     
                     waitingStepper += 1
                     
-                    let txHash = try await appViewModel.register(address: registrationEntity.address)
+                    guard let stateInfo = stateInfo else {
+                        throw "ErrorStateInfoIsNil"
+                    }
+                    
+                    let txHash = try await appViewModel.register(
+                        address: registrationEntity.address,
+                        stateInfo: stateInfo
+                    )
                     
                     print("register tx hash: \(txHash)")
                     
