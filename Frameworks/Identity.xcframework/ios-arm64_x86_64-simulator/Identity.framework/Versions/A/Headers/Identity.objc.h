@@ -26,6 +26,7 @@
 @class IdentityCredentialSchema;
 @class IdentityCredentialStatus;
 @class IdentityCredentialsRequestBody;
+@class IdentityDidHelper;
 @class IdentityFinalizedResponse;
 @class IdentityGISTProof;
 @class IdentityGISTProofInfo;
@@ -376,6 +377,15 @@ JSON path
 // skipped field CredentialsRequestBody.Credentials with unsupported type: []github.com/rarimovoting/identity.CredentialRequest
 
 @property (nonatomic) NSString* _Nonnull url;
+@end
+
+@interface IdentityDidHelper : NSObject <goSeqRefInterface> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (nonnull instancetype)init;
+- (NSString* _Nonnull)didToIDHex:(NSString* _Nullable)did error:(NSError* _Nullable* _Nullable)error;
 @end
 
 @interface IdentityFinalizedResponse : NSObject <goSeqRefInterface> {

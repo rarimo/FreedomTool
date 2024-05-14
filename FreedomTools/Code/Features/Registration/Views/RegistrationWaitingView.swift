@@ -112,13 +112,13 @@ struct RegistrationWaitingView: View {
                 } else {
                     var stateInfo: StateInfo? = nil
                     while true {
-                        let finalizedResponse = try appViewModel.isUserFinalized(stateInfo)
+                        let (isFinalized, newStateInfo) = try await appViewModel.isUserIdentityFinalized(stateInfo)
                         
-                        if !finalizedResponse.stateInfo.hash.isEmpty {
-                            stateInfo = finalizedResponse.stateInfo
+                        if let newStateInfo {
+                            stateInfo = newStateInfo
                         }
                         
-                        if finalizedResponse.isFinalized {
+                        if isFinalized {
                             break
                         }
                         

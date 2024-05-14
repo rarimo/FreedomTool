@@ -10,7 +10,6 @@
 		CE004B492B9335CF006D0188 /* RegistrationConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE004B482B9335CF006D0188 /* RegistrationConfirmView.swift */; };
 		CE004B4B2B934729006D0188 /* RegistrationWaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE004B4A2B934729006D0188 /* RegistrationWaitingView.swift */; };
 		CE004B4D2B9355D7006D0188 /* RegistrationWaitingCheckboxesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE004B4C2B9355D7006D0188 /* RegistrationWaitingCheckboxesView.swift */; };
-		CE21DFA82BECE54A001AA77B /* Identity.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE21DFA72BECE54A001AA77B /* Identity.xcframework */; };
 		CE24EBDD2BA1C2C100094AAA /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = CE24EBDC2BA1C2C100094AAA /* MarkdownUI */; };
 		CE24EBE12BA1CA7A00094AAA /* LockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE24EBE02BA1CA7A00094AAA /* LockView.swift */; };
 		CE24EBE42BA1CACD00094AAA /* LockView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE24EBE32BA1CACD00094AAA /* LockView+ViewModel.swift */; };
@@ -22,6 +21,7 @@
 		CE24EBF12BA1FD3A00094AAA /* LockRegisterPasscodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE24EBF02BA1FD3A00094AAA /* LockRegisterPasscodeView.swift */; };
 		CE24EBF32BA2017A00094AAA /* LockHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE24EBF22BA2017A00094AAA /* LockHeaderView.swift */; };
 		CE24EBF52BA204DF00094AAA /* LockRegisterPasscodeView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE24EBF42BA204DF00094AAA /* LockRegisterPasscodeView+ViewModel.swift */; };
+		CE32EFB22BF39744007A03CA /* Identity.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE32EFB12BF39744007A03CA /* Identity.xcframework */; };
 		CE3866412B7E5C85003BA2C5 /* NFCPassportReader in Frameworks */ = {isa = PBXBuildFile; productRef = CE3866402B7E5C85003BA2C5 /* NFCPassportReader */; };
 		CE61A9BE2BA83D2B00BABAB2 /* LockCheckView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE61A9BD2BA83D2B00BABAB2 /* LockCheckView+ViewModel.swift */; };
 		CE61A9C02BA8475700BABAB2 /* LockRegisterHintTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE61A9BF2BA8475700BABAB2 /* LockRegisterHintTemplateView.swift */; };
@@ -139,7 +139,6 @@
 		CE004B482B9335CF006D0188 /* RegistrationConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmView.swift; sourceTree = "<group>"; };
 		CE004B4A2B934729006D0188 /* RegistrationWaitingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationWaitingView.swift; sourceTree = "<group>"; };
 		CE004B4C2B9355D7006D0188 /* RegistrationWaitingCheckboxesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationWaitingCheckboxesView.swift; sourceTree = "<group>"; };
-		CE21DFA72BECE54A001AA77B /* Identity.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Identity.xcframework; sourceTree = "<group>"; };
 		CE24EBE02BA1CA7A00094AAA /* LockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockView.swift; sourceTree = "<group>"; };
 		CE24EBE32BA1CACD00094AAA /* LockView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LockView+ViewModel.swift"; sourceTree = "<group>"; };
 		CE24EBE62BA1CFEA00094AAA /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -150,6 +149,7 @@
 		CE24EBF02BA1FD3A00094AAA /* LockRegisterPasscodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockRegisterPasscodeView.swift; sourceTree = "<group>"; };
 		CE24EBF22BA2017A00094AAA /* LockHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockHeaderView.swift; sourceTree = "<group>"; };
 		CE24EBF42BA204DF00094AAA /* LockRegisterPasscodeView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LockRegisterPasscodeView+ViewModel.swift"; sourceTree = "<group>"; };
+		CE32EFB12BF39744007A03CA /* Identity.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Identity.xcframework; sourceTree = "<group>"; };
 		CE61A9BD2BA83D2B00BABAB2 /* LockCheckView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LockCheckView+ViewModel.swift"; sourceTree = "<group>"; };
 		CE61A9BF2BA8475700BABAB2 /* LockRegisterHintTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockRegisterHintTemplateView.swift; sourceTree = "<group>"; };
 		CE61A9C12BA8508E00BABAB2 /* LockRegisterFaceIDChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockRegisterFaceIDChoiceView.swift; sourceTree = "<group>"; };
@@ -276,7 +276,7 @@
 				CEE51BE32B8DF8AE00B5D1DE /* KeychainAccess in Frameworks */,
 				CEDFC1F42B5ECFCB00E0691B /* libgmp.a in Frameworks */,
 				CEA24C972B7CD8E4009DF14F /* QKMRZScanner in Frameworks */,
-				CE21DFA82BECE54A001AA77B /* Identity.xcframework in Frameworks */,
+				CE32EFB22BF39744007A03CA /* Identity.xcframework in Frameworks */,
 				CEDFC1F62B5ECFCB00E0691B /* librapidsnark.a in Frameworks */,
 				CE7909072B88F285000FE927 /* libwitnesscalc_voteSMT.a in Frameworks */,
 				CE24EBDD2BA1C2C100094AAA /* MarkdownUI in Frameworks */,
@@ -680,12 +680,12 @@
 			isa = PBXGroup;
 			children = (
 				CE7909082B88F295000FE927 /* witnesscalc_voteSMT.h */,
-				CE21DFA72BECE54A001AA77B /* Identity.xcframework */,
 				CE7909062B88F285000FE927 /* libwitnesscalc_voteSMT.a */,
 				CE64068E2B8787B80019BB81 /* witnesscalc_credentialAtomicQueryMTPV2OnChainVoting.h */,
 				CE64068C2B8786250019BB81 /* libwitnesscalc_credentialAtomicQueryMTPV2OnChainVoting.a */,
 				CEC6DCBE2B7E301500E63213 /* libwitnesscalc_passportVerificationSHA1.a */,
 				CEC6DCBF2B7E301500E63213 /* libwitnesscalc_passportVerificationSHA256.a */,
+				CE32EFB12BF39744007A03CA /* Identity.xcframework */,
 				CED5E9EB2B7E83D90097282B /* libwitnesscalc_authV2.a */,
 				CED5E9EC2B7E83D90097282B /* witnesscalc_authV2.h */,
 				CEA24C882B7CD247009DF14F /* witnesscalc_passportVerificationSHA1.h */,
@@ -1079,7 +1079,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
-				MARKETING_VERSION = 1.8;
+				MARKETING_VERSION = 1.9;
 				OTHER_LDFLAGS = "-lc++";
 				PRODUCT_BUNDLE_IDENTIFIER = FreedomTool.FreedomTool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1130,7 +1130,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
-				MARKETING_VERSION = 1.8;
+				MARKETING_VERSION = 1.9;
 				OTHER_LDFLAGS = "-lc++";
 				PRODUCT_BUNDLE_IDENTIFIER = FreedomTool.FreedomTool;
 				PRODUCT_NAME = "$(TARGET_NAME)";

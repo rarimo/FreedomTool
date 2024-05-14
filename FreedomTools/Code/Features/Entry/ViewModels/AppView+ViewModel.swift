@@ -4,6 +4,7 @@ import Web3ContractABI
 import SwiftUI
 import NFCPassportReader
 import Alamofire
+import Identity
 
 extension AppView {
     class ViewModel: ObservableObject {
@@ -264,6 +265,62 @@ extension AppView {
         func finishIntro() {
             StorageUtils.setIsIntroFinished(true)
             isIntroFinished = true
+        }
+        
+        func isUserIdentityFinalized(
+            _ stateInfo: StateInfo?
+        ) async throws -> (Bool, StateInfo?) {
+            guard let user = user else { throw "User not found" }
+            
+            var stateInfo = stateInfo
+            if stateInfo == nil {
+                stateInfo = try await getStateInfo(user.issuerDid)
+            }
+            guard let stateInfo = stateInfo else { throw "State info not found" }
+            
+            let coreOperation = try await getCoreOperation(stateInfo.lastUpdateOperationIndex)
+            
+            guard let timestamp = Int(coreOperation.timestamp) else { throw "Invalid timestamp" }
+            
+            if user.creationTimestamp > timestamp {
+                return (false, nil)
+            }
+            
+            if coreOperation.status != "SIGNED" {
+                return (false, stateInfo)
+            }
+            
+            return (true, stateInfo)
+        }
+        
+        func getStateInfo(_ issuerDid: String) async throws -> StateInfo {
+            var error: NSError?
+            let issuerIdHex = IdentityDidHelper().did(toIDHex: issuerDid, error: &error)
+            if let error {
+                throw error
+            }
+            
+            var requestURL = try IdentityManager.getRarimoCoreURL()
+            requestURL.append("/rarimo/rarimo-core/identity/state/\(issuerIdHex)")
+            
+            let response = try await AF.request(requestURL)
+                .serializingDecodable(GetStateInfoResponse.self)
+                .result
+                .get()
+            
+            return response.state
+        }
+        
+        func getCoreOperation(_ index: String) async throws -> Operation {
+            var requestURL = try IdentityManager.getRarimoCoreURL()
+            requestURL.append("/rarimo/rarimo-core/rarimocore/operation/\(index)")
+            
+            let response = try await AF.request(requestURL)
+                .serializingDecodable(OperationResponse.self)
+                .result
+                .get()
+            
+            return response.operation
         }
     }
 }
